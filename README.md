@@ -1,5 +1,6 @@
 # Milestone Project 4
 ***
+[![Build Status](https://travis-ci.org/auxfuse/Milestone4.svg?branch=master)](https://travis-ci.org/auxfuse/Milestone4)
 
 ## Table of Contents:
 * [What does it do and what does it need to fulfill?](#what-does-it-do-and-what-does-it-need-to-fulfill)
