@@ -17,8 +17,9 @@
 * [Database](#database)
 * [Features](#features)
     * [Future Features](#future-features)
-* [Testing](#testing)
     * [Defensive Design](#defensive-design)
+* [Testing](#testing)
+    * [Found Bugs & Fixes](#found-bugs--fixes)    
 * [Deployment](#deployment)
 * [Credits](#credits)
     * [Special Thanks & Acknowledgements](#special-thanks--acknowledgements)
@@ -167,19 +168,33 @@ The project boasts several key features:
 
 * Detail future implementations here...
 
+#### Defensive Design
+
+Defensive design for this application was...
+
 ## Testing
 
 Testing was ...
 
-#### Found Bugs and Fixes:
+#### Found Bugs & Fixes:
 
 During manual testing...
 
+When implementing Travis (at the inception of my project), I ran into a rather bespoke bug whereas the build would not pass even though I had what seemed to be the correct code (see below):
+```yaml
+language: python
+python:
+  - "3.8"
+# command to install dependencies
+install:
+  - "pip3 install -r requirements.txt"
+# command to run tests
+script:
+  - SECRET_KEY="whatever" ./manage.py test
+```
+The error appeared in the logs whenever the script would attempt to run and pass the secret_key. With help from <a href="https://github.com/10xOXR">Chris Quinn</a> in the <a href="https://code-institute-room.slack.com/archives/C7HS3U3AP/p1583432481074600">Slack Full Stack Frameworks</a> channel, I was able to rectify this issue thanks to his guidance. Chris also explained to me the reason why this was happening. It is down to a default linux permission of 644 being set on my basic `./manage.py` meaning it is not executable via the script. Changing this to `python manage.py test` allowed Python to call and run the file circumventing Travis now potentially enforcing file permissions when testing builds. 
+
 [Back to Top](#table-of-contents)
-
-#### Defensive Design
-
-Defensive design for this application was...
 
 ## Deployment
 
@@ -189,7 +204,7 @@ Detail deployment here...
 
 ## Credits
 
-* Detail credits
+* <a href="https://github.com/10xOXR">Chris Quinn</a> ~ For his guidance and solution on setting up Travis correctly. <a href="https://code-institute-room.slack.com/archives/C7HS3U3AP/p1583432481074600">Link to solution</a>.
 
 [Back to Top](#table-of-contents)
 
