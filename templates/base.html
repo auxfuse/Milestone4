@@ -1,10 +1,34 @@
+{% load static %} <!-- Needed to link to static files that are
+ saved in our root static folder -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+
+    <!-- Bootstrap loaded -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- Custom Stylesheet loaded from static folder -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <title>PHP Barbell | {% block title %}{% endblock %}</title>
 </head>
 <body>
+
+    <!-- Navbar -->
+{#    {% include 'partials/_navbar.html' %}#}
+
+    <!-- Area for inheritance where child templates unique code
+    occupies and overrides. -->
+    {% block content %}
+    {% endblock %}
+
+    <!-- Footer -->
+{#    {%  include 'partials/_footer.html' %}#}
+
+    <!-- jQuery & popper.js for interactive elements from Bootstrap such as Navbar expand/collapse and Modal popup etc -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 </body>
 </html>

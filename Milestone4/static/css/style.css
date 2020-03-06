@@ -1,0 +1,16 @@
+/* CSS file parsed through https://autoprefixer.github.io/ to obtain web-kits needed
+ where necessary to ensure as much cross-browser compatibility. */
+
+/* Global Styles used through application */
+
+    /* Font imports */
+@import url('https://fonts.googleapis.com/css?family=Lato|Roboto+Condensed&display=swap');
+
+    /* Test */
+.jumbotron {
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+p {
+    font-family: "Lato", sans-serif;
+}
