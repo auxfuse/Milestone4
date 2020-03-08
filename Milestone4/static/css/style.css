@@ -35,7 +35,7 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 1px rgba(0,0,0, 0.2);
     /* 5-stop Gradient used to create smooth end to end finish to compliment thumb styles */
-    background: -webkit-linear-gradient(#aae1d8, #aae1d8, #5f7f76, #aae1d8, #aae1d8);
+    background: -webkit-linear-gradient(#323232, #323232, #d8bb6c, #d8bb6c, #323232, #323232);
 }
 
     /* Scrollbar thumb styles */
@@ -44,8 +44,8 @@ body::-webkit-scrollbar-thumb {
     border: 1px solid #323232;
     border-radius: 5px;
     /* Vertical Box-shadow only to simulate depth of thumb sitting into the Track */
-    -webkit-box-shadow: 0 5px 3px rgba(95, 127, 118, 0.7);
-    background: -webkit-linear-gradient(#7d7d7d, #484848, #7d7d7d);
+    -webkit-box-shadow: 0 5px 3px rgba(100, 100, 100, 0.7);
+    background: -webkit-linear-gradient(#ffe279, #d8bb6c, #c4a762, #d8bb6c, #ffe279);
 }
 
 /* Alerts */
@@ -151,9 +151,9 @@ footer .row {
     /* Bootstrap components custom styling */
 .card {
     margin: 3rem;
-    -webkit-box-shadow: 10px 10px 20px 0 rgba(0,0,0,0.15);
-    -moz-box-shadow: 10px 10px 20px 0 rgba(0,0,0,0.15);
-    box-shadow: 10px 10px 20px 0 rgba(0,0,0,0.15);
+    -webkit-box-shadow: 10px 10px 20px 0 rgba(67,35,68,0.20);
+    -moz-box-shadow: 10px 10px 20px 0 rgba(67,35,68,0.20);
+    box-shadow: 10px 10px 20px 0 rgba(67,35,68,0.20);
 }
 
 .card-title {
