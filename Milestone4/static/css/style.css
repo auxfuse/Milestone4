@@ -79,7 +79,7 @@ body::-webkit-scrollbar-thumb {
 
 footer {
     background-color: #323232;
-    min-height: 2.8rem;
+    min-height: 3rem;
 }
 
 footer .row {
@@ -152,7 +152,7 @@ footer .row {
 
     /* Bootstrap components custom styling */
 .card {
-    margin: 3rem 0;
+    margin: 3rem 1rem;
     -webkit-box-shadow: 10px 10px 20px 0 rgba(67,35,68,0.20);
     -moz-box-shadow: 10px 10px 20px 0 rgba(67,35,68,0.20);
     box-shadow: 10px 10px 20px 0 rgba(67,35,68,0.20);
