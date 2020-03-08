@@ -4,9 +4,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- Bootstrap loaded -->
+    <!-- Bootstrap & Font Awesome loaded -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <!-- Custom Stylesheet loaded from static folder -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
@@ -15,15 +18,17 @@
 <body>
 
     <!-- Navbar -->
-{#    {% include 'partials/_navbar.html' %}#}
+    {% include 'partials/_navbar.html' %}
 
     <!-- Area for inheritance where child templates unique code
     occupies and overrides. -->
-    {% block content %}
-    {% endblock %}
+    <section class="content">
+        {% block content %}
+        {% endblock %}
+    </section>
 
     <!-- Footer -->
-{#    {%  include 'partials/_footer.html' %}#}
+    {%  include 'partials/_footer.html' %}
 
     <!-- jQuery & popper.js for interactive elements from Bootstrap such as Navbar expand/collapse and Modal popup etc -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
