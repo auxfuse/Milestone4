@@ -157,11 +157,16 @@ footer .row {
 }
 
 .card-title {
+    font-family: "Roboto Condensed", sans-serif;
     margin-top: 1rem;
 }
 
 .card-body {
     font-family: "Lato", sans-serif;
+}
+
+.card-list {
+    padding-left: 2.5rem;
 }
 
 /* Privacy Policy page */
