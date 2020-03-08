@@ -140,7 +140,7 @@ footer .row {
 /* Global page elements */
 
 .content {
-    margin: 77px auto 0;
+    margin-top: 77px;
     -webkit-box-flex: 1;
             -ms-flex: 1;
                 flex: 1;
