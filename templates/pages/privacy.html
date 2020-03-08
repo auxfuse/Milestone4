@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %} Privacy {% endblock %}
 
 {% block content %}
@@ -92,6 +94,11 @@
                         <p class="card-text">If you have any questions about this Privacy Policy, please contact us at info@precisionhealthperformance.com.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center brand-img">
+                <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="PHP Logo">
             </div>
         </div>
     </div>

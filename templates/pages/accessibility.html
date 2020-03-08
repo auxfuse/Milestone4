@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %} Accessibility {% endblock %}
 
@@ -9,7 +10,7 @@
                 <div class="card">
                     <h1 class="card-title text-center">Accessibility Statement</h1>
                     <div class="card-body">
-                        <p class="">Precision Health Performance is committed to facilitating the accessibility and usability of its Web site, https://www.precisionhealthperformance.com,
+                        <p class="">Precision Health Performance, (and associated such as PHP Barbell), is committed to facilitating the accessibility and usability of its Web site, https://www.precisionhealthperformance.com,
                             for all people with disabilities. Precision Health Performance has implemented and will continue to implement the relevant portions
                             of the World Wide Web Consortium’s Web Content Accessibility Guidelines 2.1 Level AA (WCAG 2.1 AA) or higher as its web accessibility standard.</p>
                         <p class="card-text">Please be aware that our efforts are ongoing. If at any time you have specific questions or concerns about the accessibility
@@ -17,6 +18,11 @@
                             an accessibility issue, please be sure to specify the web page in your email, and we will make all reasonable efforts to make that page accessible for you.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center brand-img">
+                <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="PHP Logo">
             </div>
         </div>
     </div>
