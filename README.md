@@ -29,7 +29,7 @@
 ## Welcome to PHP Barbell!
 
 <p align="center">
-    <img src="" alt="PHP Logo">
+    <img src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/img/logo.png" alt="PHP Logo">
 </p>
 
 ***
@@ -83,7 +83,7 @@ The colors used throughout and what for etc....
 The logo was ...
 
 <p align="center">
-    <img src="" alt="PHP Logo">
+    <img src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/img/logo.png" alt="PHP Logo">
 </p>
 
 ##### 4. Geometry
@@ -215,3 +215,7 @@ Detail deployment here...
 ###### <i>Disclaimer: This project was created for educational use only as part of the Code Institute Full Stack Software Development Course for Milestone 4 Grading!</i>
 
 [Back to Top](#table-of-contents)
+
+<p align="center">
+    <img src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/img/logo.png" alt="PHP Logo">
+</p>
