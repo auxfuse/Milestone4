@@ -23,5 +23,8 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     post = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
-    categories = forms.CharField(choices=categories)
+    categories = models.CharField(max_length=21, choices=categories)
     originator = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title

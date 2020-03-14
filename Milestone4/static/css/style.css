@@ -147,7 +147,7 @@ footer .row {
 }
 
 .brand-img {
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
 }
 
     /* Bootstrap components custom styling */
@@ -160,7 +160,7 @@ footer .row {
 
 .card-title {
     font-family: "Roboto Condensed", sans-serif;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
 }
 
 .card-body {
@@ -171,8 +171,11 @@ footer .row {
     padding-left: 2.5rem;
 }
 
-/* Privacy Policy page */
+/* Forum page */
 
+.view-desc {
+    font-family: "Lato", sans-serif;
+}
 
 
 /* Accessibility page */
