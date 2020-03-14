@@ -106,11 +106,11 @@ The base.html parent template ...;
 <summary>Base Template Wireframes</summary>
 
 <p align="center">
-    <img height="350" src="" alt="Base template mobile wireframe">
+    <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Base.png" alt="Base template mobile wireframe">
 </p>
 
 <p align="center">
-<img height="350" src="" alt="Base template tablet-desktop wireframe">
+<img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Base.png" alt="Base template tablet-desktop wireframe">
 </p>
 </details>
 
