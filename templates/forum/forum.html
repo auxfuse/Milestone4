@@ -16,7 +16,8 @@
                 <p class="view-desc">Below you will find posts from our registered Users of this website.
                 This is a great place to get acquainted with other members of PHP Barbell. Although you
                 may see some posts not relating Olympic Weightlifting and pertaining to other modalities
-                that the gym offers.</p>
+                that the gym offers. Once you register and are signed in, you will also be able to create
+                posts for this Forum. Only you will have the ability to update or delete posts you have created.</p>
             </div>
         </div>
         <div class="row">
@@ -26,15 +27,15 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container posts">
         <div class="row">
             {% for post in posts %}
                 <div class="col-sm-12 col-lg-6">
                     <div class="card card-post">
                         <div class="card-body card-post-body">
-                            <h4 class="card-title post-originator">{{ post.originator }}</h4>
+                            <h4 class="card-title post-originator">Posted by: {{ post.originator }}</h4>
                             <h2 class="post-title"><a href="#">{{ post.title }}</a></h2>
-                            <small class="post-date text-muted">{{ post.date_posted|date:'F d, Y' }}</small>
+                            <small class="post-date text-muted">{{ post.categories }} - {{ post.date_posted|date:'F d, Y' }}</small>
                         </div>
                     </div>
                 </div>

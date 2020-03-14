@@ -147,7 +147,7 @@ footer .row {
 }
 
 .brand-img {
-    margin-bottom: 1.5rem;
+    margin: 1.5rem 0;
 }
 
     /* Bootstrap components custom styling */
@@ -173,8 +173,26 @@ footer .row {
 
 /* Forum page */
 
+.posts {
+    margin-bottom: 1.5rem;
+}
+
+.view-title {
+    margin-top: 1rem;
+}
+
 .view-desc {
     font-family: "Lato", sans-serif;
+    margin: 0.5rem;
+}
+
+.card-post {
+    border-radius: 1rem;
+    margin: 1rem;
+}
+
+.post-date {
+    float: right;
 }
 
 
