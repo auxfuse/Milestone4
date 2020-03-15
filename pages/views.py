@@ -3,11 +3,19 @@ from django.shortcuts import render
 
 # Create your views here.
 def index(request):
-    return render(request, 'pages/index.html')
+    context = {
+        'home_page': 'active'
+    }
+
+    return render(request, 'pages/index.html', context)
 
 
 def about(request):
-    return render(request, 'pages/about.html')
+    context = {
+        'about_page': 'active'
+    }
+
+    return render(request, 'pages/about.html', context)
 
 
 def accessibility(request):

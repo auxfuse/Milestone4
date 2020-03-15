@@ -71,6 +71,10 @@ body::-webkit-scrollbar-thumb {
     color: #ffe279;
 }
 
+.navbar-dark .navbar-nav .active>.nav-link {
+    color: #ffe279;
+}
+
 .navbar .navbar-toggler {
     border-color: transparent;
 }
