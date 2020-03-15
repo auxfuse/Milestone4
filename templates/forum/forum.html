@@ -33,9 +33,14 @@
                 <div class="col-sm-12 col-lg-6">
                     <div class="card card-post">
                         <div class="card-body card-post-body">
-                            <h4 class="card-title post-originator">Posted by: {{ post.originator }}</h4>
-                            <h2 class="post-title"><a href="#">{{ post.title }}</a></h2>
-                            <small class="post-date text-muted">{{ post.categories }} - {{ post.date_posted|date:'F d, Y' }}</small>
+                            <!-- Anchor tag and empty span used allowing user to click anywhere
+                             inside the card component to be brought to the full post. -->
+                            <a href="#">
+                                <span class="div-url-overlay"></span>
+                            </a>
+                            <p class="card-title">Posted by: <span class="post-originator">{{ post.originator }}</span></p>
+                            <h5 class="post-title">Title: {{ post.title }}</h5>
+                            <small class="post-date text-muted"># {{ post.categories }} - {{ post.date_posted|date:'F d, Y' }}</small>
                         </div>
                     </div>
                 </div>

@@ -177,6 +177,30 @@ footer .row {
     margin-bottom: 1.5rem;
 }
 
+.card-post {
+    border-radius: 1rem;
+    margin: 1rem;
+}
+
+.card-post-body:hover {
+    border-radius: 1rem;
+    -webkit-box-shadow: 10px 10px 20px 0 rgba(255, 37, 37, 0.15);
+    -moz-box-shadow: 10px 10px 20px 0 rgba(255, 37, 37, 0.15);
+    box-shadow: 10px 10px 20px 0 rgba(255, 37, 37, 0.15);
+}
+
+    /* Empty span styled as an absolute positioned element inside the relative parent and set to the parent width & height.
+    Z-Index set to 1 to ensure the empty span is brought to the foreground, thus allowing user to click anywhere on card
+    component to be brought to full post view. */
+.div-url-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
 .view-title {
     margin-top: 1rem;
 }
@@ -186,9 +210,9 @@ footer .row {
     margin: 0.5rem;
 }
 
-.card-post {
-    border-radius: 1rem;
-    margin: 1rem;
+.post-originator {
+    font-size: 1.2rem;
+    font-style: italic;
 }
 
 .post-date {
