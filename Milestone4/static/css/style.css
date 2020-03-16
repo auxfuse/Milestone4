@@ -230,6 +230,26 @@ footer .row {
     float: right;
 }
 
-
 /* Login page */
 
+.form-card {
+    margin: 1rem auto 2rem;
+}
+
+.card-header h4 {
+    margin: auto 0;
+}
+
+/* Media Queries */
+
+@media (min-width: 320px) {
+
+}
+
+@media (min-width: 575px) {
+    /* Constraint set on card-form element */
+    .form-card {
+        width: 60%;
+        margin: 1rem auto 2.5rem;
+    }
+}
