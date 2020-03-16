@@ -5,5 +5,21 @@
 {% block title %} Login {% endblock %}
 
 {% block content %}
-    <h1>Login</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="page-title text-center my-2">Login</h1>
+            </div>
+            <div class="col-sm-12">
+                <p class="page-desc">Logging in provides so many benefits, from joining in
+                on our community forum discussions and creating your own, to viewing and paying
+                for your membership options.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center brand-img">
+                <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="PHP Logo">
+            </div>
+        </div>
+    </div>
 {% endblock %}

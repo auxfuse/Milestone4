@@ -150,6 +150,10 @@ footer .row {
                 flex: 1;
 }
 
+.page-desc {
+    font-family: "Lato", sans-serif;
+}
+
 .brand-img {
     margin: 1.5rem 0;
 }
@@ -224,5 +228,5 @@ footer .row {
 }
 
 
-/* Accessibility page */
+/* Login page */
 
