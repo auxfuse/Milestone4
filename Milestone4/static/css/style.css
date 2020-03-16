@@ -160,6 +160,23 @@ footer .row {
 }
 
     /* Forms */
+.form-control {
+    border: none;
+    background: none;
+    box-shadow: inset -3px -5px 10px 0 rgba(255, 255, 255, 0.63), inset 3px 3px 10px 0 rgba(67,35,68,0.50);
+    color: #323232;
+    font-size: 18px;
+    transition: 0.3s ease-out;
+}
+
+.form-control::placeholder {
+    color: #ad9d93;
+}
+
+.form-control:focus {
+    box-shadow: inset -3px -5px 5px 0 rgba(255, 255, 255, 0.83), inset 3px 3px 10px 0 rgba(67,35,68,0.50);
+}
+
 .btn-primary {
     display: block;
     margin: 0 auto;
