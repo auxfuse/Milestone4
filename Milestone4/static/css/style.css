@@ -174,12 +174,12 @@ footer .row {
 }
 
 .form-control:focus {
-    box-shadow: inset -3px -5px 5px 0 rgba(255, 255, 255, 0.83), inset 3px 3px 10px 0 rgba(67,35,68,0.50);
+    box-shadow: inset -3px -5px 5px 0 rgba(255, 255, 255, 0.83), inset 3px 3px 10px 0 rgba(67,35,68,0.30);
 }
 
 .btn-primary {
     display: block;
-    margin: 0 auto;
+    margin: 0 auto 1rem;
     background: linear-gradient(145deg, #7f4e80, #6b3f6c, #512a52);
     border: none;
     text-shadow: -1px 0 #6b3f6c, 0 1px #6b3f6c, 1px 0 #6b3f6c, 0 -1px #6b3f6c;
@@ -290,6 +290,15 @@ footer .row {
 
 .card-header h4 {
     margin: auto 0;
+}
+
+.register-link a {
+    font-family: "Lato", sans-serif;
+    font-style: italic;
+    color: #575757;
+    text-decoration: none;
+    padding: 0.5rem;
+    border-bottom: 1px solid #575757;
 }
 
 /* Media Queries */
