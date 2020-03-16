@@ -13,6 +13,7 @@
 }
 
 body {
+    background-color: #efeeee;
     font-family: "Roboto Condensed", sans-serif;
     font-size: 16px;
     display: -webkit-box;
@@ -160,10 +161,12 @@ footer .row {
 
     /* Bootstrap components custom styling */
 .card {
+    background-color: #efeeee;
     margin: 3rem 1rem;
-    -webkit-box-shadow: 10px 10px 20px 0 rgba(67,35,68,0.20);
-    -moz-box-shadow: 10px 10px 20px 0 rgba(67,35,68,0.20);
-    box-shadow: 10px 10px 20px 0 rgba(67,35,68,0.20);
+    -webkit-box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(67,35,68,0.20);
+    -moz-box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(67,35,68,0.20);
+    box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(67,35,68,0.20);
+    border: none;
 }
 
 .card-title {
