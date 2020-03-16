@@ -159,6 +159,41 @@ footer .row {
     margin: 1.5rem 0;
 }
 
+    /* Forms */
+.btn-primary {
+    display: block;
+    margin: 0 auto;
+    background: linear-gradient(145deg, #7f4e80, #6b3f6c, #512a52);
+    border: none;
+    text-shadow: -1px 0 #6b3f6c, 0 1px #6b3f6c, 1px 0 #6b3f6c, 0 -1px #6b3f6c;
+    border-radius: 50% 50% 50% 50% / 100% 100% 100% 100%;
+    -webkit-box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
+    -moz-box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
+    box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
+}
+
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+    background: linear-gradient(165deg, #704271, #573158, #512a52);
+    border: none;
+    text-shadow: -1px 0 #6b3f6c, 0 1px #6b3f6c, 1px 0 #6b3f6c, 0 -1px #6b3f6c;
+    border-radius: 50% 50% 50% 50% / 100% 100% 100% 100%;
+    -webkit-box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
+    -moz-box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
+    box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
+}
+
+    /* Used devtools to understand why button was keeping default bootstrap styles when pressed */
+    /* Added below custom style to ensure project color scheme is adhered to */
+.btn-primary:not(:disabled):not(.disabled):active {
+    background: linear-gradient(195deg, #704271, #573158, #512a52);
+    border: none;
+    text-shadow: -1px 0 #6b3f6c, 0 1px #6b3f6c, 1px 0 #6b3f6c, 0 -1px #6b3f6c;
+    border-radius: 50% 50% 50% 50% / 100% 100% 100% 100%;
+    -webkit-box-shadow: inset -3px -3px 10px 0 rgba(67,35,68, 0.83), inset 3px 3px 10px 0 rgba(67,35,68,0.50) !important;
+    -moz-box-shadow: inset -3px -3px 10px 0 rgba(67,35,68, 0.83), inset 3px 3px 10px 0 rgba(67,35,68,0.50) !important;
+    box-shadow: inset -3px -3px 10px 0 rgba(67,35,68, 0.83), inset 3px 3px 10px 0 rgba(67,35,68,0.50) !important;
+}
+
     /* Bootstrap components custom styling */
 .card {
     background-color: #efeeee;
