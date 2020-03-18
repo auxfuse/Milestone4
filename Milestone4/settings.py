@@ -1,3 +1,4 @@
+from django.contrib.messages import constants as messages
 """
 Django settings for Milestone4 project.
 
@@ -133,3 +134,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'Milestone4/static')
 ]
+
+
+# Messages/Alerts
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger'
+}

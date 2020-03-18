@@ -22,6 +22,7 @@
             </div>
         </div>
     </div>
+    {% include 'partials/_alerts.html' %}
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -31,7 +32,8 @@
                     </div>
                     <div class="card-body">
                         <!-- Form fields are without labels to be consistent with modern app design UX themes. -->
-                        <form action="">
+                        <form action="{% url 'login' %}" method="POST">
+                            {% csrf_token %}
                             <div class="form-group">
                                 <input type="text" id="username" name="username" class="form-control" placeholder="Enter Username" required="">
                             </div>

@@ -308,9 +308,23 @@ footer .row {
 }
 
 @media (min-width: 575px) {
+    /* Global components media queries */
+        /* Alerts */
+    .alert {
+        margin: 0 auto 1rem;
+    }
+
     /* Constraint set on card-form element */
     .form-card {
         width: 60%;
         margin: 1rem auto 2.5rem;
+    }
+}
+
+@media (min-width: 768px) {
+    /* Global components media queries */
+        /* Alerts */
+    .alert {
+        width: 60%;
     }
 }
