@@ -53,9 +53,24 @@ def login(request):
         'login_page': 'active'
     }
 
+    # Get login form values.
     if request.method == 'POST':
-        messages.error(request, 'Load of no....')
-        return redirect('login')
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = auth.authenticate(
+            username=username,
+            password=password
+        )
+
+        # Check if user exists & login if yes otherwise show error.
+        if user is not None:
+            auth.login(request, user)
+            messages.success(request, 'Successfully logged in.')
+            return redirect('index')
+        else:
+            messages.error(request, 'Invalid Login details.')
+            return redirect('login')
     else:
         return render(request, 'accounts/login.html', context)
 
