@@ -9,7 +9,7 @@ def register(request):
     }
 
     if request.method == 'POST':
-        print('Reg ok')
+        messages.error(request, 'User already exists')
         return redirect('register')
     else:
         return render(request, 'accounts/register.html', context)
