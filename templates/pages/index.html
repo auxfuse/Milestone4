@@ -3,11 +3,11 @@
 {% block title %} Welcome {% endblock %}
 
 {% block content %}
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container-fluid">
-            <h1 class="display-4">Fluid jumbotron</h1>
-            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-            {% include 'partials/_alerts.html' %}
+    <div class="container-fluid welcome-landing">
+        <div class="row no-gutters">
+            <div class="col-sm-12 welcome-img">
+                <h1 class="welcome-txt">Welcome to PHP Barbell Club</h1>
+            </div>
         </div>
     </div>
 {% endblock %}

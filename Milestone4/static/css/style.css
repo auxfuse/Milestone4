@@ -234,6 +234,41 @@ footer .row {
     padding-left: 2.5rem;
 }
 
+/* Home page */
+
+.welcome-landing {
+    padding-left: 0;
+    padding-right: 0;
+    border-bottom: 1px solid rgba(0,0,0, 0.5);
+}
+
+.welcome-img {
+    background: url("../img/barbell_abs_main.jpg") center no-repeat;
+    background-size: cover;
+    height: 50vh;
+    position: relative;
+}
+
+.welcome-txt {
+    color: #f8f8f8;
+    text-shadow: -1px 0 #212121, 0 1px #212121, 1px 0 #212121, 0 -1px #212121;
+    position: absolute;
+    top: 10%;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.welcome-txt:after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 30%;
+    margin: 5px auto;
+    background: #ffe279;
+    border-bottom: 1px solid #000000;
+}
+
 /* Forum page */
 
 .posts {
