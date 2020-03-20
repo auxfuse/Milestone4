@@ -6,6 +6,7 @@ from .models import Post
 # Create your views here.
 def forum(request):
     context = {
+        'forum_page': 'active',
         'posts': Post.objects.all()
     }
 

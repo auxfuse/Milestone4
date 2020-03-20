@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.contrib.auth import logout
 from django.contrib.auth.models import User, auth
 
 
@@ -75,7 +76,10 @@ def login(request):
         return render(request, 'accounts/login.html', context)
 
 
-def logout(request):
+def logout_view(request):
+    """Logout User, redirect to Home page & display success message."""
+    logout(request)
+    messages.success(request, "Thank you! You have successfully logged out.")
     return redirect('index')
 
 
