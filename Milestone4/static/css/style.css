@@ -263,10 +263,64 @@ footer .row {
     content: '';
     display: block;
     height: 2px;
-    width: 30%;
+    width: 20%;
     margin: 5px auto;
     background: #ffe279;
     border-bottom: 1px solid #000000;
+}
+
+    /* Typewriter text animation */
+.typewriter {
+    position: absolute;
+    top: 60%;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.typewriter::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 20%;
+    margin: 5px auto;
+    background: #ffe279;
+    border-bottom: 1px solid #000000;
+}
+
+.typewriter-prefix-txt {
+    color: #f8f8f8;
+    text-shadow: -1px 0 #212121, 0 1px #212121, 1px 0 #212121, 0 -1px #212121;
+}
+
+.typewriter-txt {
+    color: #f8f8f8;
+    text-shadow: -1px 0 #212121, 0 1px #212121, 1px 0 #212121, 0 -1px #212121;
+    position: absolute;
+    margin-top: 0.8rem;
+    top: 75%;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+    /* Create cursor affect accompanied with blink animation */
+.typewriter-txt::after {
+    content: '';
+    margin-left: 3px;
+    width: 1px;
+    height: 5%;
+    border-right: 2px solid #ececec;
+    animation: blink 0.6s infinite ease-in-out;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 /* Forum page */
