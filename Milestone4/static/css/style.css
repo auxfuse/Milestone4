@@ -351,6 +351,8 @@ footer .row {
 
 .cta-card-btn {
     width: 85px;
+    margin-top: 1.5rem;
+    margin-bottom: 0.6rem;
 }
 
 /* Forum page */
@@ -422,11 +424,7 @@ footer .row {
 
 /* Media Queries */
 
-@media (min-width: 320px) {
-
-}
-
-@media (min-width: 575px) {
+@media (min-width: 575px){
     /* Global components media queries */
         /* Alerts */
     .alert {
@@ -440,7 +438,7 @@ footer .row {
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px){
     /* Global components media queries */
         /* Alerts */
     .alert {
