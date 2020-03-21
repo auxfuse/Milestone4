@@ -30,5 +30,5 @@ let letter = '';
         count++;
         currentWord = 0;
     }
-    setTimeout(type, 400);
+    setTimeout(type, 340);
 }());
