@@ -223,10 +223,17 @@ footer .row {
 .card {
     background-color: #efeeee;
     margin: 3rem 1rem;
+    border-radius: 1rem;
     -webkit-box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(67,35,68,0.20);
     -moz-box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(67,35,68,0.20);
     box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(67,35,68,0.20);
     border: none;
+    /* border-box clip path used to prevent background protruding past child elements */
+    background-clip: border-box;
+}
+
+.card-header:first-child {
+    border-radius: 1rem 1rem 0 0;
 }
 
 .card-title {
