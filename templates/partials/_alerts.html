@@ -1,9 +1,9 @@
 {% if messages %}
     {% for message in messages %}
-        <div class="container">
+        <div id="msg-alert" class="container alerts-container">
             <div class="row">
-                <div class="col-sm-12 my-auto">
-                    <div id="msg-alert" class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+                <div class="col-sm-12 text-center">
+                    <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
                         <strong>
                             {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
                                 Error:
