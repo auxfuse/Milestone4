@@ -20,7 +20,7 @@ let letter = '';
 let home = 'https://php-barbell.herokuapp.com/';
 let localHome = 'http://127.0.0.1:8000/';
 
-if ((document.URL === home) || (document.URL === localHome))
+if (document.URL === home || document.URL === localHome)
     (function type(){
         if(count === words.length) {
           count = 0;

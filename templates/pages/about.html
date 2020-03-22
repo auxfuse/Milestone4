@@ -1,13 +1,52 @@
 {% extends 'base.html' %}
 
-{% block title %} Welcome {% endblock %}
+{% load static %}
+
+{% block title %} About {% endblock %}
 
 {% block content %}
-    <div class="jumbotron">
-        <h1 class="display-4">PHP!</h1>
-        <p class="lead">We also do some cardio shtuff.</p>
-        <hr class="my-4">
-        <p>Lorem 10.</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="page-title text-center my-2">About Us</h1>
+            </div>
+            <div class="col-sm-12">
+                <p class="page-desc text-center">Put very simply, we are a local run family and community orientate health & performance
+                facility. We facilitate all things fitness and of course Olympic Weightlifting, hence PHP Barbell. So what makes us
+                stand out above the rest?</p>
+                <p class="page-desc text-center">We Care. We care about you, about our coaches, about our methods, about our community and
+                about openness. We want to impart the knowledge you need to learn about the thing you are doing. With Olympic Weightlifting
+                technique and maintaining impeccable form is paramount especially when the load gets heavy. Industry secrets help no-one.
+                So we make it our jobs to not have any! Any client who puts their trust in us to help them can rest assured knowing they
+                will be provided with all the support necessary to succeed. Now, let's load a barbell!</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center brand-img">
+                <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="PHP Logo">
+            </div>
+        </div>
+    </div>
+
+    <div class="container services">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2 class="page-title text-center my-2">Our Services include:</h2>
+            </div>
+            <div class="col-sm-12 col-md-6 my-auto">
+                <ul class="about-list text-center">
+                    <li class="about-list-item">Coached Weightlifting</li>
+                    <li class="about-list-item">Pay As You Go Options</li>
+                    <li class="about-list-item">Online Coaching</li>
+                    <li class="about-list-item">Nutrition Planning</li>
+                    <li class="about-list-item">Personal Training</li>
+                    <li class="about-list-item">Physical Therapy</li>
+                    <li class="about-list-item">& More</li>
+                </ul>
+            </div>
+            <div class="col-sm-12 col-md-6 services-img">
+                <img class="img-fluid" src="{% static 'img/barbell-club.jpg' %}" alt="Barbell Club">
+            </div>
+        </div>
     </div>
 {% endblock %}
