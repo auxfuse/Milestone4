@@ -40,6 +40,7 @@ ALLOWED_HOSTS = [
 INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'forum.apps.ForumConfig',
+    'coaches.apps.CoachesConfig',
     'accounts.apps.AccountsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
