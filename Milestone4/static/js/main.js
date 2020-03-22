@@ -17,18 +17,21 @@ let count = 0;
 let currentWord = 0;
 let currentText = '';
 let letter = '';
+let home = 'https://php-barbell.herokuapp.com/';
+let localHome = 'http://127.0.0.1:8000/';
 
-(function type(){
-    if(count === words.length) {
-      count = 0;
-    }
-    currentText = words[count];
-    letter = currentText.slice(0, ++currentWord);
+if ((document.URL === home) || (document.URL === localHome))
+    (function type(){
+        if(count === words.length) {
+          count = 0;
+        }
+        currentText = words[count];
+        letter = currentText.slice(0, ++currentWord);
 
-    document.querySelector('.typewriter-txt').textContent = letter;
-    if(letter.length === currentText.length){
-        count++;
-        currentWord = 0;
-    }
-    setTimeout(type, 340);
-}());
+        document.querySelector('.typewriter-txt').textContent = letter;
+        if(letter.length === currentText.length){
+            count++;
+            currentWord = 0;
+        }
+        setTimeout(type, 340);
+    }());
