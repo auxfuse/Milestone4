@@ -153,8 +153,8 @@ The base.html parent template contained all the default components for each chil
   {& endblock %}
   ```
 
-<details>
-<summary>Base Template Wireframes</summary>
+   <details>
+   <summary>Base Template Wireframes</summary>
 
 <p align="center">
     <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Base.png" alt="Base template mobile wireframe">
@@ -163,7 +163,7 @@ The base.html parent template contained all the default components for each chil
 <p align="center">
 <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Base.png" alt="Base template tablet-desktop wireframe">
 </p>
-</details>
+   </details>
 
 ***
 
