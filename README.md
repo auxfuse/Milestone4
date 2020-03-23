@@ -147,11 +147,11 @@ Wireframing for this project began with Pen and paper as all my projects tend to
 * Base Template:
 The base.html parent template contained all the default components for each child template to inherit from. All links were provided to third party icon providers, frameworks, stylesheets and script links. The navbar & footer partial components were created in their own html files and inserted into the base.html via the Jinja `include` statement to ensure separation of concern could occur for ease of scalability of the application elements. 
 
-Where appropriate, `block` statements were used for the Page titles, the main inheritance portion in the body and finally for any bespoke scripts that needed to be loaded on specific pages.
-```html
-{% block content %}
-{& endblock %}
-```
+  Where appropriate, `block` statements were used for the Page titles, the main inheritance portion in the body and finally for any bespoke scripts that needed to be loaded on specific pages.
+  ```html
+  {% block content %}
+  {& endblock %}
+  ```
 
 <details>
 <summary>Base Template Wireframes</summary>
