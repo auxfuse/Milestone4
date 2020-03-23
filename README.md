@@ -99,9 +99,8 @@ By using rounded edges on the components, eg: cards, and removing conventional b
 As an example of putting all of the above to use the following is the Login Form card with Neumorphism styles in place:
 
 <p align="center">
-    <img src="" alt="Neumorphism Styled Form">
+    <img src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/neumorphismExample.PNG" alt="Neumorphism Styled Form">
 </p>
-
 
 ##### 1. Font
 The project has a main font of <a href="https://fonts.google.com/specimen/Roboto+Condensed">Roboto Condensed</a> which is used for primary texts and headers, and a secondary font of <a href="https://fonts.google.com/specimen/Lato">Lato</a>, both of which greatly complement each other throughout the site.
@@ -127,7 +126,7 @@ The Tertiary color of ![#ffc03d](https://placehold.it/15/ffc03d/000000?text=+) `
 Finally the Supplementary color of ![#efeeee](https://placehold.it/15/efeeee/000000?text=+) `#efeeee` is used as the default page body background and also as the font color used when contrast of black text is poor against the monochrome theme of the website, for example: the navigation list items in the navbar and footer.
 
 ##### 3. Logo
-The logo was ...
+The logo was provided by Dean Roche, the owner of PHP as a complimentary gesture to help and aid me in the development of this site and the content within. Without this asset, I would of spent a lengthy period of time creating a logo to my liking.
 
 <p align="center">
     <img src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/img/logo.png" alt="PHP Logo">
@@ -135,15 +134,20 @@ The logo was ...
 
 ##### 4. Geometry
 
-The applications geometrical aspects...
+The applications geometrical aspects feature aesthetically modern components such as rounded edges and Neumorphism styling. Plenty of whitespace was used to allow the user to flick to important context and features much easier with little strain provoked in their eyes.
+
+A rule of symmetrical grouping was used horizontally and the rule of thirds was implemented vertically on most pages where content would allow. For example, most pages feature a descriptive context for the user, a branding logo as separation but also to invoke that brand in the user's mind-eye when remembering from reference and the actual content necessary for that page.
+
+Form inputs were kept label-less to keep with the Neumorphism trend and all form inputs use a placeholder as form label to still direct the user as to the information that the field requires. 
 
 ##### 5. Wireframing
 
 Wireframing for this project began with Pen and paper as all my projects tend to start, but ultimately Wireframes were created using Balsamiq. Each page or view of the application was rendered as a wireframe in both Small and Medium-Large viewports to show the difference between the aesthetics and showing how the elements per page would react to differing viewport sizes. Each element planned out in this stage has made it into the physical build of the application with not much deviation occurring from the original wireframe plans.
 
 * Base Template:
+The base.html parent template contained all the default components for each child template to inherit from. All links were provided to third party icon providers, frameworks, stylesheets and script links. The navbar & footer partial components were created in their own html files and inserted into the base.html via the Jinja `include` statement to ensure separation of concern could occur for ease of scalability of the application elements. 
 
-The base.html parent template ...;
+Where appropriate, `block` statements were used for the Page titles, the main inheritance portion in the body and finally for any bespoke scripts that needed to be loaded on specific pages.
 ```html
 {% block content %}
 {& endblock %}
