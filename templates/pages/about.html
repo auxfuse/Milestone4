@@ -50,4 +50,40 @@
             </div>
         </div>
     </div>
+
+    <div class="coaches container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2 class="page-title text-center">Meet our Coaches</h2>
+            </div>
+        </div>
+        <div class="row">
+            {% if staff_members %}
+                {% for staff in staff_members %}
+                    <div class="col-sm-12 col-lg-4 text-center">
+                        <div class="card">
+                            <img class="img-fluid" src="{{ staff.photo.url }}" alt="{{ staff.name }} Image">
+                            <h4>{{ staff.name }}</h4>
+                            <p class="page-desc">{{ staff.brief_desc }}</p>
+                            <h5>Qualifications</h5>
+                            <ul class="text-left">
+                                {% if staff.qualification_1 %}
+                                    <li>{{ staff.qualification_1 }}</li>
+                                {% endif %}
+                                {% if staff.qualification_2 %}
+                                    <li>{{ staff.qualification_2 }}</li>
+                                {% endif %}
+                                {% if staff.qualification_3 %}
+                                    <li>{{ staff.qualification_3 }}</li>
+                                {% endif %}
+                                {% if staff.qualification_4 %}
+                                    <li>{{ staff.qualification_4 }}</li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}

@@ -18,7 +18,8 @@ qualification = [
 # Create your models here.
 class StaffMember(models.Model):
     name = models.CharField(max_length=200)
-    photo = models.ImageField(default='default.jpg', upload_to='img/%Y/%m/%d/')
+    photo = models.ImageField(default='default.jpg',
+                              upload_to='media/%Y/%m/%d/')
     brief_desc = models.CharField(max_length=300)
     qualification_1 = models.CharField(max_length=41, choices=qualification,
                                        blank=True)
