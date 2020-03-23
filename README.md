@@ -35,14 +35,20 @@
 ***
 
 ## What does it do and what does it need to fulfill?
-This Milestone project creation is the culmination of learning and study from all modules of the Full Stack Developer Course, culminating in the creation of this Full Stack Framework Django project. This Application will allow an admin to store and manipulate data records and also allow users to create, read, update, delete & purchase memberships for this newly create local barbell club called, <a href="">PHP Barbell</a>.
+This Milestone project creation is the culmination of learning and study from all modules of the Full Stack Developer Course, culminating in the creation of this Full Stack Framework Django project. This Application will allow an admin to store and manipulate data records and also allow users to create, read, update, delete & purchase memberships for this newly create local barbell club called, <a href="https://php-barbell.herokuapp.com/">PHP Barbell</a>.
 
 <p align="center">
     <img src="" alt="PHP Favicon">
 </p>
 
 ### Functionality of Project
-This application contains ....
+The application uses Django 3 to encourage rapid development, by following a model-template-view architecture pattern. The project uses Separation of Concern amongst the applications to utilise the Django Framework effectively.
+
+Alongside using Django, sqlite was used in the Project's inception phase as a test database for local testing. Sqlite is self-contained highly reliable, SQL database engine that features all the normal relational database management. Once I was ready I switch to using PostGreSQL (aka Postgres), for my Development Database to ensure that any data entered was visible in my deployed application. Postgres is open source and boosts a fully technical and easy to use Object relational database management system.
+
+Using Django and the above Database methods an administrator for the application (in this case the owner of PHP Barbell), has complete access to a completely custom styled Admin dashboard where they can Create, Read, Update and Delete records in the each proposing application model if appropriate. For example: The owner access the admin dashboard to update staff records, which is a totally separate and completely custom Django application made specifically for this purpose.
+
+The project is version controlled via Git & Github and is deployed via Heroku. All environment variables & secret variables are stored in an env.py file which is then held in a git ignored file to ensure project integrity is held to a high secure present day and project requirements standard.
 
 [Back to top](#table-of-contents)
 
@@ -50,13 +56,36 @@ This application contains ....
 
 #### User Stories:
 _Generic (Guest/Public) User:_
-* As a Generic User, I want to...
+* As a Generic User, I want to be able to view the site on any device I may have, (mobile/tablet/desktop).
+* As a Generic User, I want to have the ability to register to the site.
+* As a Generic User, I want to have the ability to research the business and anything associated with same through the application.
+* As a Generic User, I want to have the ability to view the established Accessibility Statement & Privacy Policy if any.
+* As a Generic User, I want to be able to view available Membership prices.
+* As a Generic User, I want to be able to get in contact with the business owner through the website.
+* As a Generic User, I want to have the ability to see the established social accounts coupled with the business, eg: Facebook, Instagram etc.
+* As a Generic User, I want to have information available as to the directions of the business site.
 
 _Registers (Logged in) User:_
-* As a Registered User, I want to...
+* As a Registered User, I want to have the ability to Login to the site via my registered details.
+* As a Registered User, I want to be able to view the Community Forum posts and interact and comment on same.
+* As a Registered User, I want to have the ability to search through the Forum to find specific categorised Posts.
+* As a Registered User, I want to be able to Create, Edit and Delete my own Forum Posts for discussion amongst the Community.
+* As a Registered User, I want to have the ability to review membership options and but one.
+* As a Registered User, I want to be able to view my Cart and any items I currently have awaiting payment in my Cart.
+* As a Registered User, I want to be able to items currently added to my Cart.
+* As a Registered User, I want to have the ability to Logout of the application.
+
+_Application Owner/Administrator User:_
+* As a Site Administrator, I want to be able to login to an administration panel.
+* As a Site Administrator, I want to have the ability to update site content, such as Forum Posts, User details, Staff & Membership packages etc etc.
+* As the Owner, I want to ensure any user navigating to my site has a positive User experience between content and responsive design to theming.
+* As the Owner, I want to show any user navigating to my site the facilities, services & pricing available.
+* As the Owner, I to showcase the new premises location on a map embedded into one of the public pages.
 
 _Developer:_
-* As a Developer, I want to...
+* As a Developer, I want to demonstrate my growing abilities as a budding Full Stack Software developer during my time on the CI course.
+* As a Developer, I want a project that I can proudly showcase to potential employers via my Github Repository.
+* As a Developer, I want to create a project that is fully scalable and can be expanded upon as I continue to grow as a developer.
 
 #### Design
 

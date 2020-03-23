@@ -29,7 +29,7 @@ class StaffMember(models.Model):
                                        blank=True)
     qualification_4 = models.CharField(max_length=41, choices=qualification,
                                        blank=True)
-    currently_active = models.BooleanField(default=True)
+    currently_employed = models.BooleanField(default=True)
     employed_on = models.DateTimeField(default=datetime.now, blank=True)
 
     def __str__(self):
