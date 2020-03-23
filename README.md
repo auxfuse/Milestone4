@@ -88,25 +88,43 @@ _Developer:_
 * As a Developer, I want to create a project that is fully scalable and can be expanded upon as I continue to grow as a developer.
 
 #### Design
+I rather enjoy learning new ways to style my projects and I feel more and more that Front End Development and Design is my calling in this profession. Earlier this year I saw an article on the rising trend of Neumorphism in the industry and I was hooked. I knew from then that I was going to try and utilise this methodology in my final project as it really brings an application to life.
+
+It is a by-product of recent trendsetting Skeumorphism which takes a material polish approach to creating good user experience. For example, using symbolism to portray an act or action, eg: the recycle bin icon or making a particular element's background have a textile styling that would be familiar to a User. But Neumorphism uses imaginary light sources and their respective highlights & shadowing from same to make the elements on show look as if they are still part of the background from which they are almost protruding or sinking into. It's nickname in the industry today is _**Soft UI**_. 
+
+For this project, I imagined a light source installed in the top left corner of the webpage. This allowed me to visualise where the light would hit on these elements causing highlights and shadows. Then using the css property of `box-shadow` to impact the element based on the above to create the shadows & highlights necessary. This css property uses horizontal & vertical offsetting along with blur and spread and finally the color of the shadow itself to produce the desired effect.  
+
+By using rounded edges on the components, eg: cards, and removing conventional borders entirely it allowed for some very creative visuals, almost as if it were one seamless plastic moulding being rendered for the user.
+
+As an example of putting all of the above to use the following is the Login Form card with Neumorphism styles in place:
+
+<p align="center">
+    <img src="" alt="Neumorphism Styled Form">
+</p>
+
 
 ##### 1. Font
-The project has a main font of <a href="">Roboto Condensed</a> which is used for primary texts and headers, and a secondary font of <a href="">Lato</a>, both of which greatly complement each other throughout the site.
+The project has a main font of <a href="https://fonts.google.com/specimen/Roboto+Condensed">Roboto Condensed</a> which is used for primary texts and headers, and a secondary font of <a href="https://fonts.google.com/specimen/Lato">Lato</a>, both of which greatly complement each other throughout the site.
   
-“Sans-Serif” is used as the default backup font in cases where these fonts have difficulty loading.
-Roboto Condensed sports a unique ...
+“Sans-Serif” is used as the default backup font in cases where these fonts have difficulty loading. "Roboto Condensed" consists of a dual nature, sporting a mechanical skeleton and character form is largely geometric, and at the same time featuring friendly and open curves. This allows for a more natural reading Rhythm more commonly found with humanist and serif fonts. This made it a clear choice in terms of primary font as the website ideology is that of natural form and geometric positioning.
 
-The secondary font of Lato has a natural flow...
+ "Lato" is the secondary font used to compliment the primary font. Again, this typeface is of the serif family, contains classical proportions (particularly in upper case), but holds a strong structure providing stability and seriousness. It reads well alongside "Roboto Condensed" and ultimately was a great fit with the overall theme of the application.
 
 ##### 2. Color Scheme
-This project went through multiple theme iterations whilst in Wireframe stage. Ultimately, I was always lead back to professional high contrast finish that would normally be seen in most day-to-day apps with a touch of pastel color to highlight to the user the breakaway elements.
+This project was actually inspired by a friend of mine and his new venture as a local gym, that gym is called <a href="https://precisionhealthperformance.com/">Precision, Health & Performance</a> and they specialise in doing exactly what the name says. Their is already a commercial website in place and the color scheme for it is monotone in nature with color only added via images noted throughout the site. The guys at PHP were kind enough and offered me their commercially built website as my project medium. I noticed that although it was incredibly intricate and quite simple and pleasing on the eye it needed something to just separate the monotone coloring.
 
-* ![#000000](https://placehold.it/15/000000/000000?text=+) `#000000` - Primary color
+* ![#323232](https://placehold.it/15/323232/000000?text=+) `#323232` - Primary color
 * ![#432344](https://placehold.it/15/432344/000000?text=+) `#432344` - Secondary color
 * ![#ffc03d](https://placehold.it/15/ffc03d/000000?text=+) `#ffc03d` - Tertiary color
-* ![#ff2525](https://placehold.it/15/ff2525/000000?text=+) `#ff2525` - Supplementary color #1
-* ![#e7eefb](https://placehold.it/15/e7eefb/000000?text=+) `#e7eefb` - Supplementary color #2
+* ![#efeeee](https://placehold.it/15/efeeee/000000?text=+) `#efeeee` - Supplementary color
 
-The colors used throughout and what for etc....
+The primary color of ![#323232](https://placehold.it/15/323232/000000?text=+) `#323232` was used to denote key componentry used in the application such as the Navbar & Footer. It's almost charcoal grey color emulates the color of the knurling found in many modern barbells and it ultimately was only a hue percentage off the logo dominate color that it became the obvious choice.
+
+The secondary color of ![#432344](https://placehold.it/15/432344/000000?text=+) `#432344` is used throughout the site as Primary call to actions, Login/Register buttons, Create Posts/Comment buttons etc and change hue and directional gradient when hovered & pressed. It is the introduction of monochromatic coloring in the website as multiple hues of lightening or darkening tints are used to create the animations and the gradients. It is also used in creating a very light hued version for the shadows on the neumorphic elements.
+
+The Tertiary color of ![#ffc03d](https://placehold.it/15/ffc03d/000000?text=+) `#ffc03d` and again using monochromatic techniques are used for animating the navigational elements in the navbar & footer partial components, and also providing a bright contrast on some of the custom horizontal block dividers. They are also used to show the user via highlight the current page being viewed in the navbar.
+
+Finally the Supplementary color of ![#efeeee](https://placehold.it/15/efeeee/000000?text=+) `#efeeee` is used as the default page body background and also as the font color used when contrast of black text is poor against the monochrome theme of the website, for example: the navigation list items in the navbar and footer.
 
 ##### 3. Logo
 The logo was ...
