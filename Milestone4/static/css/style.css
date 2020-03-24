@@ -423,6 +423,21 @@ footer .row {
     padding: 0.4rem 0;
 }
 
+.carousel-container {
+    margin: 1rem auto;
+    border-radius: 1rem;
+    -webkit-box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(67,35,68,0.20);
+    -moz-box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(67,35,68,0.20);
+    box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(67,35,68,0.20);
+}
+
+.carousel img {
+    object-fit: contain;
+    margin: 1rem 0;
+    height: 400px;
+    min-width: 100%;
+    max-width: none;
+}
 
 /* Forum page */
 
