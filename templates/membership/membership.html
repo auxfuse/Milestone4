@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="container services">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2 class="page-title text-center">Our Services include:</h2>
+            </div>
+            <div class="col-sm-12 col-md-6 my-auto">
+                <ul class="services-list text-center">
+                    <li class="about-list-item">Coached Weightlifting</li>
+                    <li class="about-list-item">Pay As You Go Options</li>
+                    <li class="about-list-item">Online Coaching</li>
+                    <li class="about-list-item">Nutrition Planning</li>
+                    <li class="about-list-item">Personal Training</li>
+                    <li class="about-list-item">Physical Therapy</li>
+                    <li class="about-list-item">Community</li>
+                    <li class="about-list-item">& More</li>
+                </ul>
+            </div>
+            <div class="col-sm-12 col-md-6 services-img">
+                <img class="img-fluid" src="{% static 'img/barbell-club.jpg' %}" alt="Barbell Club">
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -31,21 +31,19 @@
     <div class="container services">
         <div class="row">
             <div class="col-sm-12">
-                <h2 class="page-title text-center">Our Services include:</h2>
+                <h2 class="page-subtitle text-center">Olympic Weightlifting</h2>
             </div>
-            <div class="col-sm-12 col-md-6 my-auto">
-                <ul class="about-list text-center">
-                    <li class="about-list-item">Coached Weightlifting</li>
-                    <li class="about-list-item">Pay As You Go Options</li>
-                    <li class="about-list-item">Online Coaching</li>
-                    <li class="about-list-item">Nutrition Planning</li>
-                    <li class="about-list-item">Personal Training</li>
-                    <li class="about-list-item">Physical Therapy</li>
-                    <li class="about-list-item">Community</li>
-                    <li class="about-list-item">& More</li>
-                </ul>
+            <div class="col-sm-12">
+                <p class="page-desc text-center">Here at PHP Barbell we specialise in teaching Olympic Weightlifting. We all learn together, and even
+                our coaching methods evolve with every passing person we train in PHP Barbell. Olympic Weightlifting consists of two primary movements
+                ......yes two.</p>
+                <p class="page-desc text-center"> The Snatch, and Clean & Jerk. Both movements on paper seem relatively easy. They aren't.
+                Luckily our resident coach Danny has a solid hold on all of us and is super eager to impart his well earned knowledge of
+                the sport onto anyone willing to learn! We have multiple members all lifting at a competitive standard and even our coaches compete.
+                We just love the sport, so much so we do it daily. Have a look at some of the images below to see what our members and coaches do
+                and if you are interested, why not take that deep dive into the wonderful world of Olympic Weightlifting at PHP Barbell.</p>
             </div>
-            <div class="col-sm-12 col-md-6 services-img">
+            <div class="col-sm-12 text-center services-img">
                 <img class="img-fluid" src="{% static 'img/barbell-club.jpg' %}" alt="Barbell Club">
             </div>
         </div>
@@ -54,32 +52,36 @@
     <div class="coaches container">
         <div class="row">
             <div class="col-sm-12">
-                <h2 class="page-title text-center">Meet our Coaches</h2>
+                <h2 class="page-subtitle text-center">Meet our Coaches</h2>
             </div>
-        </div>
-        <div class="row">
             {% if staff_members %}
                 {% for staff in staff_members %}
-                    <div class="col-sm-12 col-lg-4 text-center">
+                    <div class="col-sm-12 col-lg-4">
                         <div class="card">
-                            <img class="img-fluid" src="{{ staff.photo.url }}" alt="{{ staff.name }} Image">
-                            <h4>{{ staff.name }}</h4>
-                            <p class="page-desc">{{ staff.brief_desc }}</p>
-                            <h5>Qualifications</h5>
-                            <ul class="text-left">
-                                {% if staff.qualification_1 %}
-                                    <li>{{ staff.qualification_1 }}</li>
-                                {% endif %}
-                                {% if staff.qualification_2 %}
-                                    <li>{{ staff.qualification_2 }}</li>
-                                {% endif %}
-                                {% if staff.qualification_3 %}
-                                    <li>{{ staff.qualification_3 }}</li>
-                                {% endif %}
-                                {% if staff.qualification_4 %}
-                                    <li>{{ staff.qualification_4 }}</li>
-                                {% endif %}
-                            </ul>
+                            <div class="card-header">
+                                <h4><i class="fas fa-portrait"></i> {{ staff.name }}</h4>
+                                <small class="brief-desc">{{ staff.brief_desc }}</small>
+                            </div>
+                            <div class="card-body card-body-coach">
+                                <div class="card-img-coach">
+                                    <img class="img-fluid" src="{{ staff.photo.url }}" alt="{{ staff.name }} Image">
+                                </div>
+                                <h5 class="card-title text-center">Qualifications</h5>
+                                <ul class="qualifications-list">
+                                    {% if staff.qualification_1 %}
+                                        <li>{{ staff.qualification_1 }}</li>
+                                    {% endif %}
+                                    {% if staff.qualification_2 %}
+                                        <li>{{ staff.qualification_2 }}</li>
+                                    {% endif %}
+                                    {% if staff.qualification_3 %}
+                                        <li>{{ staff.qualification_3 }}</li>
+                                    {% endif %}
+                                    {% if staff.qualification_4 %}
+                                        <li>{{ staff.qualification_4 }}</li>
+                                    {% endif %}
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 {% endfor %}
