@@ -145,7 +145,8 @@ Form inputs were kept label-less to keep with the Neumorphism trend and all form
 Wireframing for this project began with Pen and paper as all my projects tend to start, but ultimately Wireframes were created using Balsamiq. Each page or view of the application was rendered as a wireframe in both Small and Medium-Large viewports to show the difference between the aesthetics and showing how the elements per page would react to differing viewport sizes. Each element planned out in this stage has made it into the physical build of the application with not much deviation occurring from the original wireframe plans.
 
 * Base Template:
-The base.html parent template contained all the default components for each child template to inherit from. All links were provided to third party icon providers, frameworks, stylesheets and script links. The navbar & footer partial components were created in their own html files and inserted into the base.html via the Jinja `include` statement to ensure separation of concern could occur for ease of scalability of the application elements. 
+
+   The base.html parent template contained all the default components for each child template to inherit from. All links were provided to third party icon providers, frameworks, stylesheets and script links. The navbar & footer partial components were created in their own html files and inserted into the base.html via the Jinja `include` statement to ensure separation of concern could occur for ease of scalability of the application elements. 
 
   Where appropriate, `block` statements were used for the Page titles, the main inheritance portion in the body and finally for any bespoke scripts that needed to be loaded on specific pages.
   ```html
@@ -167,8 +168,49 @@ The base.html parent template contained all the default components for each chil
 
 ***
 
-* Home Page:
+* Home (Index) Page:
 
+   The home (Index) page is our primary landing page and has two call to actions based on whether a User is logged in or not. If they are not logged in the two call to actions are to Register/Login. This is essential to our users as we want to ensure high numbers of first time visitors register for the site and that all recurring registered users have multiple places to login from.
+   
+   If the user is already logged in the content of the call to action cards change to reflect the logged in status. This time around notifying the user of the Forum and Membership pages. This change was implemented after the wireframes were created due to a defensive design issue where it was unnecessary to show a user registration/login if they already have logged in, and as such does not appear in the wireframes.
+   
+   The home page also contains the `_alerts.html` partial to deliver success messaging to the User on Registration, Login & Logout.
+   
+   The home page contains a custom javascript element in the form of the Hero image typewriter animation. This custom js function was separated into it's own javascript file and then it was injected via the jinja statement block tags added in the `base.html` template to ensure that this file only runs when the index template is rendered.
+
+   <details>
+   <summary>Home (Index) Template Wireframes</summary>
+
+   <p align="center">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Index.png" alt="Home (Index) template mobile wireframe">
+   </p>
+
+   <p align="center">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Index.png" alt="Home (Index) template tablet-desktop wireframe">
+   </p>
+   </details>
+
+***
+
+* About Page:
+
+   The About page features information regarding the Barbell club. The coaches section is rendered directly from the coaches app and model. The owner/administrator of the website has the ability to add/edit or remove coach/staff information, which will appear in this section for users to see.
+   
+   This page also hosts a lightbox/carousel
+   
+   Map....
+
+   <details>
+   <summary>Home (Index) Template Wireframes</summary>
+
+   <p align="center">
+      <img height="350" src="" alt="About template mobile wireframe">
+   </p>
+
+   <p align="center">
+      <img height="350" src="" alt="About template tablet-desktop wireframe">
+   </p>
+   </details>
 
 ***
 
