@@ -12,7 +12,7 @@ let mapOverlay = L.tileLayer("http://services.arcgisonline.com/arcgis/rest/servi
 mapOverlay.bringToFront().addTo(map).setZIndex(9);
 
 let logoMarker = L.icon({
-    iconUrl: '../img/mapPinlogo.png',
+    iconUrl: 'https://raw.githubusercontent.com/auxfuse/Milestone4/carousel-map-about/Milestone4/static/img/mapPinlogo.png',
     iconSize: [103, 50],
     iconAnchor: [51.5, 25]
 });

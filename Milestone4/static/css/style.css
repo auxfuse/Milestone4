@@ -441,6 +441,12 @@ footer .row {
 
 #map {
     height: 600px;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    border-radius: 1rem;
+    -webkit-box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(67,35,68,0.20);
+    -moz-box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(67,35,68,0.20);
+    box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(67,35,68,0.20);
 }
 
 /* Forum page */
