@@ -2,6 +2,11 @@
 
 {% load static %}
 
+<!-- Leaflet.js css -->
+{% block css %}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
+{% endblock %}
+
 {% block title %} About {% endblock %}
 
 {% block content %}
@@ -142,13 +147,19 @@
             <div class="col-sm-12">
                 <p class="page-desc text-center">We have mentioned above that the best way to experience us and
                 our facility is to take the spin out, chat to us and have a walk around. So, we took the liberty of
-                adding the map and directions to us.</p>
+                adding the map and directions to us, to make it that bit easier for you to find us.</p>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-12">
-
+                <div id="map"></div>
             </div>
         </div>
     </div>
+{% endblock %}
+
+<!-- Leaflet.js javascript file & custom map javascript file to render same -->
+{% block script %}
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="{% static 'js/map.js' %}"></script>
 {% endblock %}

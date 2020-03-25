@@ -439,6 +439,10 @@ footer .row {
     max-width: none;
 }
 
+#map {
+    height: 400px;
+}
+
 /* Forum page */
 
 .posts {
