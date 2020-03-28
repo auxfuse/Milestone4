@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'Milestone4.wsgi.application'
 DB_URL = os.environ.get("DB_URL")
 if DB_URL in os.environ:
     DATABASES = {
-        "default": dj_database_url.parse(os.environ.get("DB_URL"))
+        "default": dj_database_url.parse(DB_URL)
     }
 else:
     print("Localhost sqlite3 being used.")
