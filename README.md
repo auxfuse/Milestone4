@@ -325,3 +325,8 @@ Detail deployment here...
 <p align="center">
     <img src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/img/logo.png" alt="PHP Logo">
 </p>
+
+# Notes: Delete before submission
+
+- default coach image obtained from https://static.thenounproject.com/png/363639-200.png and is a free to use vector download from the noun project.
+

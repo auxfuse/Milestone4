@@ -405,11 +405,21 @@ footer .row {
     padding-left: 1.5rem;
 }
 
+    /* Justifying content center on the coaches row to ensure any number of cards align centrally */
+.coaches .row {
+    justify-content: center;
+}
+
 .card-body-coach {
     min-height: 550px;
 }
 
+.card-img-coach {
+    text-align: center;
+}
+
 .card-img-coach img {
+    min-height: 259px;
     object-fit: contain;
     margin: 0 auto;
     border-radius: 1rem;
