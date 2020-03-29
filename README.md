@@ -330,3 +330,5 @@ Detail deployment here...
 
 - default coach image obtained from https://static.thenounproject.com/png/363639-200.png and is a free to use vector download from the noun project.
 
+- Flickr used to host images and then using urlfield in model to pass it to the template img src attribute for the admin of the website to update the coach information.
+
