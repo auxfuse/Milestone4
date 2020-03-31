@@ -36,22 +36,7 @@
                         <form action="{% url 'register' %}" method="POST">
                             {% csrf_token %}
                             <div class="form-group">
-                                <input type="text" id="first_name" name="first_name" class="form-control" placeholder="Enter First Name" required="">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="last_name" name="last_name" class="form-control" placeholder="Enter Last Name" required="">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="username" name="username" class="form-control" placeholder="Enter Username" required="">
-                            </div>
-                            <div class="form-group">
-                                <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" required="">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password" required="">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" id="password2" name="password2" class="form-control" placeholder="Re-Enter Password" required="">
+                                {{ form }}
                             </div>
                             <input type="submit" value="Register" class="btn btn-primary">
                         </form>

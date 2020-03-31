@@ -2,12 +2,14 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import logout
 from django.contrib.auth.models import User, auth
+from .forms import UserRegistrationForm
 
 
 # Create your views here.
 def register(request):
     context = {
-        'register_page': 'active'
+        'register_page': 'active',
+        'form': UserRegistrationForm
     }
 
     if request.method == 'POST':
