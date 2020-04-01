@@ -38,10 +38,7 @@
                         <form action="{% url 'login' %}" method="POST">
                             {% csrf_token %}
                             <div class="form-group">
-                                <input type="text" id="username" name="username" class="form-control" placeholder="Enter Username" required="">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password" required="">
+                                {{ form }}
                             </div>
                             <input type="submit" value="Login" class="btn btn-primary">
                         </form>
