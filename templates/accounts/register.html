@@ -5,47 +5,51 @@
 {% block title %} Login {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <h1 class="page-title text-center">Register</h1>
+    {% if user.is_authenticated %}
+        {% include 'partials/_error.html' %}
+    {% else %}
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="page-title text-center">Register</h1>
+                </div>
+                <div class="col-sm-12">
+                    <p class="page-desc text-center">Registering.........flesh this out a bit.....</p>
+                </div>
             </div>
-            <div class="col-sm-12">
-                <p class="page-desc text-center">Registering.........flesh this out a bit.....</p>
+            <div class="row">
+                <div class="col-sm-12 text-center brand-img">
+                    <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="PHP Logo">
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-12 text-center brand-img">
-                <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="PHP Logo">
-            </div>
-        </div>
-    </div>
 
-    <!-- Page/Form alerts for user visibility, injected via Jinja templating -->
-    {% include 'partials/_alerts.html' %}
+        <!-- Page/Form alerts for user visibility, injected via Jinja templating -->
+        {% include 'partials/_alerts.html' %}
 
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card form-card">
-                    <div class="card-header">
-                        <h4><i class="fas fa-user-plus"></i> Register</h4>
-                    </div>
-                    <div class="card-body">
-                        <!-- Form fields are without labels to be consistent with modern app design UX themes. -->
-                        <form action="{% url 'register' %}" method="POST">
-                            {% csrf_token %}
-                            <div class="form-group">
-                                {{ form }}
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card form-card">
+                        <div class="card-header">
+                            <h4><i class="fas fa-user-plus"></i> Register</h4>
+                        </div>
+                        <div class="card-body">
+                            <!-- Form fields are without labels to be consistent with modern app design UX themes. -->
+                            <form action="{% url 'register' %}" method="POST">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    {{ form }}
+                                </div>
+                                <input type="submit" value="Register" class="btn btn-primary">
+                            </form>
+                            <div class="register-link text-center">
+                                <a href="{% url 'login' %}">Already Registered? Login Here.</a>
                             </div>
-                            <input type="submit" value="Register" class="btn btn-primary">
-                        </form>
-                        <div class="register-link text-center">
-                            <a href="{% url 'login' %}">Already Registered? Login Here.</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    {% endif %}
 {% endblock %}

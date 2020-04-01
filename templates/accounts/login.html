@@ -5,49 +5,55 @@
 {% block title %} Login {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <h1 class="page-title text-center">Login</h1>
+    <!-- Check if user is already logged in, and if yes product custom view otherwise
+     show default login page -->
+    {% if user.is_authenticated %}
+        {% include 'partials/_error.html' %}
+    {% else %}
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="page-title text-center">Login</h1>
+                </div>
+                <div class="col-sm-12">
+                    <p class="page-desc text-center">Logging in provides so many benefits, from joining in
+                    on our community forum discussions and creating your own, to viewing and paying
+                    for your membership options.</p>
+                </div>
             </div>
-            <div class="col-sm-12">
-                <p class="page-desc text-center">Logging in provides so many benefits, from joining in
-                on our community forum discussions and creating your own, to viewing and paying
-                for your membership options.</p>
+            <div class="row">
+                <div class="col-sm-12 text-center brand-img">
+                    <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="PHP Logo">
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-12 text-center brand-img">
-                <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="PHP Logo">
-            </div>
-        </div>
-    </div>
 
-    <!-- Page/Form alerts for user visibility, injected via Jinja as template -->
-    {% include 'partials/_alerts.html' %}
+        <!-- Page/Form alerts for user visibility, injected via Jinja as template -->
+        {% include 'partials/_alerts.html' %}
 
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card form-card">
-                    <div class="card-header">
-                        <h4><i class="fas fa-user-lock"></i> Login</h4>
-                    </div>
-                    <div class="card-body">
-                        <!-- Form fields are without labels to be consistent with modern app design UX themes. -->
-                        <form action="{% url 'login' %}" method="POST">
-                            {% csrf_token %}
-                            <div class="form-group">
-                                {{ form }}
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card form-card">
+                        <div class="card-header">
+                            <h4><i class="fas fa-user-lock"></i> Login</h4>
+                        </div>
+                        <div class="card-body">
+                            <!-- Form fields are without labels to be consistent with modern app design UX themes. -->
+                            <form action="{% url 'login' %}" method="POST">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    {{ form }}
+                                </div>
+                                <input type="submit" value="Login" class="btn btn-primary">
+                            </form>
+                            <div class="register-link text-center">
+                                <a href="{% url 'register' %}">No Login? Register Here.</a>
                             </div>
-                            <input type="submit" value="Login" class="btn btn-primary">
-                        </form>
-                        <div class="register-link text-center">
-                            <a href="{% url 'register' %}">No Login? Register Here.</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    {% endif %}
 {% endblock %}
