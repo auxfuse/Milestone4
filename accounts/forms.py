@@ -39,7 +39,8 @@ class UserRegistrationForm(UserCreationForm):
         widgets = {
             'first_name': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Enter First Name'
+                'placeholder': 'Enter First Name',
+                'autofocus': 'True'
             }),
             'last_name': forms.TextInput(attrs={
                 'class': 'form-control',
