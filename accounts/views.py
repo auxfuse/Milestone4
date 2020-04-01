@@ -18,11 +18,11 @@ def register(request):
         last_name = request.POST['last_name']
         username = request.POST['username']
         email = request.POST['email']
-        password = request.POST['password']
+        password1 = request.POST['password1']
         password2 = request.POST['password2']
 
         # Check Password match
-        if password == password2:
+        if password1 == password2:
             # Check if username is unique
             if User.objects.filter(username=username).exists():
                 messages.error(request, 'Username already used.')
@@ -38,7 +38,7 @@ def register(request):
                     last_name=last_name,
                     username=username,
                     email=email,
-                    password=password
+                    password=password1
                 )
                 user.save()
                 auth.login(request, user)
@@ -66,7 +66,7 @@ def login(request):
             password=password
         )
 
-        # Check if user exists & login if yes otherwise show error.
+        # Check if user exists & if yes login, otherwise show error.
         if user is not None:
             auth.login(request, user)
             messages.success(request, 'Successfully logged in.')
