@@ -47,6 +47,9 @@ def register(request):
         else:
             messages.error(request, 'Passwords did not match, try again.')
             return redirect('register')
+    elif request.user.is_authenticated:
+        messages.error(request, 'You are logged in already!')
+        return render(request, 'accounts/register.html', context)
     else:
         return render(request, 'accounts/register.html', context)
 
@@ -75,6 +78,9 @@ def login(request):
         else:
             messages.error(request, 'Invalid Login details.')
             return redirect('login')
+    elif request.user.is_authenticated:
+        messages.error(request, 'You are logged in already!')
+        return render(request, 'accounts/register.html', context)
     else:
         return render(request, 'accounts/login.html', context)
 
