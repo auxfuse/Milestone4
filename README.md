@@ -265,6 +265,10 @@ The project boasts several key features:
 
 Defensive design for this application was...
 
+* On registration & login functions, several defensive elements are at play. Between checking the unique fields are in fact unique, to testing if the user is logged in already when attempting to get to both of these views via a browser url injection. Error messaging and the use of a partials components work in conjunction with each other to detail to the user the type of error they have.
+    
+    For example, if a user is already logged in, and attempts to acces the login page via `https://php-barbell.herokuapp.com/accounts/login` they are met with a custom partial `_error.html` template and an error message within detailing that they are already logged in and to use the navigation elements in the navbar to return to the normal flow of the site.
+
 ## Testing
 
 Testing was ...
