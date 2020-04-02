@@ -1,4 +1,4 @@
-// Typewriter
+// Typewriter animation global variables
 const words = [
     'Form',
     'Technique',
@@ -14,6 +14,11 @@ let currentText = '';
 let letter = '';
 
 (function type(){
+    /**
+     * Function to generate each word in the `words` list and create a typewriter
+     * animation looping and passing each character of the current word to the
+     * index page h2 element with the class name of `typewriter-txt`.
+     */
     if(count === words.length) {
       count = 0;
     }

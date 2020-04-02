@@ -7,6 +7,10 @@ from .forms import UserRegistrationForm, UserLogin
 
 # Create your views here.
 def register(request):
+    """Register User if username & email fields are unique and not already
+    taken, also check if password fields match. If all checks are made return
+    user to Index page with success message of registration and instant
+    login. If user is already logged in, display error message."""
     context = {
         'register_page': 'active',
         'form': UserRegistrationForm
@@ -23,7 +27,7 @@ def register(request):
 
         # Check Password match
         if password1 == password2:
-            # Check if username is unique
+            # Check if username & email are unique
             if User.objects.filter(username=username).exists():
                 messages.error(request, 'Username already used.')
                 return redirect('register')
@@ -55,6 +59,9 @@ def register(request):
 
 
 def login(request):
+    """Log user in and redirect to Index page with success message.
+    Display error messaging if already logged in, or if wrong credentials
+    used to log in with."""
     context = {
         'login_page': 'active',
         'form': UserLogin
@@ -78,6 +85,7 @@ def login(request):
         else:
             messages.error(request, 'Invalid Login details.')
             return redirect('login')
+
     elif request.user.is_authenticated:
         messages.error(request, 'You are logged in already!')
         return render(request, 'accounts/register.html', context)
@@ -93,6 +101,9 @@ def logout_view(request):
 
 
 def dashboard(request):
+    """Function to direct User to bespoke dashboard containing details
+    about Posts they own as well as commented on, & display any membership
+    options they may have purchased. """
     context = {
         'dashboard_page': 'active'
     }

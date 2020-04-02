@@ -3,7 +3,8 @@ from django import forms
 from django.utils import timezone
 from django.contrib.auth.models import User
 
-
+"""List of categories to be passed into dropdown of same name for each 
+post creation."""
 categories = [
     ('', ''),
     ('crossfit', 'Crossfit'),
@@ -18,8 +19,11 @@ categories = [
 ]
 
 
-# Create your models here.
+# Models
+
 class Post(models.Model):
+    """Model to define the fields required to create Forum Posts displayed in
+    Community Forum"""
     title = models.CharField(max_length=200)
     post = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)

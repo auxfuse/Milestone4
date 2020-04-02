@@ -1,6 +1,8 @@
 from django.db import models
 from datetime import datetime
 
+"""List of qualification to be passed into dropdown of same name for each 
+coach creation."""
 qualification = [
     ('', ''),
     ('cf lvl1 trainer', 'CF Lvl1 Trainer'),
@@ -15,8 +17,11 @@ qualification = [
 ]
 
 
-# Create your models here.
+# Models
+
 class StaffMember(models.Model):
+    """Model to define the fields required to create staff members in the
+    admin dashboard"""
     name = models.CharField(max_length=200)
     photo_url = models.URLField(default="https://static.thenounproject.com/png"
                                     "/363639-200.png")
