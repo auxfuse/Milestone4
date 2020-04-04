@@ -4,6 +4,37 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 class UserRegistrationForm(UserCreationForm):
+    first_name = forms.CharField(
+        required=True,
+        label='',
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter First Name'
+        })
+    )
+    last_name = forms.CharField(
+        required=True,
+        label='',
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter Last Name'
+        })
+    )
+    username = forms.CharField(
+        label='',
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter Username'
+        })
+    )
+    email = forms.EmailField(
+        required=True,
+        label='',
+        widget=forms.EmailInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter Email'
+        })
+    )
     password1 = forms.CharField(
         label='',
         widget=forms.PasswordInput(attrs={
@@ -15,15 +46,9 @@ class UserRegistrationForm(UserCreationForm):
         label='',
         widget=forms.PasswordInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Enter Password'
+            'placeholder': 'Re-Enter Password'
         })
     )
-
-    # Disable help text of User Creation Form.
-    def __init__(self, *args, **kwargs):
-        super(UserRegistrationForm, self).__init__(*args, **kwargs)
-        for fieldname in ['username', 'password1', 'password2']:
-            self.fields[fieldname].help_text = None
 
     class Meta:
         model = User
@@ -36,32 +61,14 @@ class UserRegistrationForm(UserCreationForm):
             'password2'
         ]
 
-        widgets = {
-            'first_name': forms.TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Enter First Name',
-                'autofocus': 'True'
-            }),
-            'last_name': forms.TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Enter Last Name'
-            }),
-            'email': forms.EmailInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Enter Email'
-            }),
-            'username': forms.TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Enter Username'
-            })
-        }
-
-        labels = {
-            'first_name': '',
-            'last_name': '',
-            'email': '',
-            'username': ''
-        }
+    """Disable help text of User Creation Form & set default autofocus to 
+    first_name."""
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for fieldname in ['username', 'password1', 'password2']:
+            self.fields[fieldname].help_text = None
+        self.fields['first_name'].widget.attrs['autofocus'] = True
+        self.fields['username'].widget.attrs['autofocus'] = False
 
 
 class UserLogin(forms.Form):
@@ -73,7 +80,6 @@ class UserLogin(forms.Form):
             'autofocus': 'True'
         })
     )
-
     password = forms.CharField(
         label='',
         widget=forms.PasswordInput(attrs={
