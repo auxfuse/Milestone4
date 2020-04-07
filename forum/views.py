@@ -26,4 +26,4 @@ def forum(request):
 
 def forum_post(request):
     """Create Forum Post."""
-    return render(request, 'forum/post.html')
+    return render(request, 'forum/create-post.html')
