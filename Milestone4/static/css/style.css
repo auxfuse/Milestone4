@@ -462,6 +462,12 @@ footer .row {
 
 /* Forum page */
 
+.create-post-btn {
+    /* Use of inline-block display method to ensure that button width expands to fit text within */
+    display: inline-block;
+    margin: 1rem 0 0;
+}
+
 .posts {
     margin-bottom: 1.5rem;
 }
