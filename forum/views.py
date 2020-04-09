@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.http import HttpResponse
 from .models import Post
+from .forms import CreatePost
 
 
 # Create your views here.
@@ -24,6 +25,15 @@ def forum(request):
     return render(request, 'forum/forum.html', context)
 
 
+def create_post(request):
+    """Render Create Post and Create Post for display to the Forum"""
+    context = {
+        'form': CreatePost
+    }
+
+    return render(request, 'forum/create-post.html', context)
+
+
 def forum_post(request):
     """Create Forum Post."""
-    return render(request, 'forum/create-post.html')
+    return render(request, 'forum/view-post.html')

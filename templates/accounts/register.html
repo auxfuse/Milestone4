@@ -6,6 +6,8 @@
 
 {% block content %}
     {% if user.is_authenticated %}
+        <!-- Check if user is already logged in, and if yes produce custom view otherwise
+        show default registration page -->
         {% include 'partials/_error.html' %}
     {% else %}
         <div class="container">

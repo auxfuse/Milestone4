@@ -5,10 +5,54 @@
 {% block title %} Create Post {% endblock %}
 
 {% block content %}
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container-fluid">
-            <h1 class="display-4">Forum Post</h1>
-            <p class="lead">This is where we will see post creation form.</p>
+    <!-- Check if user is logged in, if yes produce create post view, otherwise show custom
+     error view injected via partial. -->
+    {% if user.is_authenticated %}
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h2 class="view-title">Create Post</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <p class="view-desc">Add the details for your Post creation below and make it live by clicking on
+                    the "Post" button, which will then redirect you to view your new Post. To return to the Forum,
+                    simply select from the navigation above.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 text-center brand-img">
+                    <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="PHP Logo">
+                </div>
+            </div>
         </div>
-    </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card form-card">
+                        <div class="card-header">
+                            <h4><i class="fas fa-plus-circle"></i> Enter Post Detail</h4>
+                        </div>
+                        <div class="card-body">
+                            <!-- Form fields are without labels to be consistent with modern app design UX themes. -->
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    {{ form }}
+                                </div>
+                                <input type="submit" value="Create" class="btn btn-primary">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% else %}
+        {% include 'partials/_error.html' %}
+    {% endif %}
+
+
 {% endblock %}

@@ -5,7 +5,7 @@
 {% block title %} Login {% endblock %}
 
 {% block content %}
-    <!-- Check if user is already logged in, and if yes product custom view otherwise
+    <!-- Check if user is already logged in, and if yes produce custom error view otherwise
      show default login page -->
     {% if user.is_authenticated %}
         {% include 'partials/_error.html' %}
