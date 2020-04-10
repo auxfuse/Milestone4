@@ -514,6 +514,26 @@ footer .row {
     float: right;
 }
 
+/* Create Post page */
+
+    /* Font colors of categories select dropdown to ensure consistency with site theme. */
+#id_categories,
+#id_categories:not(:first-child) {
+    color: #000000;
+}
+
+#id_categories option:first-child {
+    color: #ad9d93;
+}
+
+#id_categories:invalid {
+    color: #ad9d93;
+}
+
+#id_categories:invalid option:not(:disabled) {
+    color: #000000;
+}
+
 /* Membership page */
 
 .services-list li {

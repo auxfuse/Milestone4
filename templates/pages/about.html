@@ -160,6 +160,6 @@
 
 <!-- Leaflet.js javascript file & custom map javascript file to render same -->
 {% block script %}
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
-    <script src="{% static 'js/map.js' %}"></script>
+    <script defer src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script defer src="{% static 'js/map.js' %}"></script>
 {% endblock %}
