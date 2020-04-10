@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.http import HttpResponse
 from .models import Post
@@ -26,7 +27,17 @@ def forum(request):
 
 
 def create_post(request):
+
     """Render Create Post and Create Post for display to the Forum"""
+    if request.method == 'POST':
+        create_post_form = CreatePost(request.POST)
+        if create_post_form.is_valid():
+            post = create_post_form.save(commit=False)
+            post.originator = request.user
+            post.save()
+            messages.success(request, 'Post added to the Forum!')
+            return redirect('forum-posts')
+
     context = {
         'form': CreatePost
     }

@@ -13,7 +13,7 @@ class CreatePost(forms.ModelForm):
         model = Post
         fields = [
             'title',
-            'post',
+            'post_text',
             'categories'
         ]
 
@@ -25,7 +25,7 @@ class CreatePost(forms.ModelForm):
             'placeholder': 'Enter Post Title'
         })
     )
-    post = forms.CharField(
+    post_text = forms.CharField(
         required=True,
         label='',
         widget=forms.Textarea(attrs={

@@ -24,7 +24,7 @@ class Post(models.Model):
     """Model to define the fields required to create Forum Posts displayed in
     Community Forum"""
     title = models.CharField(max_length=200)
-    post = models.TextField()
+    post_text = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
     categories = models.CharField(max_length=21, choices=categories)
     originator = models.ForeignKey(User, on_delete=models.CASCADE)
