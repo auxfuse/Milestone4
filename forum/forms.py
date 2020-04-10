@@ -3,6 +3,12 @@ from .models import Post
 
 
 class CreatePost(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['categories'].widget.attrs['class'] = 'form-control'
+        self.fields['categories'].label = ''
+        self.fields['categories'].required = True
+
     class Meta:
         model = Post
         fields = [
@@ -25,12 +31,5 @@ class CreatePost(forms.ModelForm):
         widget=forms.Textarea(attrs={
             'class': 'form-control',
             'placeholder': 'Add your Post Details'
-        })
-    )
-    categories = forms.ChoiceField(
-        required=True,
-        label='',
-        widget=forms.Select(attrs={
-            'class': 'form-control',
         })
     )

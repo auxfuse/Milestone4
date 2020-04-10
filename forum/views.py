@@ -34,6 +34,6 @@ def create_post(request):
     return render(request, 'forum/create-post.html', context)
 
 
-def forum_post(request):
+def view_post(request):
     """Create Forum Post."""
     return render(request, 'forum/view-post.html')
