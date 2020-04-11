@@ -30,13 +30,17 @@ def create_post(request):
 
     """Render Create Post and Create Post for display to the Forum"""
     if request.method == 'POST':
-        create_post_form = CreatePost(request.POST)
-        if create_post_form.is_valid():
-            post = create_post_form.save(commit=False)
-            post.originator = request.user
-            post.save()
-            messages.success(request, 'Post added to the Forum!')
-            return redirect('forum-posts')
+        # Get form values
+        create_post_form = Post.objects.create(
+            title=request.POST.get('title'),
+            post_text=request.POST.get('post_text'),
+            category=request.POST.get('category'),
+            originator=request.user
+        )
+
+        create_post_form.save()
+        messages.success(request, 'Post added to the Forum!')
+        return redirect('forum-posts')
 
     context = {
         'form': CreatePost

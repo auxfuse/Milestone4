@@ -517,20 +517,20 @@ footer .row {
 /* Create Post page */
 
     /* Font colors of categories select dropdown to ensure consistency with site theme. */
-#id_categories,
-#id_categories:not(:first-child) {
+#id_category,
+#id_category:not(:first-child) {
     color: #000000;
 }
 
-#id_categories option:first-child {
+#id_category option:first-child {
     color: #ad9d93;
 }
 
-#id_categories:invalid {
+#id_category:invalid {
     color: #ad9d93;
 }
 
-#id_categories:invalid option:not(:disabled) {
+#id_category:invalid option:not(:disabled) {
     color: #000000;
 }
 
