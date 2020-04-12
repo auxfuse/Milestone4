@@ -238,6 +238,7 @@ footer .row {
 }
 
     /* Bootstrap components custom styling */
+    /* Cards styled inline with Application theme */
 .card {
     background-color: #efeeee;
     margin: 3rem 1rem;
@@ -274,6 +275,12 @@ footer .row {
 
 .card-list {
     padding-left: 2.5rem;
+}
+
+    /* Pagination elements styled inline with Application theme */
+.pagination {
+    margin: 1rem auto 0;
+    justify-content: center;
 }
 
 /* Home page */

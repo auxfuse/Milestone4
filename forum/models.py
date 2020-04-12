@@ -31,3 +31,15 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class PostComment(models.Model):
+    """Model to define the fields required to create the Comments under a
+    community forum post"""
+    comment_text = models.TextField()
+    date_commented = models.DateTimeField(default=timezone.now)
+    commenter = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.comment_text

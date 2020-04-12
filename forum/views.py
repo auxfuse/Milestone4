@@ -31,7 +31,7 @@ def create_post(request):
     """Render Create Post and Create Post for display to the Forum"""
     if request.method == 'POST':
         # Get form values
-        create_post_form = Post.objects.create(
+        create_post_form = Post(
             title=request.POST.get('title'),
             post_text=request.POST.get('post_text'),
             category=request.POST.get('category'),
