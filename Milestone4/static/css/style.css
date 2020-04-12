@@ -283,6 +283,47 @@ footer .row {
     justify-content: center;
 }
 
+.page-link {
+    margin: 0 0.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    color: #6b3f6c;
+    -webkit-box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
+    -moz-box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
+    box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
+}
+
+.page-link:hover, .page-link:active, .page-link:focus {
+    color: #efeeee;
+    background: linear-gradient(195deg, #704271, #573158, #512a52);
+    -webkit-box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
+    -moz-box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
+    box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
+}
+
+.page-item.active .page-link {
+    background: linear-gradient(145deg, #7f4e80, #6b3f6c, #512a52);
+    color: #efeeee;
+}
+
+.paginator-page-cta {
+    color: #7f4e80;
+}
+
+.paginator-page-cta,
+.page-item.disabled .paginator-page-cta{
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+.paginator-page-cta:hover, .paginator-page-cta:active, .paginator-page-cta:focus {
+    color: #6b3f6c;
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
 /* Home page */
 
 .welcome-landing {

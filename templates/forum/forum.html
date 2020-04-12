@@ -64,13 +64,13 @@
                     <ul class="pagination">
                         {% if posts.has_previous %}
                             <li class="page-item">
-                                <a href="?forum-page={{ posts.previous_page_number }}" class="page-link">
+                                <a href="?forum-page={{ posts.previous_page_number }}" class="page-link paginator-page-cta">
                                     <span><i class="fas fa-angle-double-left"></i></span>
                                 </a>
                             </li>
                         {% else %}
                             <li class="disabled page-item">
-                                <span class="page-link"><i class="fas fa-angle-double-left"></i></span>
+                                <span class="page-link paginator-page-cta"><i class="fas fa-angle-double-left"></i></span>
                             </li>
                         {% endif %}
 
@@ -88,13 +88,13 @@
 
                         {% if posts.has_next %}
                             <li class="page-item">
-                                <a href="?page={{ posts.next_page_number }}" class="page-link">
+                                <a href="?page={{ posts.next_page_number }}" class="page-link paginator-page-cta">
                                     <span><i class="fas fa-angle-double-right"></i></span>
                                 </a>
                             </li>
                         {% else %}
                             <li class="page-item disabled">
-                                <span class="page-link"><i class="fas fa-angle-double-right"></i></span>
+                                <span class="page-link paginator-page-cta"><i class="fas fa-angle-double-right"></i></span>
                             </li>
                         {% endif %}
                     </ul>
