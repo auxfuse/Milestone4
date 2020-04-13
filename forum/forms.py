@@ -46,6 +46,7 @@ class CreateComment(forms.ModelForm):
         required=True,
         label='',
         widget=forms.Textarea(attrs={
+            'rows': 2,
             'class': 'form-control',
             'placeholder': 'Add your Comment Details'
         })

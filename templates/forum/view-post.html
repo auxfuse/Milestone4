@@ -5,13 +5,53 @@
 {% block title %} View Post {% endblock %}
 
 {% block content %}
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container-fluid">
-            <h1 class="display-4">Post Title</h1>
-            <p class="lead">{{ post.title }}</p>
-            <p class="lead">{{ post.post_text }}</p>
-            <p class="lead">{{ post.date_posted }}</p>
-            <p class="lead">{{ post.originator }}</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h1 class="page-title">{{ post.originator }}'s Post</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card card-post">
+                    <div class="card-body">
+                        <h5 class="post-title">Title: {{ post.title }}</h5>
+                        <p class="page-desc">{{ post.post_text }}</p>
+                        <small class="post-date text-muted"># {{ post.category }} - {{ post.date_posted|date:'d/m/Y' }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center brand-img">
+                <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="PHP Logo">
+            </div>
+        </div>
+    </div>
+
+    <!-- Page/Form alerts for user visibility, injected via Jinja as template -->
+    {% include 'partials/_alerts.html' %}
+
+    <!-- Comment Form -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card cta-card">
+                    <div class="card-header">
+                        <h4><i class="fas fa-comment-dots"></i> Add Comment</h4>
+                    </div>
+                    <div class="card-body">
+                        <!-- Form fields are without labels to be consistent with modern app design UX themes. -->
+                        <form action="#" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                {{ form }}
+                            </div>
+                            <input type="submit" value="Post" class="btn btn-primary comment-btn">
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

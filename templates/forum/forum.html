@@ -5,112 +5,117 @@
 {% block title %} Discussion {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 text-center">
-                <h2 class="view-title">The PHP Barbell Forum</h2>
+    <!-- Ensure user is logged in and if so show page content. -->
+    {% if user.is_authenticated %}
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h1 class="page-title">PHP Barbell Forum</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <p class="page-desc">Below you will find posts from our registered Users of this website.
+                    This is a great place to get acquainted with other members of PHP Barbell, although you
+                    may see some posts not relating to Olympic Weightlifting but pertaining to other modalities
+                    that the gym offers.</p>
+                    <p class="page-desc">To create a post, just click the button. Once added to the forum you
+                    will be able to engage with those who comment on it, edit the original post's details or
+                    even delete it if you wish.</p>
+                    <a href="{% url 'create-post' %}" class="create-post-btn btn btn-primary">Create Post</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 text-center brand-img">
+                    <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="PHP Logo">
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-12 text-center">
-                <p class="view-desc">Below you will find posts from our registered Users of this website.
-                This is a great place to get acquainted with other members of PHP Barbell, although you
-                may see some posts not relating to Olympic Weightlifting but pertaining to other modalities
-                that the gym offers.</p>
-                <p class="view-desc">To create a post, just click the button. Once added to the forum you
-                will be able to engage with those who comment on it, edit the original post's details or
-                even delete it if you wish.</p>
-                <a href="{% url 'create-post' %}" class="create-post-btn btn btn-primary">Create Post</a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12 text-center brand-img">
-                <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="PHP Logo">
-            </div>
-        </div>
-    </div>
 
-    <!-- Page/Form alerts for user visibility, injected via Jinja as template. -->
-    {% include 'partials/_alerts.html' %}
+        <!-- Page/Form alerts for user visibility, injected via Jinja as template. -->
+        {% include 'partials/_alerts.html' %}
 
-    <!-- Posts -->
-    <div class="container posts">
-        <div class="row">
-            <!-- Display Forum Posts if any available otherwise display "no posts" text to user. -->
-            {% if posts %}
-                {% for post in posts %}
-                    <div class="col-sm-12 col-lg-6">
-                        <div class="card card-post">
-                            <div class="card-body card-post-body">
-                                <!-- Anchor tag and empty span used allowing user to click anywhere
-                                 inside the card component to be brought to the full post. -->
-                                <a href="{% url 'view-post' post.id %}">
-                                    <span class="div-url-overlay"></span>
-                                </a>
-                                <p class="card-title">Posted by: <span class="post-originator">{{ post.originator }}</span></p>
-                                <h5 class="post-title">Title: {{ post.title }}</h5>
-                                <small class="post-date text-muted"># {{ post.category }} - {{ post.date_posted|date:'d/m/Y' }}</small>
+        <!-- Posts -->
+        <div class="container posts">
+            <div class="row">
+                <!-- Display Forum Posts if any available otherwise display "no posts" text to user. -->
+                {% if posts %}
+                    {% for post in posts %}
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="card card-post">
+                                <div class="card-body card-post-body">
+                                    <!-- Anchor tag and empty span used allowing user to click anywhere
+                                     inside the card component to be brought to the full post. -->
+                                    <a href="{% url 'view-post' post.id %}">
+                                        <span class="div-url-overlay"></span>
+                                    </a>
+                                    <p class="card-title">Posted by: <span class="post-originator">{{ post.originator }}</span></p>
+                                    <h5 class="post-title">Title: {{ post.title }}</h5>
+                                    <small class="post-date text-muted"># {{ post.category }} - {{ post.date_posted|date:'d/m/Y' }}</small>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
-            {% else %}
-                <div class="col-sm-12 text-center">
-                <p class="view-desc">No Posts to show. Why not be the first to create one?</p>
-            </div>
-            {% endif %}
-        </div>
-
-        <!-- Pagination display if number of posts is greater than 6. Paginator referenced from Brad Traversy Python Django Dev to
-        Deployment Udemy Course. Link to course: https://www.udemy.com/course/python-django-dev-to-deployment -->
-        <div class="row">
-            <div class="col-sm-12">
-                {% if posts.has_other_pages %}
-                    <ul class="pagination">
-                        <!-- Button icon to previous paginator page if paginator is in view. If there is another page to access, anchor
-                        tag used to navigate to same, otherwise user is on first page available and navigation disabled. -->
-                        {% if posts.has_previous %}
-                            <li class="page-item">
-                                <a href="?forum-page={{ posts.previous_page_number }}" class="page-link paginator-page-cta">
-                                    <span><i class="fas fa-angle-double-left"></i></span>
-                                </a>
-                            </li>
-                        {% else %}
-                            <li class="disabled page-item">
-                                <span class="page-link paginator-page-cta"><i class="fas fa-angle-double-left"></i></span>
-                            </li>
-                        {% endif %}
-
-                        <!-- Display max number of page range in paginator view. If current page, add class active to
-                        detail and highlight current page to user. -->
-                        {% for i in posts.paginator.page_range %}
-                            {% if posts.number == i %}
-                                <li class="page-item active">
-                                    <span class="page-link">{{ i }}<span class="sr-only">(current)</span></span>
-                                </li>
-                            {% else %}
-                                <li class="page-item">
-                                    <a href="?page={{ i }}" class="page-link">{{ i }}</a>
-                                </li>
-                            {% endif %}
-                        {% endfor %}
-
-                        <!-- Button icon to next paginator page if paginator is in view. If there is another page to access, anchor
-                        tag used to navigate to same, otherwise user is on last page available and navigation disabled. -->
-                        {% if posts.has_next %}
-                            <li class="page-item">
-                                <a href="?page={{ posts.next_page_number }}" class="page-link paginator-page-cta">
-                                    <span><i class="fas fa-angle-double-right"></i></span>
-                                </a>
-                            </li>
-                        {% else %}
-                            <li class="page-item disabled">
-                                <span class="page-link paginator-page-cta"><i class="fas fa-angle-double-right"></i></span>
-                            </li>
-                        {% endif %}
-                    </ul>
+                    {% endfor %}
+                {% else %}
+                    <div class="col-sm-12 text-center">
+                    <p class="page-desc">No Posts to show. Why not be the first to create one?</p>
+                </div>
                 {% endif %}
             </div>
+
+            <!-- Pagination display if number of posts is greater than 6. Paginator referenced from Brad Traversy Python Django Dev to
+            Deployment Udemy Course. Link to course: https://www.udemy.com/course/python-django-dev-to-deployment -->
+            <div class="row">
+                <div class="col-sm-12">
+                    {% if posts.has_other_pages %}
+                        <ul class="pagination">
+                            <!-- Button icon to previous paginator page if paginator is in view. If there is another page to access, anchor
+                            tag used to navigate to same, otherwise user is on first page available and navigation disabled. -->
+                            {% if posts.has_previous %}
+                                <li class="page-item">
+                                    <a href="?forum-page={{ posts.previous_page_number }}" class="page-link paginator-page-cta">
+                                        <span><i class="fas fa-angle-double-left"></i></span>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="disabled page-item">
+                                    <span class="page-link paginator-page-cta"><i class="fas fa-angle-double-left"></i></span>
+                                </li>
+                            {% endif %}
+
+                            <!-- Display max number of page range in paginator view. If current page, add class active to
+                            detail and highlight current page to user. -->
+                            {% for i in posts.paginator.page_range %}
+                                {% if posts.number == i %}
+                                    <li class="page-item active">
+                                        <span class="page-link">{{ i }}<span class="sr-only">(current)</span></span>
+                                    </li>
+                                {% else %}
+                                    <li class="page-item">
+                                        <a href="?page={{ i }}" class="page-link">{{ i }}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+
+                            <!-- Button icon to next paginator page if paginator is in view. If there is another page to access, anchor
+                            tag used to navigate to same, otherwise user is on last page available and navigation disabled. -->
+                            {% if posts.has_next %}
+                                <li class="page-item">
+                                    <a href="?page={{ posts.next_page_number }}" class="page-link paginator-page-cta">
+                                        <span><i class="fas fa-angle-double-right"></i></span>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled">
+                                    <span class="page-link paginator-page-cta"><i class="fas fa-angle-double-right"></i></span>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    {% endif %}
+                </div>
+            </div>
         </div>
-    </div>
+    {% else %}
+        {% include 'partials/_error.html' %}
+    {% endif %}
 {% endblock %}

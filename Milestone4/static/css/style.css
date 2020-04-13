@@ -544,15 +544,6 @@ footer .row {
     z-index: 1;
 }
 
-.view-title {
-    margin-top: 1rem;
-}
-
-.view-desc {
-    font-family: "Lato", sans-serif;
-    margin: 0.5rem;
-}
-
 .post-originator {
     font-size: 1.2rem;
     font-style: italic;
@@ -560,6 +551,12 @@ footer .row {
 
 .post-date {
     float: right;
+}
+
+/* View Post page */
+
+.comment-btn {
+    margin: 0 auto;
 }
 
 /* Create Post page */
