@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.http import HttpResponse
-from .models import Post
-from .forms import CreatePost
+from .models import Post, PostComment
+from .forms import CreatePost, CreateComment
 
 
 # Create your views here.
@@ -24,6 +24,20 @@ def forum(request):
     }
 
     return render(request, 'forum/forum.html', context)
+
+
+def view_post(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    post_comments = PostComment.objects.order_by('-date_commented')
+    """View Forum Post and render Comment Form & add comments to thread."""
+
+    context = {
+        'post': post,
+        'comments': post_comments,
+        'form': CreateComment
+    }
+
+    return render(request, 'forum/view-post.html', context)
 
 
 def create_post(request):
@@ -47,8 +61,3 @@ def create_post(request):
     }
 
     return render(request, 'forum/create-post.html', context)
-
-
-def view_post(request):
-    """Create Forum Post."""
-    return render(request, 'forum/view-post.html')

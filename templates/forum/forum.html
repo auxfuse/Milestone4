@@ -44,7 +44,7 @@
                             <div class="card-body card-post-body">
                                 <!-- Anchor tag and empty span used allowing user to click anywhere
                                  inside the card component to be brought to the full post. -->
-                                <a href="#">
+                                <a href="{% url 'view-post' post.id %}">
                                     <span class="div-url-overlay"></span>
                                 </a>
                                 <p class="card-title">Posted by: <span class="post-originator">{{ post.originator }}</span></p>

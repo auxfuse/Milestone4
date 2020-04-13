@@ -33,3 +33,20 @@ class CreatePost(forms.ModelForm):
             'placeholder': 'Add your Post Details'
         })
     )
+
+
+class CreateComment(forms.ModelForm):
+    class Meta:
+        model = PostComment
+        fields = [
+            'comment_text'
+        ]
+
+    comment_text = forms.CharField(
+        required=True,
+        label='',
+        widget=forms.Textarea(attrs={
+            'class': 'form-control',
+            'placeholder': 'Add your Comment Details'
+        })
+    )

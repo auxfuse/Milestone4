@@ -8,7 +8,10 @@
     <div class="jumbotron jumbotron-fluid">
         <div class="container-fluid">
             <h1 class="display-4">Post Title</h1>
-            <p class="lead">This is where we will see post details and allow others to comment on same.</p>
+            <p class="lead">{{ post.title }}</p>
+            <p class="lead">{{ post.post_text }}</p>
+            <p class="lead">{{ post.date_posted }}</p>
+            <p class="lead">{{ post.originator }}</p>
         </div>
     </div>
 {% endblock %}
