@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Post
+from .models import Post, PostComment
 
-# Register your models here.
+# Registered Models for Admin dashboard
 admin.site.register(Post)
+admin.site.register(PostComment)
