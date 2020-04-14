@@ -32,6 +32,24 @@
     <!-- Page/Form alerts for user visibility, injected via Jinja as template -->
     {% include 'partials/_alerts.html' %}
 
+    <!-- Render Comments -->
+    <div class="container">
+            <div class="row">
+                <!-- Display Post Comments if any available otherwise display "no comments" text to user. -->
+                {% if comments %}
+                    {% for comment in comments %}
+                        <div class="col-sm-12">
+                            <p>{{ comment.commenter }} | {{ comment.comment_text }} | {{ comment.date_commented }}</p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="col-sm-12 text-center">
+                    <p class="page-desc">No Comments to show. Why not be the first to create one?</p>
+                </div>
+                {% endif %}
+            </div>
+    </div>
+
     <!-- Comment Form -->
     <div class="container">
         <div class="row">

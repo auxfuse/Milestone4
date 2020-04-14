@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib import messages
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.http import HttpResponse
@@ -6,9 +6,10 @@ from .models import Post, PostComment
 from .forms import CreatePost, CreateComment
 
 
-# Create your views here.
+# Function Views
 def forum(request):
-
+    """Render Forum page and return all available posts with pagination and
+    search functionality."""
     forum_posts = Post.objects.order_by('-date_posted')
 
     # Paginator
@@ -16,8 +17,6 @@ def forum(request):
     page = request.GET.get('page')
     paged_posts = paginator.get_page(page)
 
-    """Render Forum page and return all available posts with pagination and
-    search functionality."""
     context = {
         'forum_page': 'active',
         'posts': paged_posts
@@ -27,9 +26,20 @@ def forum(request):
 
 
 def view_post(request, post_id):
-    post = get_object_or_404(Post, pk=post_id)
-    post_comments = PostComment.objects.order_by('-date_commented')
     """View Forum Post and render Comment Form & add comments to thread."""
+    post = get_object_or_404(Post, pk=post_id)
+    post_comments = PostComment.objects.filter(post_id=post_id).order_by(
+        '-date_commented')
+
+    if request.method == 'POST':
+        create_comment_form = PostComment(
+            comment_text=request.POST.get('comment_text'),
+            commenter=request.user,
+            post=post
+        )
+        create_comment_form.save()
+        messages.success(request, 'Comment added to Post')
+        return redirect('view-post', post_id)
 
     context = {
         'post': post,
@@ -41,7 +51,6 @@ def view_post(request, post_id):
 
 
 def create_post(request):
-
     """Render Create Post and Create Post for display to the Forum"""
     if request.method == 'POST':
         # Get form values
