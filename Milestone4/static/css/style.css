@@ -525,6 +525,10 @@ footer .row {
     margin: 1rem;
 }
 
+.card-post-body {
+    padding: 0.75rem 1.25rem;
+}
+
 .card-post-body:hover {
     border-radius: 1rem;
     -webkit-box-shadow: 10px 10px 20px 0 rgba(255, 37, 37, 0.15);
@@ -544,13 +548,27 @@ footer .row {
     z-index: 1;
 }
 
+.post-header{
+    margin: 0.5rem 0;
+}
+
+.post-header::after{
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    margin: 5px auto 0 0;
+    background: #ad9d93;
+}
+
 .post-originator {
     font-size: 1.2rem;
     font-style: italic;
 }
 
-.post-date {
-    float: right;
+.post-details {
+    display: block;
+    text-align: right;
 }
 
 /* View Post page */
@@ -669,7 +687,18 @@ footer .row {
         margin: 1rem auto 2.5rem;
     }
 
-    /* Re-size width of pseudo placed line break before commend details
+    /* Re-size width of pseudo placed line break after Post Card header
+     element in post card */
+    .post-header::after{
+        content: '';
+        display: block;
+        height: 1px;
+        width: 50%;
+        margin: 5px auto 0 0;
+        background: #ad9d93;
+    }
+
+    /* Re-size width of pseudo placed line break before comment details
      in comment card */
     .comment-details::before {
         content: '';
@@ -688,7 +717,7 @@ footer .row {
         width: 60%;
     }
 
-    /* Re-size width of pseudo placed line break before commend details
+    /* Re-size width of pseudo placed line break before comment details
      in comment card */
     .comment-details::before {
         content: '';
@@ -702,7 +731,7 @@ footer .row {
 
 @media (min-width: 961px) {
 
-    /* Re-size width of pseudo placed line break before commend details
+    /* Re-size width of pseudo placed line break before comment details
      in comment card */
     .comment-details::before {
         content: '';

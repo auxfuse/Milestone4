@@ -49,9 +49,9 @@
                                     <a href="{% url 'view-post' post.id %}">
                                         <span class="div-url-overlay"></span>
                                     </a>
-                                    <p class="card-title">Posted by: <span class="post-originator">{{ post.originator }}</span></p>
+                                    <p class="post-header">Posted by: <span class="post-originator">{{ post.originator }}</span></p>
                                     <h5 class="post-title">Title: {{ post.title }}</h5>
-                                    <small class="post-date text-muted"># {{ post.category }} - {{ post.date_posted|date:'d/m/Y' }}</small>
+                                    <small class="post-details text-muted"># {{ post.category }} - {{ post.date_posted|date:'d/m/Y' }}</small>
                                 </div>
                             </div>
                         </div>
