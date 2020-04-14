@@ -555,6 +555,44 @@ footer .row {
 
 /* View Post page */
 
+.comment-card {
+    background-color: #efeeee;
+    margin: 0.5rem 1rem;
+    border-radius: 1rem;
+    -webkit-box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(255, 37, 37, 0.25);
+    -moz-box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(255, 37, 37, 0.25);
+    box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(255, 37, 37, 0.25);
+    /* border-box clip path used to prevent background protruding past child elements */
+    background-clip: border-box;
+}
+
+.comment-card-body {
+    padding: 0.5rem 1.25rem;
+}
+
+.comment-text {
+    margin: 0 1rem;
+}
+
+.comment-details::before {
+    content: '';
+    display: flex;
+    height: 1px;
+    width: 100%;
+    margin: 3px 0 0 auto;
+    background: #ad9d93;
+}
+
+.comment-details {
+    display: block;
+    text-align: right;
+}
+
+.span-text {
+    font-style: italic;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
 .comment-btn {
     margin: 0 auto;
 }
@@ -630,6 +668,17 @@ footer .row {
         width: 60%;
         margin: 1rem auto 2.5rem;
     }
+
+    /* Re-size width of pseudo placed line break before commend details
+     in comment card */
+    .comment-details::before {
+        content: '';
+        display: flex;
+        height: 1px;
+        width: 50%;
+        margin: 3px 0 0 auto;
+        background: #ad9d93;
+    }
 }
 
 @media (min-width: 768px){
@@ -637,5 +686,30 @@ footer .row {
         /* Alerts */
     .alert {
         width: 60%;
+    }
+
+    /* Re-size width of pseudo placed line break before commend details
+     in comment card */
+    .comment-details::before {
+        content: '';
+        display: flex;
+        height: 1px;
+        width: 40%;
+        margin: 3px 0 0 auto;
+        background: #ad9d93;
+    }
+}
+
+@media (min-width: 961px) {
+
+    /* Re-size width of pseudo placed line break before commend details
+     in comment card */
+    .comment-details::before {
+        content: '';
+        display: flex;
+        height: 1px;
+        width: 30%;
+        margin: 3px 0 0 auto;
+        background: #ad9d93;
     }
 }

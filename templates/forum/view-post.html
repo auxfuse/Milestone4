@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load static %}
+{% load static humanize %}
 
 {% block title %} View Post {% endblock %}
 
@@ -39,7 +39,13 @@
                 {% if comments %}
                     {% for comment in comments %}
                         <div class="col-sm-12">
-                            <p>{{ comment.commenter }} | {{ comment.comment_text }} | {{ comment.date_commented }}</p>
+                            <div class="card comment-card">
+                                <div class="card-body comment-card-body">
+                                    <p class="comment-text">{{ comment.comment_text }}</p>
+                                    <small class="comment-details text-muted"><span class="span-text">Commented by:</span> {{ comment.commenter }} /
+                                        {{ comment.date_commented|naturaltime }}</small>
+                                </div>
+                            </div>
                         </div>
                     {% endfor %}
                 {% else %}
