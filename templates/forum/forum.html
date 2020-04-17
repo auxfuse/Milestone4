@@ -16,31 +16,20 @@
             <div class="row">
                 <div class="col-sm-12 text-center">
                     <p class="page-desc">Below you will find posts from our registered Users of this website.
-                    This is a great place to get acquainted with other members of PHP Barbell, although you
-                    may see some posts not relating to Olympic Weightlifting but pertaining to other modalities
-                    that the gym offers. Below you will also find the means to Filter the Posts seen by you per
-                    Category. This is a great way to quickly find a stream of like-minded posts created by our
-                    community members. Just select a category from the dropdown.....and click "Filter". Easy!</p>
+                        This is a great place to get acquainted with other members of PHP Barbell, although you
+                        may see some posts not relating to Olympic Weightlifting but pertaining to other modalities
+                        that the gym offers. Below you will also find the means to Filter the Posts seen by you per
+                        Category. This is a great way to quickly find a stream of like-minded posts created by our
+                        community members. Just select a category from the dropdown.....and click "Filter". Easy!</p>
                     <p class="page-desc">To create a post, just click the button. Once added to the forum you
-                    will be able to engage with those who comment on it, edit the original post's details or
-                    even delete it if you wish.</p>
+                        will be able to engage with those who comment on it, edit the original post's details or
+                        even delete it if you wish.</p>
                     <a href="{% url 'create-post' %}" class="create-post-btn btn btn-primary">Create Post</a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-12 text-center brand-img">
                     <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="PHP Logo">
-                </div>
-                <div class="col-sm-12 text-center">
-                    <!-- Form fields are without labels to be consistent with modern app design UX themes, and
-                    this is defined in the init method of the form class in forms.py file. -->
-                    <form action="{% url 'filtered-posts' %}" method="POST">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            {{ form }}
-                        </div>
-                        <input type="submit" value="Filter" class="btn btn-primary filter-btn">
-                    </form>
                 </div>
             </div>
         </div>
@@ -50,12 +39,24 @@
 
         <!-- Posts -->
         <div class="container posts">
-            <div class="row posts-row">
-                <div class="col-sm-12">
-                    <h2 class="page-subtitle text-center">Posts</h2>
+            <!-- Display Forum Posts & Filter Form if any available otherwise display "no posts" text to user. -->
+            {% if posts %}
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <!-- Form fields are without labels to be consistent with modern app design UX themes. -->
+                        <form action="{% url 'filtered-posts' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                {{ form }}
+                            </div>
+                            <input type="submit" value="Filter" class="btn btn-primary filter-btn">
+                        </form>
+                    </div>
                 </div>
-                <!-- Display Forum Posts if any available otherwise display "no posts" text to user. -->
-                {% if posts %}
+                <div class="row posts-row">
+                    <div class="col-sm-12">
+                        <h2 class="page-subtitle text-center">Posts</h2>
+                    </div>
                     {% for post in posts %}
                         <div class="col-sm-12 col-lg-6">
                             <div class="card card-post">
@@ -72,12 +73,12 @@
                             </div>
                         </div>
                     {% endfor %}
-                {% else %}
-                    <div class="col-sm-12 text-center">
+                </div>
+            {% else %}
+                <div class="col-sm-12 text-center">
                     <p class="page-desc">No Posts to show. Why not be the first to create one?</p>
                 </div>
-                {% endif %}
-            </div>
+            {% endif %}
 
             <!-- Pagination display if number of posts is greater than 6. Paginator referenced from Brad Traversy Python Django Dev to
             Deployment Udemy Course. Link to course: https://www.udemy.com/course/python-django-dev-to-deployment -->
