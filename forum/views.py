@@ -29,7 +29,18 @@ def forum(request):
 def filter_posts(request):
     """Display categorised results based on Filter selection by User on
     Forum page"""
-    return render(request, 'forum/filtered-posts.html')
+    queryset = Post.objects.order_by('-date_posted')
+
+    if 'category_filter' in request.GET:
+        category_filter = request.GET['category_filter']
+        if category_filter:
+            queryset = queryset.filter(category__iexact=category_filter)
+
+    context = {
+        'posts': queryset
+    }
+
+    return render(request, 'forum/filtered-posts.html', context)
 
 
 def view_post(request, post_id):
