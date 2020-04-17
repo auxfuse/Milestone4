@@ -510,6 +510,12 @@ footer .row {
 
 /* Forum page */
 
+    /* Ensure posts are displayed centrally at all times ensuring odd numbers are consistently
+    centered and maintaining the flow of the webpage */
+.posts-row {
+    justify-content: center;
+}
+
 .create-post-btn {
     /* Use of inline-block display method to ensure that button width expands to fit text within */
     display: inline-block;
@@ -687,6 +693,12 @@ footer .row {
         margin: 1rem auto 2.5rem;
     }
 
+    /* Adjustment of filter select field width on larger breakpoints */
+    .filter-field {
+        width: 50%;
+        margin: 0 auto 1rem;
+    }
+
     /* Re-size width of pseudo placed line break after Post Card header
      element in post card */
     .post-header::after{
@@ -715,6 +727,12 @@ footer .row {
         /* Alerts */
     .alert {
         width: 60%;
+    }
+
+    /* Adjustment of filter select field width on larger breakpoints */
+    .filter-field {
+        width: 70%;
+        margin: 0 auto 1rem;
     }
 
     /* Re-size width of pseudo placed line break before comment details

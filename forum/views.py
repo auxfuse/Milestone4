@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.http import HttpResponse
 from .models import Post, PostComment
-from .forms import CreatePost, CreateComment
+from .forms import CreatePost, CreateComment, FilterForm
 
 
 # Function Views
@@ -19,10 +19,17 @@ def forum(request):
 
     context = {
         'forum_page': 'active',
+        'form': FilterForm,
         'posts': paged_posts
     }
 
     return render(request, 'forum/forum.html', context)
+
+
+def filter_posts(request):
+    """Display categorised results based on Filter selection by User on
+    Forum page"""
+    return render(request, 'forum/filtered-posts.html')
 
 
 def view_post(request, post_id):
