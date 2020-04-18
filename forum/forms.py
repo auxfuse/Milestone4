@@ -1,16 +1,5 @@
 from django import forms
-from .models import Post, PostComment, categories
-
-
-class FilterForm(forms.Form):
-    category_filter = forms.ChoiceField(
-        choices=categories,
-        required=False,
-        label='',
-        widget=forms.Select(attrs={
-            'class': 'form-control filter-field'
-        })
-    )
+from .models import Post, PostComment
 
 
 class CreatePost(forms.ModelForm):

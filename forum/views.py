@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib import messages
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.http import HttpResponse
-from .models import Post, PostComment
-from .forms import CreatePost, CreateComment, FilterForm
+from .models import Post, PostComment, categories
+from .forms import CreatePost, CreateComment
 
 
 # Function Views
@@ -19,7 +19,7 @@ def forum(request):
 
     context = {
         'forum_page': 'active',
-        'form': FilterForm,
+        'categories': categories,
         'posts': paged_posts
     }
 
@@ -29,15 +29,15 @@ def forum(request):
 def filter_posts(request):
     """Display categorised results based on Filter selection by User on
     Forum page"""
-    queryset = Post.objects.order_by('-date_posted')
+    queryset_list = Post.objects.order_by('-date_posted')
 
-    if 'category_filter' in request.GET:
-        category_filter = request.GET['category_filter']
-        if category_filter:
-            queryset = queryset.filter(category__iexact=category_filter)
+    if 'category' in request.GET:
+        category = request.GET['category']
+        if category:
+            queryset_list = queryset_list.filter(category__iexact=category)
 
     context = {
-        'posts': queryset
+        'posts': queryset_list
     }
 
     return render(request, 'forum/filtered-posts.html', context)

@@ -44,10 +44,14 @@
                 <div class="row">
                     <div class="col-sm-12 text-center">
                         <!-- Form fields are without labels to be consistent with modern app design UX themes. -->
-                        <form action="{% url 'filtered-posts' %}" method="POST">
+                        <form action="{% url 'filtered-posts' %}">
                             {% csrf_token %}
                             <div class="form-group">
-                                {{ form }}
+                                <select class="form-control filter-field" name="category" id="category-filter">
+                                    {% for key,value in categories %}
+                                        <option value="{{ key }}">{{ value }}</option>
+                                    {% endfor %}
+                                </select>
                             </div>
                             <input type="submit" value="Filter" class="btn btn-primary filter-btn">
                         </form>
