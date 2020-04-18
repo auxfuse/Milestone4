@@ -579,6 +579,15 @@ footer .row {
 
 /* View Post page */
 
+.edit-post-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-post-cta {
+    font-family: "Roboto Condensed", sans-serif;
+}
+
 .comment-card {
     background-color: #efeeee;
     margin: 0.5rem 1rem;
