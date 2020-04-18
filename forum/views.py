@@ -93,3 +93,22 @@ def create_post(request):
     }
 
     return render(request, 'forum/create-post.html', context)
+
+
+def edit_post(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    if request.method == 'POST':
+        # Get form values
+        edit_form = CreatePost(request.POST, instance=post)
+        if edit_form.is_valid():
+            edit_form.save()
+            messages.success(request, 'Post updated!')
+            return redirect('view-post', post_id)
+
+    edit_form = CreatePost(instance=post)
+
+    context = {
+        'form': edit_form
+    }
+
+    return render(request, 'forum/edit-post.html', context)
