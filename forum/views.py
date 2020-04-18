@@ -1,7 +1,6 @@
-from django.shortcuts import render, redirect, get_object_or_404, reverse
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-from django.http import HttpResponse
 from .models import Post, PostComment, categories
 from .forms import CreatePost, CreateComment
 
@@ -9,7 +8,8 @@ from .forms import CreatePost, CreateComment
 # Function Views
 def forum(request):
     """Render Forum page and return all available posts with pagination and
-    search functionality."""
+    filter functionality. Filter option generated via 'categories' list in
+    models.py file."""
     forum_posts = Post.objects.order_by('-date_posted')
 
     # Paginator
@@ -28,7 +28,8 @@ def forum(request):
 
 def filter_posts(request):
     """Display categorised results based on Filter selection by User on
-    Forum page"""
+    Forum page. If user does not select viable category option, error message
+    shown and redirected back to forum page with detail."""
     queryset_list = Post.objects.order_by('-date_posted')
 
     if 'category' in request.GET:
@@ -72,7 +73,8 @@ def view_post(request, post_id):
 
 
 def create_post(request):
-    """Render Create Post and Create Post for display to the Forum"""
+    """Render create-post template and CreatePost form. Once form is filled
+    out, save and display to the Forum."""
     if request.method == 'POST':
         # Get form values
         create_post_form = Post(
