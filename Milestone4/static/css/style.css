@@ -695,7 +695,7 @@ footer .row {
 
     /* Adjustment of filter select field width on larger breakpoints */
     .filter-field {
-        width: 50%;
+        width: 70%;
         margin: 0 auto 1rem;
     }
 
@@ -729,12 +729,6 @@ footer .row {
         width: 60%;
     }
 
-    /* Adjustment of filter select field width on larger breakpoints */
-    .filter-field {
-        width: 70%;
-        margin: 0 auto 1rem;
-    }
-
     /* Re-size width of pseudo placed line break before comment details
      in comment card */
     .comment-details::before {
@@ -758,5 +752,14 @@ footer .row {
         width: 30%;
         margin: 3px 0 0 auto;
         background: #ad9d93;
+    }
+}
+
+@media (min-width: 991px){
+
+    /* Adjustment of filter select field width on larger breakpoints */
+    .filter-field {
+        width: 50%;
+        margin: 0 auto 1rem;
     }
 }

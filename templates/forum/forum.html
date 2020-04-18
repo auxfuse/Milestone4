@@ -47,6 +47,7 @@
                         <form action="{% url 'filtered-posts' %}">
                             {% csrf_token %}
                             <div class="form-group">
+                                <label for="category-filter">Choose Category to Filter Posts by:</label>
                                 <select class="form-control filter-field" name="category" id="category-filter">
                                     {% for key,value in categories %}
                                         <option value="{{ key }}">{{ value }}</option>

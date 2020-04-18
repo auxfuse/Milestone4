@@ -33,8 +33,11 @@ def filter_posts(request):
 
     if 'category' in request.GET:
         category = request.GET['category']
-        if category:
-            queryset_list = queryset_list.filter(category__iexact=category)
+        if category == '':
+            messages.error(request, 'Please select Post Category before '
+                                    'filtering!')
+            return redirect('forum-posts')
+        queryset_list = queryset_list.filter(category__iexact=category)
 
     context = {
         'posts': queryset_list
