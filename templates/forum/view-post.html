@@ -48,26 +48,77 @@
 
         <!-- Render Comments -->
         <div class="container">
-                <div class="row">
-                    <!-- Display Post Comments if any available otherwise display "no comments" text to user. -->
-                    {% if comments %}
-                        {% for comment in comments %}
-                            <div class="col-sm-12">
-                                <div class="card comment-card">
-                                    <div class="card-body comment-card-body">
-                                        <p class="comment-text">{{ comment.comment_text }}</p>
-                                        <small class="comment-details text-muted"><span class="span-text">Commented by:</span> {{ comment.commenter }} /
-                                            {{ comment.date_commented|naturaltime }}</small>
-                                    </div>
+            <div class="row">
+                <!-- Display Post Comments if any available otherwise display "no comments" text to user. -->
+                {% if comments %}
+                    {% for comment in comments %}
+                        <div class="col-sm-12">
+                            <div class="card comment-card">
+                                <div class="card-body comment-card-body">
+                                    <p class="comment-text">{{ comment.comment_text }}</p>
+                                    <small class="comment-details text-muted"><span class="span-text">Commented by:</span> {{ comment.commenter }} /
+                                        {{ comment.date_commented|naturaltime }}</small>
                                 </div>
                             </div>
-                        {% endfor %}
-                    {% else %}
-                        <div class="col-sm-12 text-center">
-                        <p class="page-desc">No Comments to show. Why not be the first to create one?</p>
-                    </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="col-sm-12 text-center">
+                    <p class="page-desc">No Comments to show. Why not be the first to create one?</p>
+                </div>
+                {% endif %}
+            </div>
+            <!-- Pagination display if number of posts is greater than 6. Paginator referenced from Brad Traversy Python Django Dev to
+            Deployment Udemy Course. Link to course: https://www.udemy.com/course/python-django-dev-to-deployment -->
+            <div class="row">
+                <div class="col-sm-12">
+                    {% if comments.has_other_pages %}
+                        <ul class="pagination">
+                            <!-- Button icon to previous paginator page if paginator is in view. If there is another page to access, anchor
+                            tag used to navigate to same, otherwise user is on first page available and navigation disabled. -->
+                            {% if comments.has_previous %}
+                                <li class="page-item">
+                                    <a href="?forum-page={{ comments.previous_page_number }}" class="page-link paginator-page-cta">
+                                        <span><i class="fas fa-angle-double-left"></i></span>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="disabled page-item">
+                                    <span class="page-link paginator-page-cta"><i class="fas fa-angle-double-left"></i></span>
+                                </li>
+                            {% endif %}
+
+                            <!-- Display max number of page range in paginator view. If current page, add class active to
+                            detail and highlight current page to user. -->
+                            {% for i in comments.paginator.page_range %}
+                                {% if comments.number == i %}
+                                    <li class="page-item active">
+                                        <span class="page-link">{{ i }}<span class="sr-only">(current)</span></span>
+                                    </li>
+                                {% else %}
+                                    <li class="page-item">
+                                        <a href="?page={{ i }}" class="page-link">{{ i }}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+
+                            <!-- Button icon to next paginator page if paginator is in view. If there is another page to access, anchor
+                            tag used to navigate to same, otherwise user is on last page available and navigation disabled. -->
+                            {% if comments.has_next %}
+                                <li class="page-item">
+                                    <a href="?page={{ comments.next_page_number }}" class="page-link paginator-page-cta">
+                                        <span><i class="fas fa-angle-double-right"></i></span>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled">
+                                    <span class="page-link paginator-page-cta"><i class="fas fa-angle-double-right"></i></span>
+                                </li>
+                            {% endif %}
+                        </ul>
                     {% endif %}
                 </div>
+            </div>
         </div>
 
         <!-- Comment Form -->

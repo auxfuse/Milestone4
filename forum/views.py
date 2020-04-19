@@ -53,6 +53,11 @@ def view_post(request, post_id):
     post_comments = PostComment.objects.filter(post_id=post_id).order_by(
         '-date_commented')
 
+    # Comments Paginator
+    paginator = Paginator(post_comments, 8)
+    page = request.GET.get('page')
+    paged_comments = paginator.get_page(page)
+
     if request.method == 'POST':
         create_comment_form = PostComment(
             comment_text=request.POST.get('comment_text'),
@@ -65,7 +70,7 @@ def view_post(request, post_id):
 
     context = {
         'post': post,
-        'comments': post_comments,
+        'comments': paged_comments,
         'form': CreateComment
     }
 
