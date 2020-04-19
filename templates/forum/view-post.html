@@ -12,6 +12,10 @@
             <div class="row">
                 <div class="col-sm-12 text-center">
                     <h1 class="page-title">{{ post.originator }}'s Post</h1>
+                    {% if user == post.originator %}
+                        <p class="page-desc">Click on the "<i class="fas fa-cog"></i>" icon in the post below to
+                        edit/delete this post.</p>
+                    {% endif %}
                 </div>
             </div>
             <div class="row">
