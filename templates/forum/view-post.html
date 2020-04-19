@@ -5,88 +5,94 @@
 {% block title %} View Post {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 text-center">
-                <h1 class="page-title">{{ post.originator }}'s Post</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card card-post">
-                    <div class="card-body">
-                        <h5 class="post-title">{{ post.title }}</h5>
-                        <p class="page-desc">{{ post.post_text }}</p>
-                        {% if user == post.originator %}
-                            <div class="row d-flex post-footer">
-                                <div class="col-sm-12 col-md-6 order-sm-2 order-md-1">
-                                   <span class="edit-post-cta"><a href="{% url 'edit-post' post.id %}">Edit</a></span>
-                                </div>
-                                <div class="col-sm-12 col-md 6 order-sm-1 order-md-2">
-                                    <small class="text-muted post-details"># {{ post.category }} - {{ post.date_posted|date:'d/m/Y' }}</small>
-                                </div>
-                            </div>
-                        {% else %}
-                            <small class="post-details text-muted"># {{ post.category }} - {{ post.date_posted|date:'d/m/Y' }}</small>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12 text-center brand-img">
-                <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="PHP Logo">
-            </div>
-        </div>
-    </div>
-
-    <!-- Page/Form alerts for user visibility, injected via Jinja as template -->
-    {% include 'partials/_alerts.html' %}
-
-    <!-- Render Comments -->
-    <div class="container">
+    <!-- Check if user is logged in, if yes produce create post view, otherwise show custom
+     error view injected via partial. -->
+    {% if user.is_authenticated %}
+        <div class="container">
             <div class="row">
-                <!-- Display Post Comments if any available otherwise display "no comments" text to user. -->
-                {% if comments %}
-                    {% for comment in comments %}
-                        <div class="col-sm-12">
-                            <div class="card comment-card">
-                                <div class="card-body comment-card-body">
-                                    <p class="comment-text">{{ comment.comment_text }}</p>
-                                    <small class="comment-details text-muted"><span class="span-text">Commented by:</span> {{ comment.commenter }} /
-                                        {{ comment.date_commented|naturaltime }}</small>
+                <div class="col-sm-12 text-center">
+                    <h1 class="page-title">{{ post.originator }}'s Post</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card card-post">
+                        <div class="card-body">
+                            <h5 class="post-title">{{ post.title }}</h5>
+                            <p class="page-desc">{{ post.post_text }}</p>
+                            {% if user == post.originator %}
+                                <div class="row d-flex post-footer">
+                                    <div class="col-sm-12 col-md-6 order-sm-2 order-md-1">
+                                       <span class="edit-post-cta"><a href="{% url 'edit-post' post.id %}">Edit</a></span>
+                                    </div>
+                                    <div class="col-sm-12 col-md 6 order-sm-1 order-md-2">
+                                        <small class="text-muted post-details"># {{ post.category }} - {{ post.date_posted|date:'d/m/Y' }}</small>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <small class="post-details text-muted"># {{ post.category }} - {{ post.date_posted|date:'d/m/Y' }}</small>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 text-center brand-img">
+                    <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="PHP Logo">
+                </div>
+            </div>
+        </div>
+
+        <!-- Page/Form alerts for user visibility, injected via Jinja as template -->
+        {% include 'partials/_alerts.html' %}
+
+        <!-- Render Comments -->
+        <div class="container">
+                <div class="row">
+                    <!-- Display Post Comments if any available otherwise display "no comments" text to user. -->
+                    {% if comments %}
+                        {% for comment in comments %}
+                            <div class="col-sm-12">
+                                <div class="card comment-card">
+                                    <div class="card-body comment-card-body">
+                                        <p class="comment-text">{{ comment.comment_text }}</p>
+                                        <small class="comment-details text-muted"><span class="span-text">Commented by:</span> {{ comment.commenter }} /
+                                            {{ comment.date_commented|naturaltime }}</small>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    {% endfor %}
-                {% else %}
-                    <div class="col-sm-12 text-center">
-                    <p class="page-desc">No Comments to show. Why not be the first to create one?</p>
-                </div>
-                {% endif %}
-            </div>
-    </div>
-
-    <!-- Comment Form -->
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card cta-card">
-                    <div class="card-header">
-                        <h4><i class="fas fa-comment-dots"></i> Add Comment</h4>
+                        {% endfor %}
+                    {% else %}
+                        <div class="col-sm-12 text-center">
+                        <p class="page-desc">No Comments to show. Why not be the first to create one?</p>
                     </div>
-                    <div class="card-body">
-                        <!-- Form fields are without labels to be consistent with modern app design UX themes. -->
-                        <form action="#" method="POST">
-                            {% csrf_token %}
-                            <div class="form-group">
-                                {{ form }}
-                            </div>
-                            <input type="submit" value="Post" class="btn btn-primary comment-btn">
-                        </form>
+                    {% endif %}
+                </div>
+        </div>
+
+        <!-- Comment Form -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card cta-card">
+                        <div class="card-header">
+                            <h4><i class="fas fa-comment-dots"></i> Add Comment</h4>
+                        </div>
+                        <div class="card-body">
+                            <!-- Form fields are without labels to be consistent with modern app design UX themes. -->
+                            <form action="#" method="POST">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    {{ form }}
+                                </div>
+                                <input type="submit" value="Post" class="btn btn-primary comment-btn">
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    {% else %}
+        {% include 'partials/_error.html' %}
+    {% endif %}
 {% endblock %}
