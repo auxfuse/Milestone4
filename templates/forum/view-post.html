@@ -22,10 +22,12 @@
                             <p class="page-desc">{{ post.post_text }}</p>
                             {% if user == post.originator %}
                                 <div class="row d-flex post-footer">
-                                    <div class="col-sm-12 col-md-6 order-sm-2 order-md-1">
-                                       <span class="edit-post-cta"><a href="{% url 'edit-post' post.id %}">Edit</a></span>
+                                    <div class="col-sm-12 col-md-6 order-2 order-md-1">
+                                       <span class="edit-post-cta">
+                                           <a href="{% url 'edit-post' post.id %}" class="edit-link"><i class="fas fa-cog"></i></a>
+                                       </span>
                                     </div>
-                                    <div class="col-sm-12 col-md 6 order-sm-1 order-md-2">
+                                    <div class="col-sm-12 col-md 6 order-1 order-md-2">
                                         <small class="text-muted post-details"># {{ post.category }} - {{ post.date_posted|date:'d/m/Y' }}</small>
                                     </div>
                                 </div>
