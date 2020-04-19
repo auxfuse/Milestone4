@@ -117,9 +117,13 @@ def edit_post(request, post_id):
 
 def del_post(request, post_id):
     """Allow user to delete post owned by them and redirect with message of
-    action back to forum-post template."""
+    action back to forum-post template. If any other user attempts to delete
+    post, throw error message """
     post = get_object_or_404(Post, pk=post_id)
 
-    post.delete()
-    messages.success(request, 'Post Deleted!')
+    if request.user == post.originator:
+        post.delete()
+        messages.success(request, 'Post Deleted!')
+        return redirect('forum-posts')
+    messages.error(request, 'You are not the owner of this post.')
     return redirect('forum-posts')
