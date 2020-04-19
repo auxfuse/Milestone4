@@ -572,6 +572,10 @@ footer .row {
     font-style: italic;
 }
 
+.post-footer div .post-details {
+    text-align: right;
+}
+
 .post-details {
     display: block;
     text-align: right;
