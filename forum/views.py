@@ -108,7 +108,18 @@ def edit_post(request, post_id):
     edit_form = CreatePost(instance=post)
 
     context = {
-        'form': edit_form
+        'form': edit_form,
+        'post': post
     }
 
     return render(request, 'forum/edit-post.html', context)
+
+
+def del_post(request, post_id):
+    """Allow user to delete post owned by them and redirect with message of
+    action back to forum-post template."""
+    post = get_object_or_404(Post, pk=post_id)
+
+    post.delete()
+    messages.success(request, 'Post Deleted!')
+    return redirect('forum-posts')
