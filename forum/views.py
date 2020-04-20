@@ -105,7 +105,6 @@ def edit_post(request, post_id):
 
     # Ensure user navigating to edit-post is the originator for same.
     if request.user != post.originator:
-        print(request.user)
         messages.error(request, 'You do not have access to that Post!')
         return redirect('forum-posts')
 
