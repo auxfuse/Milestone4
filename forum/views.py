@@ -101,6 +101,12 @@ def create_post(request):
 
 
 def edit_post(request, post_id):
+    # Ensure user navigating to edit-post is the originator for same.
+    if request.user != Post.originator:
+        messages.error(request, 'You do not have access to that Post!')
+        return redirect('forum-posts')
+
+    # Else render as normal.
     post = get_object_or_404(Post, pk=post_id)
     if request.method == 'POST':
         # Get form values
