@@ -46,9 +46,26 @@
                                 </div>
                                 <input type="submit" value="Update" class="btn btn-primary">
                             </form>
-                            <a href="{% url 'del-post' post.id %}">Delete Post</a>
+                        </div>
+                        <!-- Delete confirmation. User is prompted to click on a "delete" twice, 1st opens up the dialog
+                        explaining the functionality of the delete, 2nd Delete actually confirms action and deletes post. -->
+                        <div class="edit-post-footer text-center">
+                            <div class="open-del">
+                                <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                                   aria-controls="collapseExample">Delete Post</a>
+                            </div>
+                            <div class="collapse confirm-del" id="collapseExample">
+                                <p class="page-desc del-desc">Deleting this post is an irreversible action, removing it from the Forum and any subsequent
+                                    comments it may have! If you are sure, confirm this action by pressing the Delete button below.</p>
+                                <a class="btn btn-danger btn-del" href="{% url 'del-post' post.id %}">Delete</a>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+
                 </div>
             </div>
         </div>
