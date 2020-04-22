@@ -12,7 +12,7 @@
         * [2. Color Scheme](#2-color-scheme)
         * [3. Logo](#3-logo)
         * [4. Geometry](#4-geometry)
-        * [5. Wireframing & Proposed Functionality per Page](#5-wireframing--proposed-functionality-per-page)
+        * [5. Wireframing & Proposed/Implemented Functionality per Page](#5-wireframing--proposedimplemented-functionality-per-page)
 * [Technology Used](#technology-used)
 * [Database](#database)
 * [Features](#features)
@@ -126,7 +126,7 @@ The Tertiary color of ![#ffc03d](https://placehold.it/15/ffc03d/000000?text=+) `
 Finally the Supplementary color of ![#efeeee](https://placehold.it/15/efeeee/000000?text=+) `#efeeee` is used as the default page body background and also as the font color used when contrast of black text is poor against the monochrome theme of the website, for example: the navigation list items in the navbar and footer.
 
 ##### 3. Logo
-The logo was provided by Dean Roche, the owner of PHP as a complimentary gesture to help and aid me in the development of this site and the content within. Without this asset, I would of spent a lengthy period of time creating a logo to my liking.
+The logo was provided by Dean Roche, the owner of PHP as a complimentary gesture to help and aid me in the development of this site and the content within. Without this asset, I would of spent a lengthy period of time creating a logo to my liking. the logo itself was not only used as the Branding image in the Navbar but also used as a Horizontal Visual Page Break and is rendered on every template to ensure consistency throughout the application.
 
 <p align="center">
     <img src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/img/logo.png" alt="PHP Logo">
@@ -140,7 +140,7 @@ A rule of symmetrical grouping was used horizontally and the rule of thirds was 
 
 Form inputs were kept label-less to keep with the Neumorphism trend and all form inputs use a placeholder as form label to still direct the user as to the information that the field requires. 
 
-##### 5. Wireframing & Proposed Functionality per Page
+##### 5. Wireframing & Proposed/Implemented Functionality per Page
 
 Wireframing for this project began with Pen and paper as all my projects tend to start, but ultimately Wireframes were created using Balsamiq. Each page or view of the application was rendered as a wireframe in both Small and Medium-Large viewports to show the difference between the aesthetics and showing how the elements per page would react to differing viewport sizes. Each element planned out in this stage has made it into the physical build of the application with not much deviation occurring from the original wireframe plans.
 
@@ -304,6 +304,144 @@ Wireframing for this project began with Pen and paper as all my projects tend to
 
    <p align="center">
       <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Login.png">
+   </p>
+   </details>
+
+***
+
+* Accessibility Template:
+
+   The .... 
+
+   <details>
+   <summary>Accessibility Template Wireframes</summary>
+
+   <p align="center">
+      <img height="350" src="">
+   </p>
+
+   <p align="center">
+      <img height="350" src="">
+   </p>
+   </details>
+
+***
+
+* Privacy Policy Template:
+
+   The .... 
+
+   <details>
+   <summary>Privacy Policy Template Wireframes</summary>
+
+   <p align="center">
+      <img height="350" src="">
+   </p>
+
+   <p align="center">
+      <img height="350" src="">
+   </p>
+   </details>
+
+***
+
+* Forum Template:
+
+   Being the forefront page for the Forum itself, the Forum template utilises multiple call to actions. User can only navigate and use any of the functionality of the Forum after they Login. If an attempt to navigate to the Forum is made without Logging in first, the check of `user.is_authenticated` returns False and renders the `_error.html` partial instead, otherwise the normal flow of the page is rendered and exposes the functionality within to the logged in User. The primary cta for this page is to Navigate a user to create a Post.
+   
+   Included in this template is also a Fitlering system. This is a single field form with a select element containing all the possible categories a Post could be. A user cannot submit a filter request without ensuring a category is selected beforehand, and if an attempt to do so is made an error alert is displayed via the `_alerts.html` partial template embedded in the template. The categories in the select field are rendered via a jinja expression `for` loop, which has been passed to the template in the context of the form view function. We check for both key and value of the key-value pair of the categories and render the `{{ value }}` of the category to the user in the template, while the `{{ key }}` is the check in our function that we pass into our querset when rendering the `filtered-posts.html` template.
+
+   ```html
+   {% for key,value in categories %}
+        <option value="{{ key }}">{{ value }}</option>
+   {% endfor %}
+   ```
+  
+  The physical user posts are rendered on the page in Ascending Date Order, meaning that the most recent post will be rendered first and the oldest post will be last. If there are no posts to display, a small helper text is displayed to the user detailing same. Each Post is rendered with an anchor element and blank span overlaid over the Post Card, and when clicked will trigger the function view `view_post` and navigate the user to view that particular post in it's entirety and any comments it may have etc.
+  
+  As this page is the repository for all Posts made, the page is capped at '6' posts before switching to a Paginated view to ensure that the `never-ending` scrolling scenario is not a feature of the design. Pagination is implemented and custom styled inline with the Application's theme and branding prevalent throughout, and using Pagination keeps User Experience at a maximum.
+
+   <details>
+   <summary>Forum Template Wireframes</summary>
+
+   <p align="center">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Forum.png">
+   </p>
+
+   <p align="center">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Forum.png">
+   </p>
+   </details>
+
+***
+
+* Create Post Template:
+
+   The .... 
+
+   <details>
+   <summary>Create Post Template Wireframes</summary>
+
+   <p align="center">
+      <img height="350" src="">
+   </p>
+
+   <p align="center">
+      <img height="350" src="">
+   </p>
+   </details>
+
+***
+
+* Filtered Posts Template:
+
+   The .... 
+
+   <details>
+   <summary>Filtered Posts Template Wireframes</summary>
+
+   <p align="center">
+      <img height="350" src="">
+   </p>
+
+   <p align="center">
+      <img height="350" src="">
+   </p>
+   </details>
+
+***
+
+* View Post Template:
+
+   The .... 
+
+   <details>
+   <summary>View Post Template Wireframes</summary>
+
+   <p align="center">
+      <img height="350" src="">
+   </p>
+
+   <p align="center">
+      <img height="350" src="">
+   </p>
+   </details>
+
+***
+
+* Edit Post Template:
+
+   The .... 
+
+   <details>
+   <summary>Edit Post Template Wireframes</summary>
+
+   <p align="center">
+      <img height="350" src="">
+   </p>
+
+   <p align="center">
+      <img height="350" src="">
    </p>
    </details>
 
