@@ -61,8 +61,10 @@ class UserRegistrationForm(UserCreationForm):
             'password2'
         ]
 
-    """Disable help text of User Creation Form & set default autofocus to 
-    first_name."""
+    """Disable help text of UserCreationForm (answer got from: 
+    'https://stackoverflow.com/questions/13202845/removing-help-text-from-django-usercreateform'
+    & set default autofocus to first_name instead of the default field of 
+    username. """
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for fieldname in ['username', 'password1', 'password2']:

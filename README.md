@@ -12,7 +12,7 @@
         * [2. Color Scheme](#2-color-scheme)
         * [3. Logo](#3-logo)
         * [4. Geometry](#4-geometry)
-        * [5. Wireframing](#5-wireframing)
+        * [5. Wireframing & Proposed Functionality per Page](#5-wireframing--proposed-functionality-per-page)
 * [Technology Used](#technology-used)
 * [Database](#database)
 * [Features](#features)
@@ -140,7 +140,7 @@ A rule of symmetrical grouping was used horizontally and the rule of thirds was 
 
 Form inputs were kept label-less to keep with the Neumorphism trend and all form inputs use a placeholder as form label to still direct the user as to the information that the field requires. 
 
-##### 5. Wireframing
+##### 5. Wireframing & Proposed Functionality per Page
 
 Wireframing for this project began with Pen and paper as all my projects tend to start, but ultimately Wireframes were created using Balsamiq. Each page or view of the application was rendered as a wireframe in both Small and Medium-Large viewports to show the difference between the aesthetics and showing how the elements per page would react to differing viewport sizes. Each element planned out in this stage has made it into the physical build of the application with not much deviation occurring from the original wireframe plans.
 
@@ -196,19 +196,114 @@ Wireframing for this project began with Pen and paper as all my projects tend to
 
    The About page features information regarding the Barbell club. The coaches section is rendered directly from the coaches app and model. The owner/administrator of the website has the ability to add/edit or remove coach/staff information, which will appear in this section for users to see.
    
-   This page also hosts a lightbox/carousel
+   This page also hosts a carousel to showcase the Facility and the Facility being used by members of the Gym. This is a staple integration of marketing techniques as it shows the facility in use. The Carousel code is referenced from the Bootstrap Framework and using custom CSS ensures that the images held within and displayed in the component maintain there aspect ratio proportionally throughout the applications responsive behaviour from mobile devices and up. A snippet of the css is shown here:
    
-   Map....
+  ```css
+  .carousel img {
+      object-fit: contain;
+      margin: 1rem 0;
+      height: 400px;
+      min-width: 100%;
+      max-width: none;
+  }
+  ```
+   
+   As well as the carousel to promote the Facility, I wanted to implement an interactive map to display to the user how easy it was to find the premises and how central it was to the City. Using Leaflet.js it was quite easy to embed a map into the `about.html` template, which was suggested to me by <a href="https://github.com/TravelTimN">Tim Nelson</a>, who during his time as Interactive Frontend Lead in Slack had done an extensive set of documentation on using the JavaScript Library as well as providing an example project to reference again. The documentation and example site can be found <a href="https://github.com/TravelTimN/ci-ifd-lead/tree/master/week4-leafletjs">Here</a>. Using Leaflet.js over Google Maps considerably reduced my work time in implementing the function, including but not restricted to not having to set an API key to set up the map itself and using a bespoke map tile provider in the form of ArcGIS. The map is responsive thanks to Bootstrap's utilisation of the Grid and a custom map marker was added in keeping with the Brand of the application and business. This custom js code was separated into it's own javascript file ensuring separation of concern and then it was injected via the jinja statement block tags added in the `base.html` template to ensure that this file only runs when the about template is rendered. 
 
    <details>
-   <summary>Home (Index) Template Wireframes</summary>
+   <summary>About Template Wireframes</summary>
 
    <p align="center">
-      <img height="350" src="" alt="About template mobile wireframe">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-About.png" alt="About template mobile wireframe">
    </p>
 
    <p align="center">
-      <img height="350" src="" alt="About template tablet-desktop wireframe">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-About.png" alt="About template tablet-desktop wireframe">
+   </p>
+   </details>
+
+***
+
+* Membership Template:
+
+   The .... 
+
+   <details>
+   <summary>Membership Template Wireframes</summary>
+
+   <p align="center">
+      <img height="350" src="">
+   </p>
+
+   <p align="center">
+      <img height="350" src="">
+   </p>
+   </details>
+
+***
+
+* Registration Template:
+
+   The Registration template contains some directional text, the brand image to break up the page a bit and the Registration Form. As with the Login form below, the Registration form is created as a class and is a built-in form from <a href="https://docs.djangoproject.com/en/3.0/topics/auth/default/#module-django.contrib.auth.forms">Django Contrib Auth ~ UserCreationForm</a> and was created using reference from the Django documentation linked.
+   
+   By default the `UserCreationForm` has 3 fields, username, password1 and password2. As planned for this project I also added fields for First Name, Last Name and Email to be captured and added to the User table in the database. All fields are required and a user cannot register by leaving any of the fields blank. Labels are excluded from the Registration form in keeping with the clean aesthetic of the application and in keeping with common design trends of late. Placeholders are used in-place of labels and this theme is consistent throughout all form fields rendered in the application.
+   
+   The original helper text that accompanies the `UserCreationForm` has been excluded also as it added an unnecessary dis-pleasing aesthetic to the form that personal preference from myself did not like, I also asked several of my peers for their direction with this design approach and it was positively received. Removing the helper text proved problematic at first but using <a href="https://stackoverflow.com/questions/13202845/removing-help-text-from-django-usercreateform">this post</a> from StackOverflow gave me the answer needed. As the original fields of the `UserCreationForm` had `username` as the default autofocus field, I also used the same dunder init method to set the default autofocus to the First Name field.
+   
+   ```python
+   """Disable help text of User Creation Form & set default autofocus to 
+   first_name."""
+   def __init__(self, *args, **kwargs):
+       super().__init__(*args, **kwargs)
+       for fieldname in ['username', 'password1', 'password2']:
+           self.fields[fieldname].help_text = None
+       self.fields['first_name'].widget.attrs['autofocus'] = True
+       self.fields['username'].widget.attrs['autofocus'] = False   
+   ```
+      
+   Defensive design is implemented in ensuring that usernames & emails used are unique aswell as ensuring that passwords 1 & 2 match. Coupled with the below jinja expression statement to check if a user is already logged in or not. If they are, we produce the `_error.html` partial indicating that they have attempted to navigate to this template in error and are potentially already logged in.
+   
+   ```html
+   {% if user.is_authenticated %}
+        {% include 'partials/_error.html' %}
+   {% else %}
+        <!-- Render normal Login template html -->
+   {% endif %}
+   ```
+  
+  Lastly, to ensure users are met with the appropriate flow of the application, if they have already registered there is a link directing them to the `login.html` template which is available just under the "Register" button on the form.
+
+   <details>
+   <summary>Registration Template Wireframes</summary>
+
+   <p align="center">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Register.png">
+   </p>
+
+   <p align="center">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Register.png">
+   </p>
+   </details>
+
+***
+
+* Login Template:
+
+   The Login Template is simple, some text, the brand image to break up the page a bit and the login form. The login form itself is generated via a Django Form class. It takes two fields, Username & Password. It checks the username submitted versus the list of Registered users to the site which is held via the PostGres Database, and the password for that user. If both are met entry to the application is permitted. If not, an error alert is displayed detailing that login details were submitted incorrect, and that is produced by passing a message to be stored in the Django Messages Framework and outputting same to the included partial `_alerts.html` on the `login.html` template.
+   
+   As with the registration page, defensive design elements are achieved in the login template itself using Jinja expression syntax to produce the `_error.html` partial template instead of the default `login.html` template if the expression returns `True` meaning the User is already logged into the application. This step is crucial in maintaining that a user cannot attempt to login multiple times resulting in poor User Experience of the site.
+
+   Lastly, in an attempt to direct users to the appropriate section of the application, included under the form "Submit" button is a link to the Registration page allowing users who have yet to register for the application navigate to same and register.
+   
+   <details>
+   <summary>Login Template Wireframes</summary>
+
+   <p align="center">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Login.png">
+   </p>
+
+   <p align="center">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Login.png">
    </p>
    </details>
 
