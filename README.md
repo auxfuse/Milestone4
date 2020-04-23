@@ -116,6 +116,7 @@ This project was actually inspired by a friend of mine and his new venture as a 
 * ![#432344](https://placehold.it/15/432344/000000?text=+) `#432344` - Secondary color
 * ![#ffc03d](https://placehold.it/15/ffc03d/000000?text=+) `#ffc03d` - Tertiary color
 * ![#efeeee](https://placehold.it/15/efeeee/000000?text=+) `#efeeee` - Supplementary color
+* ![#ff2525](https://placehold.it/15/ff2525/000000?text=+) `#ff2525` - Supplementary color 2
 
 The primary color of ![#323232](https://placehold.it/15/323232/000000?text=+) `#323232` was used to denote key componentry used in the application such as the Navbar & Footer. It's almost charcoal grey color emulates the color of the knurling found in many modern barbells and it ultimately was only a hue percentage off the logo dominate color that it became the obvious choice.
 
@@ -123,7 +124,9 @@ The secondary color of ![#432344](https://placehold.it/15/432344/000000?text=+) 
 
 The Tertiary color of ![#ffc03d](https://placehold.it/15/ffc03d/000000?text=+) `#ffc03d` and again using monochromatic techniques are used for animating the navigational elements in the navbar & footer partial components, and also providing a bright contrast on some of the custom horizontal block dividers. They are also used to show the user via highlight the current page being viewed in the navbar.
 
-Finally the Supplementary color of ![#efeeee](https://placehold.it/15/efeeee/000000?text=+) `#efeeee` is used as the default page body background and also as the font color used when contrast of black text is poor against the monochrome theme of the website, for example: the navigation list items in the navbar and footer.
+The first Supplementary color of ![#efeeee](https://placehold.it/15/efeeee/000000?text=+) `#efeeee` is used as the default page body background and also as the font color used when contrast of black text is poor against the monochrome theme of the website, for example: the navigation list items in the navbar and footer.
+
+The second Supplementary color of ![#ff2525](https://placehold.it/15/ff2525/000000?text=+) `#ff2525` is used as a visual indicator for the user between the primary and secondary focus elements on the page. An example of this can be seen on the `view-post.html` template where the Post in question has a box-shadow background enhancement of the Secondary color where as the comments attached to this post have this Supplementary color as their box-shadow background enhancement. This provides a nice contrasting aesthetic between those components.
 
 ##### 3. Logo
 The logo was provided by Dean Roche, the owner of PHP as a complimentary gesture to help and aid me in the development of this site and the content within. Without this asset, I would of spent a lengthy period of time creating a logo to my liking. the logo itself was not only used as the Branding image in the Navbar but also used as a Horizontal Visual Page Break and is rendered on every template to ensure consistency throughout the application.
@@ -174,7 +177,7 @@ Wireframing for this project began with Pen and paper as all my projects tend to
    
    If the user is already logged in the content of the call to action cards change to reflect the logged in status. This time around notifying the user of the Forum and Membership pages. This change was implemented after the wireframes were created due to a defensive design issue where it was unnecessary to show a user registration/login if they already have logged in, and as such does not appear in the wireframes.
    
-   The home page also contains the `_alerts.html` partial to deliver success messaging to the User on Registration, Login & Logout.
+   The home page also contains the `_alerts.html` partial to deliver success messaging to the User on Registration, Login & Logout aswell as any error messages to be displayed to the user when attempting to access restricted content as an example.
    
    The home page contains a custom javascript element in the form of the Hero image typewriter animation. This custom js function was separated into it's own javascript file and then it was injected via the jinja statement block tags added in the `base.html` template to ensure that this file only runs when the index template is rendered.
 
@@ -429,17 +432,25 @@ Wireframing for this project began with Pen and paper as all my projects tend to
 
 * View Post Template:
 
-   The .... 
-
+   Navigating to the `view-post.html` template can be achieved once a user is logged into the system and has clicked on any post in the `forum.html` or `filter-posts.html` templates. As with all other templates, we still check to ensure that a user is logged in before rendering the normal flow of the view, if a user is not logged in and attempts to gain access to this page, the `_error.html` template partial is rendered instead.
+   
+    If the user who is currently logged in clicks to view a post that they are the originator for, there is extra functionality added to the `view-post.html` template. There is some additional helper text along with a <a href="https://fontawesome.com/icons/cog?style=solid">Font Awesome Icon</a> of a Cog-wheel to denote how to access the post for editing/deletion.
+    
+    If the user who is currently logged does not own the post they are currently viewing then the Post renders without the originator functionality. The template itself plays host to some common elements shared between the types of users. For one, the `post originator` is displayed in the page-title at the top of the page and the entire post is displayed in a card, with the `title`, `post details`, `category` and `post date`.
+    
+    Comments are displayed under the brand image, and is paginated to 8 comments per page. Each comment is separated into their own card and has a differing color box-shadow to contrast the comments against the Post itself of ![#ff2525](https://placehold.it/15/ff2525/000000?text=+) `#ff2525`.
+    
+    The comment field is a single field for the user to add their comment details for the post and the model comprises a total of 4 fields, 3 of which are auto-populated on submission of a comment, `date_commented` which is set to the current datetime, a foreign key to the users table for the `commenter` field and then another foreign key into the Post table linking the comments to the current respective `post`. When a comment is added to the Post it is automatically added to the top of the list of comments, with the user redirected back to the same `view-post.html` template and a success message relayed to the user detailing the comment being added to the Post.
+    
    <details>
    <summary>View Post Template Wireframes</summary>
 
    <p align="center">
-      <img height="350" src="">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-View-Post.png">
    </p>
 
    <p align="center">
-      <img height="350" src="">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-View-Post.png">
    </p>
    </details>
 
@@ -447,17 +458,23 @@ Wireframing for this project began with Pen and paper as all my projects tend to
 
 * Edit Post Template:
 
-   The .... 
+   Access and navigation to this template is locked behind several defensive design elements. Firstly in the template itself we are checking to ensure that the user is logged in before attempting to navigate to this template, as before, if not logged in the `_error.html` partial template is rendered in place of the normal flow of the template. 
+   
+   Then as previously mentioned on the `view-post.html` template the icon `cog` to access the `edit-post.html` template is also hidden unless the currently logged in user is equal to the `post originator`. And even then any attempt to navigate to the `edit-post.html` template via a URL browser injections is met with a check on whether or not the currently logged in user is the Post originator, if not, then the user is redirected to the `index.html` template with an error message displayed to the user that they are not the owner of that post.
+   
+   When a user is the Post originator, the `edit-form.html` template renders with the `CreatePost` form and any values that it previously had originally via passing the `instance=post` keyword argument, in the form fields for editing. The only fields that can be edited are the same three fields visible to the user when creating a Post, `title`, `post_text` and `category`. When clicking Update the record will save the details to the database and redirect the user back to the `view-post.html` template with a success message displaying to the user of the update.
+   
+   The `edit-post.html` template also contains the only user delete function for a particular post. As a permanent irreversible action this action is behind a two-check and dual-confirmation in the form of a user needs to click on `Delete Post` link first which expands out a warning dialog under the `edit-post` form and then click a second highly contrasted in warning color of the supplementary color #2 ![#ff2525](https://placehold.it/15/ff2525/000000?text=+) `#ff2525` to delete the post. Once the post is deleted the user is redirected back to the `forum.html` template with a success message as to the action just performed. Again as with each element of the Forum, there is a check in place to ensure that the currently logged in user is the `post.originator`, if not or a user somehow manages to not be logged in, they are redirected back to the `index.html` template with an error message returned and displayed via `_alerts.html` partial. 
 
    <details>
    <summary>Edit Post Template Wireframes</summary>
 
    <p align="center">
-      <img height="350" src="">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Edit-Post.png">
    </p>
 
    <p align="center">
-      <img height="350" src="">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Edit-Post.png">
    </p>
    </details>
 

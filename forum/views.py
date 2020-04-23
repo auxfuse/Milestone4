@@ -113,7 +113,7 @@ def edit_post(request, post_id):
     # Ensure user navigating to edit-post is the originator for same.
     if request.user != post.originator:
         messages.error(request, 'You do not have access to that Post!')
-        return redirect('forum-posts')
+        return redirect('index')
 
     # Else render as normal and display edit-post.html template with form
     # values.
@@ -146,4 +146,4 @@ def del_post(request, post_id):
         messages.success(request, 'Post Deleted!')
         return redirect('forum-posts')
     messages.error(request, 'You are not the owner of this post.')
-    return redirect('forum-posts')
+    return redirect('index')
