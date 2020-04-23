@@ -311,17 +311,17 @@ Wireframing for this project began with Pen and paper as all my projects tend to
 
 * Accessibility Template:
 
-   The .... 
+   The Accessibility template is a completely static page. It encompasses the use of the card component from the Bootstrap framework as it is inherent throughout the site. It is a secondary accompanying page to the application that professional brands and established businesses will have included. The content within was obtained from Dean Roche, the owner of Precision Health Performance as an added asset when approached on the subject of what I could use for my project. 
 
    <details>
    <summary>Accessibility Template Wireframes</summary>
 
    <p align="center">
-      <img height="350" src="">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Accessibility-Statement.png">
    </p>
 
    <p align="center">
-      <img height="350" src="">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Accessibility-Statement.png">
    </p>
    </details>
 
@@ -329,17 +329,17 @@ Wireframing for this project began with Pen and paper as all my projects tend to
 
 * Privacy Policy Template:
 
-   The .... 
+   As with The Accessibility template, the Privacy Policy is a completely static page. It encompasses the use of the card component from the Bootstrap framework as it is inherent throughout the site. It is a secondary accompanying page to the application that professional brands and established businesses will have included. The content within was obtained from Dean Roche, the owner of Precision Health Performance as an added asset when approached on the subject of what I could use for my project. 
 
    <details>
    <summary>Privacy Policy Template Wireframes</summary>
 
    <p align="center">
-      <img height="350" src="">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Privacy-Policy.png">
    </p>
 
    <p align="center">
-      <img height="350" src="">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Privacy-Policy.png">
    </p>
    </details>
 
