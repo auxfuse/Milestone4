@@ -759,6 +759,13 @@ footer .row {
     border-bottom: 1px solid #575757;
 }
 
+/* Accessibility & Privacy Policy Pages */
+
+.card-subtitle {
+    font-family: "Roboto Condensed", sans-serif;
+    margin: 1rem 0;
+}
+
 /* Media Queries */
 
 @media (min-width: 575px){
