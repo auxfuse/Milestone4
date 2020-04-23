@@ -409,7 +409,7 @@ Wireframing for this project began with Pen and paper as all my projects tend to
 
 * Filtered Posts Template:
 
-   This template returns a filtered queryset of Posts dependent on the category selected by the user on the `forum.html` template. If no posts are available for that category, a small amount of text is detailed to the user to show same, otherwise the posts for the queryset are rendered with pagination in tow to ensure that similar design standards are concurrent throughout the application.
+   This template returns a filtered queryset of Posts dependent on the category selected by the user on the `forum.html` template. If no posts are available for that category, a small amount of text is detailed to the user to show same, otherwise the posts for the queryset are rendered with pagination in tow to ensure that similar design standards are concurrent throughout the application and saving on vital visual real estate of the page.
    
    As with the `forum.html` clicking on any of the posts returned in the queryset rendered will navigate the user to the `view-post.html` template to view, comment, and access the edit/delete settings for the post if they own same.
 
@@ -417,11 +417,11 @@ Wireframing for this project began with Pen and paper as all my projects tend to
    <summary>Filtered Posts Template Wireframes</summary>
 
    <p align="center">
-      <img height="350" src="">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Filter-Posts.png">
    </p>
 
    <p align="center">
-      <img height="350" src="">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Filter%20Posts.png">
    </p>
    </details>
 

@@ -29,7 +29,9 @@ def forum(request):
 def filter_posts(request):
     """Display categorised results based on Filter selection by User on
     Forum page. If user does not select viable category option, error message
-    shown and redirected back to forum page with detail."""
+    shown and redirected back to forum page with detail. Returned results are
+    paginated by 6 per page to save on vital real estate of application"""
+    global queryset_filter
     queryset_list = Post.objects.order_by('-date_posted')
 
     if 'category' in request.GET:
@@ -38,10 +40,15 @@ def filter_posts(request):
             messages.error(request, 'Please select Post Category before '
                                     'filtering!')
             return redirect('forum-posts')
-        queryset_list = queryset_list.filter(category__iexact=category)
+        queryset_filter = queryset_list.filter(category__iexact=category)
+
+    # Paginator
+    paginator = Paginator(queryset_filter, 6)
+    page = request.GET.get('page')
+    paged_posts = paginator.get_page(page)
 
     context = {
-        'posts': queryset_list
+        'posts': paged_posts
     }
 
     return render(request, 'forum/filtered-posts.html', context)
