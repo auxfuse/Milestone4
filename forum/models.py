@@ -23,7 +23,7 @@ categories = [
 class Post(models.Model):
     """Model to define the fields required to create Forum Posts displayed in
     Community Forum"""
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=150)
     post_text = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
     category = models.CharField(max_length=21, choices=categories)
