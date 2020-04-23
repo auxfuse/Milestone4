@@ -377,17 +377,31 @@ Wireframing for this project began with Pen and paper as all my projects tend to
 
 * Create Post Template:
 
-   The .... 
+   Navigation to the Create Post Template is locked behind an initial check to ensure that the user is first logged in. If not logged in, as with other similar pages, the `_error.html` partial will display instead of the normal page flow for when a user is logged in. The form itself is generated as a Django Form class and comprises of several input fields of `Post title`, `Post Details` and `Post Category` for the user to detail and two that populate on Post Submission of `Date Posted` and `Post Originator`.
+   
+   As detailed in the Database Schema, the `Date Posted` is autopopulated to the current date/time of the post submission and the `Post Originator` is a foreign key into the Users table to get the current Logged in User. The `Post Category` field choices are imported from the `categories` dict available in the models.py file of the app.  
+   
+   Each visible form field to the user has the required attribute assigned to them in the forms.py class Form `CreatePost`, including the Select Dropdown field of `Post Category` using the following dunder init method, which was needed as the Select widget attributes can only be set this way due to the nature of the choices import:
+   
+  ```Python
+  def __init__(self, *args, **kwargs):
+    super().__init__(*args, **kwargs)
+    self.fields['category'].widget.attrs['class'] = 'form-control'
+    self.fields['category'].label = ''
+    self.fields['category'].required = True 
+  ``` 
+  
+  Upon successful creation of a post, the user is navigated back to the `forum.html` template and a success message is rendered detailing the successful action.
 
    <details>
    <summary>Create Post Template Wireframes</summary>
 
    <p align="center">
-      <img height="350" src="">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Create-Post.png">
    </p>
 
    <p align="center">
-      <img height="350" src="">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Create-Post.png">
    </p>
    </details>
 
@@ -395,7 +409,9 @@ Wireframing for this project began with Pen and paper as all my projects tend to
 
 * Filtered Posts Template:
 
-   The .... 
+   This template returns a filtered queryset of Posts dependent on the category selected by the user on the `forum.html` template. If no posts are available for that category, a small amount of text is detailed to the user to show same, otherwise the posts for the queryset are rendered with pagination in tow to ensure that similar design standards are concurrent throughout the application.
+   
+   As with the `forum.html` clicking on any of the posts returned in the queryset rendered will navigate the user to the `view-post.html` template to view, comment, and access the edit/delete settings for the post if they own same.
 
    <details>
    <summary>Filtered Posts Template Wireframes</summary>
