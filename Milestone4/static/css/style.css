@@ -749,6 +749,13 @@ footer .row {
 }
 
     /* Membership plans */
+.membership-card:hover {
+    border-radius: 1rem;
+    -webkit-box-shadow: 10px 10px 20px 0 rgba(255, 37, 37, 0.15);
+    -moz-box-shadow: 10px 10px 20px 0 rgba(255, 37, 37, 0.15);
+    box-shadow: 10px 10px 20px 0 rgba(255, 37, 37, 0.15);
+}
+
 .membership-detail .brief-desc {
     padding: 0;
     min-height: 100px;
