@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'forum.apps.ForumConfig',
     'coaches.apps.CoachesConfig',
     'accounts.apps.AccountsConfig',
+    'membership.apps.MembershipConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
