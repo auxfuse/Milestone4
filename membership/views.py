@@ -4,7 +4,7 @@ from .models import Membership
 
 # Function Views
 def membership(request):
-    memberships = Membership.objects.all()
+    memberships = Membership.objects.all().order_by('price')
 
     context = {
         'membership_page': 'active',
