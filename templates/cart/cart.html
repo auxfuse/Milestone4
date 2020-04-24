@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} View Cart {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="page-title text-center">Review Cart</h1>
+            </div>
+            <div class="col-sm-12">
+                <p class="page-desc text-center">Lorem.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center brand-img">
+                <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="PHP Logo">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            {% if items in cart_items %}
+                {% for item in items %}
+                    {{ item.type }} Plan @ {{ item.price }}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
