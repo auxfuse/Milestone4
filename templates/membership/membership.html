@@ -9,7 +9,7 @@
                 <h1 class="page-title text-center">Membership</h1>
             </div>
             <div class="col-sm-12">
-                <p class="page-desc text-center">Put ultimate goal is to create a community of like-minded individuals and help them
+                <p class="page-desc text-center">Our ultimate goal is to create a community of like-minded individuals and help them
                 become the best version of themselves. By becoming a Member at PHP, you gain access to not only to our training facility,
                 the Barbell club and our coaches. You gain much more! Whether training, nutrition, prehab/rehab, crossfit or of course
                 Olympic Weightlifting, we are deliberate in our approach to being Precise, making you Healthier than ever and nurturing
@@ -21,9 +21,6 @@
                 <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="PHP Logo">
             </div>
         </div>
-    </div>
-
-    <div class="container services">
         <div class="row">
             <div class="col-sm-12">
                 <h2 class="page-subtitle text-center">Our Services include:</h2>
@@ -43,6 +40,35 @@
             <div class="col-sm-12 col-md-6 services-img">
                 <img class="img-fluid" src="{% static 'img/coach3.jpg' %}" alt="Barbell Club">
             </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2 class="page-subtitle text-center">Payment Plans</h2>
+            </div>
+            <div class="col-sm-12">
+                <p class="page-desc text-center">Each of the below has been trialed and researched to be the most effective
+                in terms of cost per plan! We offer a range of features that is common amongst each plan, such as introductory
+                meetings with the staff & facility, and Foundation classes all rolled into the packages. After that, the plans
+                below will detail what each of them offer.</p>
+            </div>
+            {% if memberships %}
+                {% for membership in memberships %}
+                    <div class="col-sm-12 col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4><i class="fas fa-euro-sign"></i> {{ membership.type }}</h4>
+                            </div>
+                            <div class="card-body membership-detail">
+                                <p class="brief-desc">{{ membership.brief_desc }}</p>
+                                <small class="brief-desc">€{{ membership.price }} / {{ membership.frequency }}</small>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
         </div>
     </div>
 {% endblock %}

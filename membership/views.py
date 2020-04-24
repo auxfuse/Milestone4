@@ -1,6 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Membership
 
 
 # Function Views
 def membership(request):
-    return render(request, 'membership/membership.html')
+    memberships = Membership.objects.all()
+
+    context = {
+        'membership_page': 'active',
+        'memberships': memberships
+    }
+
+    return render(request, 'membership/membership.html', context)
