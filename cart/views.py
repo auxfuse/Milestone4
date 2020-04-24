@@ -6,7 +6,10 @@ from django.contrib import messages
 def view_cart(request):
     """Render Cart template & cart contents if any membership has been
     selected by user"""
-    return render(request, 'cart/cart.html')
+    context = {
+        'cart_page': 'active'
+    }
+    return render(request, 'cart/cart.html', context)
 
 
 def add_to_cart(request, membership_id):
@@ -17,7 +20,7 @@ def add_to_cart(request, membership_id):
 
     request.session['cart'] = cart
     messages.success(request, 'Membership Plan added to Cart!')
-    return redirect('membership')
+    return redirect(reverse('membership'))
 
 
 def del_from_cart(request):
@@ -28,4 +31,4 @@ def del_from_cart(request):
     cart.clear()
     request.session['cart'] = cart
     messages.success(request, 'Cart has been emptied.')
-    return redirect('membership')
+    return redirect(reverse('membership'))
