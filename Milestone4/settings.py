@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'coaches.apps.CoachesConfig',
     'accounts.apps.AccountsConfig',
     'membership.apps.MembershipConfig',
+    'cart.apps.CartConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

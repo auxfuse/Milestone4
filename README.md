@@ -150,6 +150,16 @@ Wireframing for this project began with Pen and paper as all my projects tend to
 * Base Template:
 
    The base.html parent template contained all the default components for each child template to inherit from. All links were provided to third party icon providers, frameworks, stylesheets and script links. The navbar & footer partial components were created in their own html files and inserted into the base.html via the Jinja `include` statement to ensure separation of concern could occur for ease of scalability of the application elements. 
+   
+   The navbar partial template component contains all primary relevant navigation throughout the site. The navbar uses Bootstrap and the jQuery & Popper.js library to ensure it stays repsonsive and collapses into a toggler on medium screen sizes or less thus ensuring Mobile first design. The navigational items change depending on whether a user is logged in or not to ensure that the flow of the application is upheld. Each `nav-item` of the navbar highlights when the user navigates to a specific page, this is actually achieved through the view method of each template by passing the `active` class into the context of the render via an expression tag in the navbar, see example code; `{{ membership_page }}` passed into the class attribute actually renders as `active` when the view is in focus to the user:
+   
+   ```html
+   <li class="nav-item {{ membership_page }}">
+      <a class="nav-link" aria-label="Membership" href="{% url 'membership' %}">Membership</a>
+   </li>
+   ```
+  
+  The footer partial template component contains supplementary information pertaining to the website such as Privacy policy, Accessibility & Socials, and some information about myself as the Developer and it's intended use and purpose for `educational purposes`.
 
   Where appropriate, `block` statements were used for the Page titles, the main inheritance portion in the body and finally for any bespoke scripts that needed to be loaded on specific pages.
   ```html
