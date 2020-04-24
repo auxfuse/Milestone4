@@ -53,17 +53,24 @@
                 in terms of cost per plan! We offer a range of features that is common amongst each plan, such as introductory
                 meetings with the staff & facility, and Foundation classes all rolled into the packages. After that, the plans
                 below will detail what each of them offer.</p>
+                <p class="page-desc text-center">Just click on any of the plans below to add them to your cart, don't worry sales
+                aren't final until you checkout! You can only chose one option at a time, chose wisely.</p>
             </div>
             {% if memberships %}
                 {% for membership in memberships %}
                     <div class="col-sm-12 col-lg-4">
                         <div class="card">
+                            <!-- Anchor tag and empty span used allowing user to click anywhere
+                            inside the card component to be brought to add plan to cart. -->
+                            <a href="#">
+                                <span class="div-url-overlay"></span>
+                            </a>
                             <div class="card-header">
                                 <h4><i class="fas fa-euro-sign"></i> {{ membership.type }}</h4>
                             </div>
                             <div class="card-body membership-detail">
                                 <p class="brief-desc">{{ membership.brief_desc }}</p>
-                                <small class="brief-desc">€{{ membership.price }} / {{ membership.frequency }}</small>
+                                <p class="price-desc">€{{ membership.price }} / {{ membership.frequency }}</p>
                             </div>
                         </div>
                     </div>
