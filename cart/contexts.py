@@ -15,7 +15,7 @@ def cart_contents(request):
         total += membership.price
         cart_items.append(
             {
-                'id': membership_id,
+                'membership_id': membership_id,
                 'membership': membership,
             }
         )
@@ -24,4 +24,3 @@ def cart_contents(request):
         'cart_items': cart_items,
         'total': total
     }
-
