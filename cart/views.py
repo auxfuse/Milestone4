@@ -13,14 +13,16 @@ def view_cart(request):
 
 
 def add_to_cart(request, id):
-    print(id)
     """Add membership plan to cart"""
     plan_qty = 1
-
     cart = request.session.get('cart', {})
+
+    if cart.items():
+        messages.error(request, 'You already have added a Plan to your cart.')
+        return redirect('membership')
+
     cart[id] = cart.get(id, plan_qty)
 
-    print(cart[id])
     request.session['cart'] = cart
     messages.success(request, 'Membership Plan added to Cart!')
     return redirect(reverse('membership'))

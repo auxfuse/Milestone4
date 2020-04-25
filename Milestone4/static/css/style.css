@@ -769,6 +769,12 @@ footer .row {
     margin-bottom: 0;
 }
 
+.action-helper {
+    font-style: italic;
+    color: #131313;
+    border-bottom: 1px solid #ad9d93;
+}
+
 /* Login page */
 
 .form-card {

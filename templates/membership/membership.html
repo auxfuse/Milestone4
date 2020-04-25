@@ -66,16 +66,26 @@
                     <div class="col-sm-12 col-lg-4">
                         <div class="card membership-card">
                             <!-- Anchor tag and empty span used allowing user to click anywhere
-                            inside the card component to be brought to add plan to cart. -->
-                            <a href="{% url 'add-to-cart' membership.id %}">
-                                <span class="div-url-overlay"></span>
-                            </a>
+                            inside the card component to be brought to add plan to cart, only rendered
+                            when the cart is empty via a quick check into cart total. -->
+                            {% if total == 0 %}
+                                <a href="{% url 'add-to-cart' membership.id %}">
+                                    <span class="div-url-overlay"></span>
+                                </a>
+                            {% endif %}
                             <div class="card-header">
                                 <h4><i class="fas fa-euro-sign"></i> {{ membership.type }}</h4>
                             </div>
                             <div class="card-body membership-detail">
                                 <p class="brief-desc">{{ membership.brief_desc }}</p>
                                 <p class="price-desc">€{{ membership.price }} / {{ membership.frequency }}</p>
+                                <!-- Render helper text dependent on whether cart is empty or already contains
+                                a plan selected by the User. -->
+                                {% if total == 0 %}
+                                    <small class="action-helper">Click on this Plan to add to Cart.</small>
+                                {% else %}
+                                    <small class="action-helper">You're Cart already contains a Plan.</small>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
