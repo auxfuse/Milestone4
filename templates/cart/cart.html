@@ -27,6 +27,7 @@
                 {% for item in cart_items %}
                     <p>{{ item.membership.type }} Plan @ {{ item.membership.price }}</p>
                 {% endfor %}
+                <a href="{% url 'del-from-cart' %}">Click here to empty cart</a>
             </div>
         </div>
     </div>
