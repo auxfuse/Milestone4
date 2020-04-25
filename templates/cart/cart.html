@@ -23,11 +23,11 @@
 
     <div class="container">
         <div class="row">
-            {% if items in cart_items %}
-                {% for item in items %}
-                    {{ item.type }} Plan @ {{ item.price }}
+            <div class="col-sm-12">
+                {% for item in cart_items %}
+                    <p>{{ item.type }} Plan @ {{ item.price }}</p>
                 {% endfor %}
-            {% endif %}
+            </div>
         </div>
     </div>
 {% endblock %}
