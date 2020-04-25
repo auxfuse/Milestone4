@@ -12,11 +12,14 @@ def view_cart(request):
     return render(request, 'cart/cart.html', context)
 
 
-def add_to_cart(request, membership_id):
+def add_to_cart(request, id):
     """Add membership plan to cart"""
     cart = request.session.get('cart', {})
 
-    cart[membership_id] = cart.get(membership_id)
+    if id in cart:
+        cart[id] = int(cart[id])
+    else:
+        cart[id] = cart.get(id)
 
     request.session['cart'] = cart
     messages.success(request, 'Membership Plan added to Cart!')
