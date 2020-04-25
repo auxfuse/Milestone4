@@ -10,12 +10,13 @@ def cart_contents(request):
     cart_items = []
     total = 0
 
-    for id in cart.items():
+    for id, quantity in cart.items():
         membership = get_object_or_404(Membership, pk=id)
-        total += membership.price
+        total += quantity * membership.price
         cart_items.append(
             {
                 'id': id,
+                'quantity': quantity,
                 'membership': membership,
             }
         )

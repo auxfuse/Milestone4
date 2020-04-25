@@ -20,4 +20,5 @@ class Membership(models.Model):
     frequency = models.CharField(max_length=29, choices=frequency_types)
 
     def __str__(self):
-        return self.type
+        return "#{0} - {1}".format(
+            self.id, self.type)
