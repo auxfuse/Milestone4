@@ -25,7 +25,7 @@
         <div class="row">
             <div class="col-sm-12">
                 {% for item in cart_items %}
-                    <p>{{ item.type }} Plan @ {{ item.price }}</p>
+                    <p>{{ item.membership.type }} Plan @ {{ item.membership.price }}</p>
                 {% endfor %}
             </div>
         </div>
