@@ -70,6 +70,11 @@ body::-webkit-scrollbar-thumb {
     height: 3.2rem;
 }
 
+.cart-alert {
+    font-size: 1rem;
+    color: #ffe279;
+}
+
     /* Navbar links set to default primary color of black using specificity */
 .navbar .navbar-nav .nav-link {
     color: #ebf2ff;
