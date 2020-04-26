@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'membership.apps.MembershipConfig',
     'cart.apps.CartConfig',
+    'checkout.apps.CheckoutConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
