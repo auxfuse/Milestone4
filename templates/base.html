@@ -32,11 +32,15 @@
     {%  include 'partials/_footer.html' %}
 
     <!-- jQuery & popper.js for interactive elements from Bootstrap such as Navbar expand/collapse and Modal popup etc -->
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- Scripts to load on specific pages via block script expression tags, example being the map.js file for the about template -->
     {% block script %}{% endblock %}
-    <script defer src="{% static 'js/main.js' %}"></script>
+    <!-- Main common script file to load throughout site -->
+    <script src="{% static 'js/main.js' %}"></script>
+    <!-- Stripe javascript -->
+    {% block stripe_js %}{% endblock %}
 
 </body>
 </html>

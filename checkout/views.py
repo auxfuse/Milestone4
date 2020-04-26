@@ -7,6 +7,8 @@ from .models import OrderLineItem
 import stripe
 
 
+stripe.api_key = settings.STRIPE_SECRET
+
 # Create your views here.
 def checkout(request):
     if request.user.is_authenticated:
@@ -16,6 +18,7 @@ def checkout(request):
 
             if order_form.is_valid() and payment_form.is_valid():
                 order = order_form.save(commit=False)
+                order.user = request.user
                 order.save()
 
                 cart = request.session.get('cart', {})
@@ -29,7 +32,6 @@ def checkout(request):
                         quantity=quantity
                     )
                     order_line_item.save()
-
                 try:
                     customer = stripe.Charge.create(
                         amount=int(total * 100),
@@ -37,6 +39,7 @@ def checkout(request):
                         description=request.user.email,
                         card=payment_form.cleaned_data['stripe_id'],
                     )
+
                 except stripe.error.CardError:
                     messages.error(request, 'Your card was declined!')
 
