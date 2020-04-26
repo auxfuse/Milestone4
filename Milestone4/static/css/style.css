@@ -783,7 +783,7 @@ footer .row {
 /* Cart page */
 
 .membership-card-cart {
-    margin: 0 auto 1.5rem;
+    margin: 1.5rem auto;
 }
 
 .membership-detail-cart {
@@ -798,6 +798,28 @@ footer .row {
 .checkout-btn {
     display: inline-block;
     margin: 0 auto;
+}
+
+/* Checkout page */
+
+    /* Font colors of months & years select dropdowns to ensure consistency with site theme. */
+#id_expiry_month, #id_expiry_month:not(:first-child),
+#id_expiry_year, #id_expiry_year:not(:first-child) {
+    color: #000000;
+}
+
+#id_expiry_month option:first-child,
+#id_expiry_year option:first-child {
+    color: #ad9d93;
+}
+
+#id_expiry_month:invalid {
+    color: #ad9d93;
+}
+
+#id_expiry_month:invalid option:not(:disabled),
+#id_expiry_year:invalid option:not(:disabled) {
+    color: #000000;
 }
 
 /* Login page */
