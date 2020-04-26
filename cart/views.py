@@ -13,7 +13,10 @@ def view_cart(request):
 
 
 def add_to_cart(request, id):
-    """Add membership plan to cart"""
+    """Add membership plan to cart. If user is not logged in, redirect to
+    membership template with error message detailing same. If user is logged
+    in and has already added a plan to cart, and attempts to add another,
+    show error message and redirect to membership template."""
     plan_qty = 1
     cart = request.session.get('cart', {})
 
@@ -32,7 +35,7 @@ def add_to_cart(request, id):
     return redirect('membership')
 
 
-def del_from_cart(request):
+def clear_cart(request):
     """Remove membership plan from cart, or in our case, as only one
     membership can be added to cart at any given time aka `clear cart`"""
     cart = request.session.get('cart', {})
@@ -40,4 +43,4 @@ def del_from_cart(request):
     cart.clear()
     request.session['cart'] = cart
     messages.success(request, 'Cart has been emptied.')
-    return redirect(reverse('membership'))
+    return redirect('membership')

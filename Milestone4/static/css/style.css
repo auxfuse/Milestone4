@@ -780,6 +780,26 @@ footer .row {
     border-bottom: 1px solid #ad9d93;
 }
 
+/* Cart page */
+
+.membership-card-cart {
+    margin: 0 auto 1.5rem;
+}
+
+.membership-detail-cart {
+    padding: 0.75rem;
+}
+
+.membership-detail-cart .brief-desc {
+    margin: 0;
+    padding: 0;
+}
+
+.checkout-btn {
+    display: inline-block;
+    margin: 0 auto;
+}
+
 /* Login page */
 
 .form-card {
@@ -881,6 +901,10 @@ footer .row {
         margin: 3px 0 0 auto;
         background: #ad9d93;
     }
+
+    .membership-card-cart {
+        width: 60%;
+    }
 }
 
 @media (min-width: 991px){
@@ -889,5 +913,9 @@ footer .row {
     .filter-field {
         width: 50%;
         margin: 0 auto 1rem;
+    }
+
+    .membership-card-cart {
+        width: 50%;
     }
 }
