@@ -6,11 +6,12 @@ from django.utils import timezone
 
 # Models
 class Order(models.Model):
-    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    full_name = models.CharField(max_length=40)
+    email = models.EmailField(max_length=254, default='example@yahoo.com')
     order_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return f'{self.user}, {self.order_date}'
+        return f'{self.full_name}, {self.order_date}'
 
 
 class OrderLineItem(models.Model):
