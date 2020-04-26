@@ -1,10 +1,11 @@
 from django import forms
 from .models import Order
+from checkout.choices import months, years
 
 
 class MakePaymentForm(forms.Form):
-    MONTH_CHOICES = [(i, i) for i in range(1, 12)]
-    YEAR_CHOICES = [(i, i) for i in range(2020, 2040)]
+    # MONTH_CHOICES = [(i, i) for i in range(1, 12)]
+    # YEAR_CHOICES = [(i, i) for i in range(2020, 2040)]
 
     credit_card_number = forms.CharField(
         required=False,
@@ -27,13 +28,19 @@ class MakePaymentForm(forms.Form):
     expiry_month = forms.ChoiceField(
         required=False,
         label='',
-        choices=MONTH_CHOICES
+        choices=months,
+        widget=forms.Select(attrs={
+            'class': 'form-control'
+        })
     )
 
     expiry_year = forms.ChoiceField(
         required=False,
         label='',
-        choices=YEAR_CHOICES
+        choices=years,
+        widget=forms.Select(attrs={
+            'class': 'form-control'
+        })
     )
 
     stripe_id = forms.CharField(
