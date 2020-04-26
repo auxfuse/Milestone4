@@ -1,10 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% load static %}
+
+{% block title %} Checkout {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="page-title text-center">Checkout</h1>
+            </div>
+            <div class="col-sm-12">
+                <p class="page-desc text-center">Lorem</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center brand-img">
+                <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="PHP Logo">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            {% for item in cart_items %}
+                <div class="col-sm-12">
+                    <div class="card membership-card-cart">
+                        <div class="card-header">
+                            <h4>{{ item.membership.type }} @ €{{ item.membership.price }} / {{ item.membership.frequency }}</h4>
+                        </div>
+                        <div class="card-body membership-detail-cart text-center">
+                            <p class="brief-desc">{{ item.membership.brief_desc }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript" src="">
+        //<![CDATA[
+        Stripe.publishableKey = '{{ publishable }}'
+        //]]>
+    </script>
+    <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
+{% endblock %}

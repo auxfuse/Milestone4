@@ -23,6 +23,7 @@ urlpatterns = [
     path('forum/', include('forum.urls')),
     path('membership/', include('membership.urls')),
     path('cart/', include('cart.urls')),
+    path('checkout/', include('checkout.urls')),
     path('accounts/', include('accounts.urls')),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
