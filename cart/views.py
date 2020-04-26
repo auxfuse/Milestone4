@@ -17,15 +17,19 @@ def add_to_cart(request, id):
     plan_qty = 1
     cart = request.session.get('cart', {})
 
-    if cart.items():
-        messages.error(request, 'You already have added a Plan to your cart.')
-        return redirect('membership')
+    if request.user.is_authenticated:
+        if cart.items():
+            messages.error(request, 'You already have added a Plan to your cart.')
+            return redirect('membership')
 
-    cart[id] = cart.get(id, plan_qty)
+        cart[id] = cart.get(id, plan_qty)
 
-    request.session['cart'] = cart
-    messages.success(request, 'Membership Plan added to Cart!')
-    return redirect(reverse('membership'))
+        request.session['cart'] = cart
+        messages.success(request, 'Membership Plan added to Cart!')
+        return redirect(reverse('membership'))
+
+    messages.error(request, 'You must be logged in to add a Plan to cart.')
+    return redirect('membership')
 
 
 def del_from_cart(request):

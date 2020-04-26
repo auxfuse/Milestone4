@@ -24,10 +24,16 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                {% for item in cart_items %}
-                    <p>{{ item.membership.type }} Plan @ {{ item.membership.price }}</p>
-                {% endfor %}
-                <a href="{% url 'del-from-cart' %}">Click here to empty cart</a>
+                {% if cart_items %}
+                    {% for item in cart_items %}
+
+                        <p>{{ item.membership.type }} Plan @ {{ item.membership.price }}</p>
+                    {% endfor %}
+                    <a href="{% url 'del-from-cart' %}">Click here to empty cart</a>
+                {% else %}
+                    <p class="page-desc text-center">Your Cart is empty! Why not have a look at our Membership plans on
+                    display in the Membership page.</p>
+                {% endif %}
             </div>
         </div>
     </div>
