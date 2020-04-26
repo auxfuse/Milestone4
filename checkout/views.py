@@ -44,11 +44,12 @@ def checkout(request):
                     messages.success(request, 'Payment received, Thank you!')
                     request.session['cart'] = {}
                     return redirect('membership')
-                messages.error(request, 'Something went wrong')
+                messages.error(request, 'Something went wrong.')
 
             print(payment_form.errors)
             messages.error(request,
                            'We were unable to take payment with that card.')
+            return redirect('membership')
 
         context = {
             'payment_form': MakePaymentForm,

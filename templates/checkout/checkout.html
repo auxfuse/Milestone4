@@ -51,7 +51,7 @@
                         <div class="card-body">
                             <!-- Form fields are without labels to be consistent with modern app design UX themes, and
                             this is defined in the init method of the form class in forms.py file. -->
-                            <form action="{% url 'checkout' %}" method="POST">
+                            <form id="payment-form" action="{% url 'checkout' %}" method="POST">
                                 {% csrf_token %}
                                 <div class="form-group">
                                     {{ order_form }}

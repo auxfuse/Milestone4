@@ -4,8 +4,6 @@ from checkout.choices import months, years
 
 
 class MakePaymentForm(forms.Form):
-    # MONTH_CHOICES = [(i, i) for i in range(1, 12)]
-    # YEAR_CHOICES = [(i, i) for i in range(2020, 2040)]
 
     credit_card_number = forms.CharField(
         required=False,
