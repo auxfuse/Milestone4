@@ -16,12 +16,15 @@ class MakePaymentForm(forms.Form):
         })
     )
 
-    cvv = forms.IntegerField(
+    cvv = forms.CharField(
+        min_length=1,
+        max_length=3,
         required=False,
         label='',
         widget=forms.NumberInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Enter Security Code (CVV)'
+            'placeholder': 'Enter Security Code (CVV)',
+            'required': 'True'
         })
     )
 

@@ -5,9 +5,6 @@
 {% block title %} Membership {% endblock %}
 
 {% block content %}
-    <!-- Page/Form alerts for user visibility, injected via Jinja as template. -->
-    {% include 'partials/_alerts.html' %}
-
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -21,6 +18,10 @@
                 your Performance throughout.</p>
             </div>
         </div>
+
+        <!-- Page/Form alerts for user visibility, injected via Jinja as template. -->
+        {% include 'partials/_alerts.html' %}
+
         <div class="row">
             <div class="col-sm-12 text-center brand-img">
                 <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="PHP Logo">
