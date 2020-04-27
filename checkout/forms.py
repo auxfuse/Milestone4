@@ -64,7 +64,8 @@ class OrderForm(forms.ModelForm):
         label='',
         widget=forms.TextInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Enter Full Name'
+            'placeholder': 'Enter Full Name',
+            'autofocus': 'True'
         })
     )
 
@@ -73,7 +74,6 @@ class OrderForm(forms.ModelForm):
         label='',
         widget=forms.EmailInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Enter Email',
-            'autofocus': 'True'
+            'placeholder': 'Enter Email'
         })
     )
