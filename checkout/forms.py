@@ -6,6 +6,8 @@ from checkout.choices import months, years
 class MakePaymentForm(forms.Form):
 
     credit_card_number = forms.CharField(
+        min_length=15,
+        max_length=16,
         required=False,
         label='',
         widget=forms.TextInput(attrs={

@@ -9,7 +9,7 @@ class Order(models.Model):
     full_name = models.CharField(max_length=40)
     email = models.EmailField(max_length=254, default='example@yahoo.com')
     order_date = models.DateTimeField(default=timezone.now)
-    user = models.ForeignKey(User, null=False, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.full_name}, {self.order_date}'
