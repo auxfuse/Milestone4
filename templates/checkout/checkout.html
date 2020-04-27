@@ -56,7 +56,8 @@
                             this is defined in the init method of the form class in forms.py file. -->
                             <form id="payment-form" action="{% url 'checkout' %}" method="POST">
                                 {% csrf_token %}
-                                <div id="credit-card-errors" style="display: none;">
+                                <!-- Display Stripe errors as they arise in conjunction with stripe.js file triggers. -->
+                                <div id="credit-card-errors">
                                     <div class="alert-message block-message error" id="stripe-error-message"></div>
                                 </div>
                                 <div class="form-group">

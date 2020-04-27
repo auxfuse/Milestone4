@@ -822,6 +822,21 @@ footer .row {
     color: #000000;
 }
 
+    /* Stripe error styles */
+#credit-card-errors {
+    display: none;
+}
+
+#stripe-error-message {
+    color: #ff2525;
+    font-style: italic;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    -webkit-box-shadow: -3px -5px 10px 0 rgba(255, 255, 255, 0.63), 3px 3px 10px 0 rgba(255, 37, 37, 0.35);
+    -moz-box-shadow: -3px -5px 10px 0 rgba(255, 255, 255, 0.63), 3px 3px 10px 0 rgba(255, 37, 37, 0.35);
+    box-shadow: -3px -5px 10px 0 rgba(255, 255, 255, 0.63), 3px 3px 10px 0 rgba(255, 37, 37, 0.35);
+}
+
 /* Login page */
 
 .form-card {
