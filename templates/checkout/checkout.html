@@ -5,46 +5,51 @@
 {% block title %} Checkout {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <h1 class="page-title text-center">Checkout</h1>
-            </div>
-            <div class="col-sm-12">
-                <p class="page-desc text-center">Lorem</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12 text-center brand-img">
-                <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="PHP Logo">
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <h2 class="page-subtitle text-center">Checkout Details:</h2>
-            </div>
-            {% for item in cart_items %}
+<!-- Ensure user is logged in and if so show page content. Otherwise render error partial. -->
+    {% if user.is_authenticated %}
+        <div class="container">
+            <div class="row">
                 <div class="col-sm-12">
-                    <div class="card membership-card-cart">
-                        <div class="card-header">
-                            <h4>{{ item.membership.type }} @ €{{ item.membership.price }} / {{ item.membership.frequency }}</h4>
-                        </div>
-                        <div class="card-body membership-detail-cart text-center">
-                            <p class="brief-desc">{{ item.membership.brief_desc }}</p>
+                    <h1 class="page-title text-center">Checkout</h1>
+                </div>
+                <div class="col-sm-12">
+                    <p class="page-desc text-center">Your cart details are below, once reviewed, please enter your Payment Details
+                    as specified in the Form.</p>
+                    <p class="page-desc text-center">None of your card details are saved on our systems. All payment transactions are handled
+                    with Stripe to ensure high levels of Security for both you, our Customer, and ourselves.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 text-center brand-img">
+                    <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="PHP Logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="page-subtitle text-center">Checkout Details:</h2>
+                </div>
+                {% for item in cart_items %}
+                    <div class="col-sm-12">
+                        <div class="card membership-card-cart">
+                            <div class="card-header">
+                                <h4>{{ item.membership.type }} @ €{{ item.membership.price }} / {{ item.membership.frequency }}</h4>
+                            </div>
+                            <div class="card-body membership-detail-cart text-center">
+                                <p class="brief-desc">{{ item.membership.brief_desc }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
-    </div>
 
-    <!-- Page/Form alerts for user visibility, injected via Jinja as template. -->
-    {% include 'partials/_alerts.html' %}
+        <!-- Page/Form alerts for user visibility, injected via Jinja as template. -->
+        {% include 'partials/_alerts.html' %}
 
-    <div class="container">
+        <div class="container">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="card form-card">
@@ -56,6 +61,10 @@
                             this is defined in the init method of the form class in forms.py file. -->
                             <form id="payment-form" action="{% url 'checkout' %}" method="POST">
                                 {% csrf_token %}
+                                <div class="payment-form-helper text-center">
+                                    <small class="action-helper">Ensure all fields are filled out. Your CVV code is the 3-digits
+                                    printed on the back of your Card.</small>
+                                </div>
                                 <!-- Display Stripe errors as they arise in conjunction with stripe.js file triggers. -->
                                 <div id="credit-card-errors">
                                     <div class="alert-message block-message error" id="stripe-error-message"></div>
@@ -73,6 +82,9 @@
                 </div>
             </div>
         </div>
+    {% else %}
+        {% include 'partials/_error.html' %}
+    {% endif %}
 
 {% endblock %}
 

@@ -872,12 +872,6 @@ footer .row {
         margin: 0 auto 1rem;
     }
 
-    /* Constraint set on card-form element */
-    .form-card {
-        width: 60%;
-        margin: 1rem auto 2.5rem;
-    }
-
     /* Adjustment of filter select field width on larger breakpoints */
     .filter-field {
         width: 70%;
@@ -942,6 +936,12 @@ footer .row {
     .membership-card-cart {
         width: 60%;
     }
+
+    /* Constraint set on card-form element */
+    .form-card {
+        width: 60%;
+        margin: 1rem auto 2.5rem;
+    }
 }
 
 @media (min-width: 991px){
@@ -953,6 +953,11 @@ footer .row {
     }
 
     .membership-card-cart {
+        width: 50%;
+    }
+
+    /* Constraint set on card-form element */
+    .form-card {
         width: 50%;
     }
 }
