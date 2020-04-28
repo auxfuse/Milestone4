@@ -13,7 +13,8 @@
 }
 
 body {
-    background-color: #efeeee;
+    background-color: #323232;
+    color: rgba(255, 255, 255, 0.9);
     font-family: "Roboto Condensed", sans-serif;
     font-size: 16px;
     display: -webkit-box;
@@ -64,6 +65,7 @@ body::-webkit-scrollbar-thumb {
     /* Custom Navbar BG color theme */
 .bg-custom {
     background-color: #323232;
+    border-bottom: 1px solid #282828;
 }
 
 .navbar-brand img {
@@ -97,6 +99,7 @@ body::-webkit-scrollbar-thumb {
 footer {
     background-color: #323232;
     min-height: 3rem;
+    border-top: 1px solid #282828;
 }
 
 footer .row {
@@ -177,7 +180,7 @@ footer .row {
     height: 1px;
     width: 30%;
     margin: 5px auto;
-    background: #000000;
+    background: #efeeee;
 }
 
 .page-desc {
@@ -194,8 +197,8 @@ footer .row {
     margin: 1rem 0;
     border: none;
     background: none;
-    box-shadow: inset -3px -5px 10px 0 rgba(255, 255, 255, 0.63), inset 3px 3px 10px 0 rgba(67,35,68,0.50);
-    color: #323232;
+    box-shadow: inset -3px -5px 10px 0 rgba(140, 140, 140, 0.1), inset 3px 3px 10px 0 rgb(40, 40, 40);
+    color: #efeeee;
     font-size: 18px;
     transition: 0.3s ease-out;
 }
@@ -205,7 +208,11 @@ footer .row {
 }
 
 .form-control:focus {
-    box-shadow: inset -3px -5px 5px 0 rgba(255, 255, 255, 0.83), inset 3px 3px 10px 0 rgba(67,35,68,0.30);
+    box-shadow: inset -3px -5px 10px 0 rgba(140, 140, 140, 0.1), inset 3px 3px 10px 0 rgb(40, 40, 40);
+}
+
+.form-control:focus::placeholder {
+    color: #323232
 }
 
 .btn-primary {
@@ -215,9 +222,9 @@ footer .row {
     border: none;
     text-shadow: -1px 0 #6b3f6c, 0 1px #6b3f6c, 1px 0 #6b3f6c, 0 -1px #6b3f6c;
     border-radius: 50% 50% 50% 50% / 100% 100% 100% 100%;
-    -webkit-box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
-    -moz-box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
-    box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
+    -webkit-box-shadow: -3px -3px 10px 0 rgba(140, 140, 140, 0.1), 3px 3px 10px 0 rgba(67,35,68,0.50);
+    -moz-box-shadow: -3px -3px 10px 0 rgba(140, 140, 140, 0.1), 3px 3px 10px 0 rgba(67,35,68,0.50);
+    box-shadow: -3px -3px 10px 0 rgba(140, 140, 140, 0.1), 3px 3px 10px 0 rgba(67,35,68,0.50);
 }
 
 .btn-primary:hover, .btn-primary:active, .btn-primary:focus {
@@ -225,9 +232,9 @@ footer .row {
     border: none;
     text-shadow: -1px 0 #6b3f6c, 0 1px #6b3f6c, 1px 0 #6b3f6c, 0 -1px #6b3f6c;
     border-radius: 50% 50% 50% 50% / 100% 100% 100% 100%;
-    -webkit-box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
-    -moz-box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
-    box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
+    -webkit-box-shadow: -3px -3px 10px 0 rgba(171, 171, 171, 0.1), 3px 3px 10px 0 rgba(67,35,68,0.50);
+    -moz-box-shadow: -3px -3px 10px 0 rgba(171, 171, 171, 0.1), 3px 3px 10px 0 rgba(67,35,68,0.50);
+    box-shadow: -3px -3px 10px 0 rgba(171, 171, 171, 0.1), 3px 3px 10px 0 rgba(67,35,68,0.50);
 }
 
     /* Used devtools to understand why button was keeping default bootstrap styles when pressed */
@@ -237,20 +244,20 @@ footer .row {
     border: none;
     text-shadow: -1px 0 #6b3f6c, 0 1px #6b3f6c, 1px 0 #6b3f6c, 0 -1px #6b3f6c;
     border-radius: 50% 50% 50% 50% / 100% 100% 100% 100%;
-    -webkit-box-shadow: inset -3px -3px 10px 0 rgba(67,35,68, 0.83), inset 3px 3px 10px 0 rgba(67,35,68,0.50) !important;
-    -moz-box-shadow: inset -3px -3px 10px 0 rgba(67,35,68, 0.83), inset 3px 3px 10px 0 rgba(67,35,68,0.50) !important;
-    box-shadow: inset -3px -3px 10px 0 rgba(67,35,68, 0.83), inset 3px 3px 10px 0 rgba(67,35,68,0.50) !important;
+    -webkit-box-shadow: inset -3px -3px 10px 0 rgba(171, 171, 171, 0.1), inset 3px 3px 10px 0 rgba(67,35,68,0.50) !important;
+    -moz-box-shadow: inset -3px -3px 10px 0 rgba(171, 171, 171, 0.1), inset 3px 3px 10px 0 rgba(67,35,68,0.50) !important;
+    box-shadow: inset -3px -3px 10px 0 rgba(171, 171, 171, 0.1), inset 3px 3px 10px 0 rgba(67,35,68,0.50) !important;
 }
 
     /* Bootstrap components custom styling */
     /* Cards styled inline with Application theme */
 .card {
-    background-color: #efeeee;
+    background-color: #323232;
     margin: 3rem 1rem;
     border-radius: 1rem;
-    -webkit-box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(67,35,68,0.20);
-    -moz-box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(67,35,68,0.20);
-    box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(67,35,68,0.20);
+    -webkit-box-shadow: -10px -10px 15px 0 rgba(140, 140, 140, 0.1), 10px 10px 15px 0 rgb(40, 40, 40);
+    -moz-box-shadow: -10px -10px 15px 0 rgba(140, 140, 140, 0.1), 10px 10px 15px 0 rgb(40, 40, 40);
+    box-shadow: -10px -10px 15px 0 rgba(140, 140, 140, 0.1), 10px 10px 15px 0 rgb(40, 40, 40);
     border: none;
     /* border-box clip path used to prevent background protruding past child elements */
     background-clip: border-box;
@@ -271,7 +278,7 @@ footer .row {
     height: 1px;
     width: 30%;
     margin: 5px auto;
-    background: #000000;
+    background: #efeeee;
 }
 
 .card-body {
@@ -293,17 +300,17 @@ footer .row {
     border: none;
     border-radius: 0.5rem;
     color: #6b3f6c;
-    -webkit-box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
-    -moz-box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
-    box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
+    -webkit-box-shadow: -3px -3px 10px 0 rgba(140, 140, 140, 0.1), 3px 3px 10px 0 rgb(40, 40, 40);
+    -moz-box-shadow: -3px -3px 10px 0 rgba(140, 140, 140, 0.1), 3px 3px 10px 0 rgb(40, 40, 40);
+    box-shadow: -3px -3px 10px 0 rgba(140, 140, 140, 0.1), 3px 3px 10px 0 rgb(40, 40, 40);
 }
 
 .page-link:hover, .page-link:active, .page-link:focus {
     color: #efeeee;
     background: linear-gradient(195deg, #704271, #573158, #512a52);
-    -webkit-box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
-    -moz-box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
-    box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
+    -webkit-box-shadow: -3px -3px 10px 0 rgba(140, 140, 140, 0.1), 3px 3px 10px 0 rgb(40, 40, 40);
+    -moz-box-shadow: -3px -3px 10px 0 rgba(140, 140, 140, 0.1), 3px 3px 10px 0 rgb(40, 40, 40);
+    box-shadow: -3px -3px 10px 0 rgba(140, 140, 140, 0.1), 3px 3px 10px 0 rgb(40, 40, 40);
 }
 
 .page-item.active .page-link {
@@ -327,6 +334,11 @@ footer .row {
     background: none;
     border: none;
     box-shadow: none;
+}
+
+    /* Overriding Bootstrap text-muted default font color */
+.text-muted {
+    color: #c5cbd0 !important;
 }
 
 /* Home page */
@@ -433,7 +445,7 @@ footer .row {
     height: 2px;
     width: 20%;
     margin: 5px auto;
-    background: #000000;
+    background: rgba(255, 255, 255, 0.7);
 }
 
 .cta-card-btn {
@@ -448,9 +460,9 @@ footer .row {
     object-fit: contain;
     margin: 1rem auto;
     border-radius: 1rem;
-    -webkit-box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(67,35,68,0.20);
-    -moz-box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(67,35,68,0.20);
-    box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(67,35,68,0.20);
+    -webkit-box-shadow: -10px -10px 15px 0 rgba(140, 140, 140, 0.1), 10px 10px 15px 0 rgb(40, 40, 40);
+    -moz-box-shadow: -10px -10px 15px 0 rgba(140, 140, 140, 0.1), 10px 10px 15px 0 rgb(40, 40, 40);
+    box-shadow: -10px -10px 15px 0 rgba(140, 140, 140, 0.1), 10px 10px 15px 0 rgb(40, 40, 40);
 }
 
 .brief-desc {
@@ -488,11 +500,10 @@ footer .row {
 }
 
 .carousel-container {
-    margin: 1rem auto;
     border-radius: 1rem;
-    -webkit-box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(67,35,68,0.20);
-    -moz-box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(67,35,68,0.20);
-    box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(67,35,68,0.20);
+    -webkit-box-shadow: -10px -10px 15px 0 rgba(140, 140, 140, 0.1), 10px 10px 15px 0 rgb(40, 40, 40);
+    -moz-box-shadow: -10px -10px 15px 0 rgba(140, 140, 140, 0.1), 10px 10px 15px 0 rgb(40, 40, 40);
+    box-shadow: -10px -10px 15px 0 rgba(140, 140, 140, 0.1), 10px 10px 15px 0 rgb(40, 40, 40);
 }
 
 .carousel img {
@@ -508,12 +519,22 @@ footer .row {
     margin-top: 1rem;
     margin-bottom: 3rem;
     border-radius: 1rem;
-    -webkit-box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(67,35,68,0.20);
-    -moz-box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(67,35,68,0.20);
-    box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(67,35,68,0.20);
+    -webkit-box-shadow: -10px -10px 15px 0 rgba(140, 140, 140, 0.1), 10px 10px 15px 0 rgb(40, 40, 40);
+    -moz-box-shadow: -10px -10px 15px 0 rgba(140, 140, 140, 0.1), 10px 10px 15px 0 rgb(40, 40, 40);
+    box-shadow: -10px -10px 15px 0 rgba(140, 140, 140, 0.1), 10px 10px 15px 0 rgb(40, 40, 40);
 }
 
 /* Forum page */
+
+.filter-field {
+    box-shadow: inset -3px -5px 10px 0 rgba(140, 140, 140, 0.1), inset 3px 3px 10px 0 rgb(40, 40, 40);
+    color: #efeeee;
+}
+
+.filter-field option {
+    background-color: #323232;
+    color: #efeeee;
+}
 
     /* Ensure posts are displayed centrally at all times ensuring odd numbers are consistently
     centered and maintaining the flow of the webpage */
@@ -542,9 +563,9 @@ footer .row {
 
 .card-post-body:hover {
     border-radius: 1rem;
-    -webkit-box-shadow: 10px 10px 20px 0 rgba(255, 37, 37, 0.15);
-    -moz-box-shadow: 10px 10px 20px 0 rgba(255, 37, 37, 0.15);
-    box-shadow: 10px 10px 20px 0 rgba(255, 37, 37, 0.15);
+    -webkit-box-shadow: 10px 10px 20px 0 rgba(255, 233, 37, 0.15);
+    -moz-box-shadow: 10px 10px 20px 0 rgba(255, 233, 37, 0.15);
+    box-shadow: 10px 10px 20px 0 rgba(255, 233, 37, 0.15);
 }
 
     /* Empty span styled as an absolute positioned element inside the relative parent and set to the parent width & height.
@@ -593,7 +614,7 @@ footer .row {
 }
 
 .edit-link {
-    color: #7f4e80;
+    color: #c18ac3;
 }
 
 .edit-link:hover {
@@ -603,12 +624,12 @@ footer .row {
 }
 
 .comment-card {
-    background-color: #efeeee;
+    background-color: #323232;
     margin: 0.5rem 1rem;
     border-radius: 1rem;
-    -webkit-box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(255, 37, 37, 0.25);
-    -moz-box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(255, 37, 37, 0.25);
-    box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(255, 37, 37, 0.25);
+    -webkit-box-shadow: -7px -7px 10px 0 rgba(140, 140, 140, 0.1), 7px 7px 10px 0 rgb(40, 40, 40);
+    -moz-box-shadow: -7px -7px 10px 0 rgba(140, 140, 140, 0.1), 7px 7px 10px 0 rgb(40, 40, 40);
+    box-shadow: -7px -7px 10px 0 rgba(140, 140, 140, 0.1), 7px 7px 10px 0 rgb(40, 40, 40);
     /* border-box clip path used to prevent background protruding past child elements */
     background-clip: border-box;
 }
@@ -646,10 +667,19 @@ footer .row {
 
 /* Create Post page */
 
-    /* Font colors of categories select dropdown to ensure consistency with site theme. */
+#id_category:focus {
+    background-color: #323232 !important;
+    color: #efeeee;
+    box-shadow: inset -3px -5px 10px 0 rgba(140, 140, 140, 0.1), inset 3px 3px 10px 0 rgb(40, 40, 40);
+}
+
+#id_category option {
+    background-color: #323232;
+}
+
 #id_category,
 #id_category:not(:first-child) {
-    color: #000000;
+    color: #efeeee;
 }
 
 #id_category option:first-child {
@@ -667,13 +697,13 @@ footer .row {
 /* Edit Post */
 
 .edit-post-footer {
-    background-color: #efeeee;
+    background-color: #323232;
     margin: 0 1rem 1rem;
     border-radius: 1rem;
     border: none;
-    -webkit-box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
-    -moz-box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
-    box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
+    -webkit-box-shadow: -3px -3px 10px 0 rgba(140, 140, 140, 0.1), 3px 3px 10px 0 rgb(40, 40, 40);
+    -moz-box-shadow: -3px -3px 10px 0 rgba(140, 140, 140, 0.1), 3px 3px 10px 0 rgb(40, 40, 40);
+    box-shadow: -3px -3px 10px 0 rgba(140, 140, 140, 0.1), 3px 3px 10px 0 rgb(40, 40, 40);
     /* border-box clip path used to prevent background protruding past child elements */
     background-clip: border-box;
 }
@@ -684,23 +714,23 @@ footer .row {
 
 .open-del a {
     font-family: "Roboto Condensed", sans-serif;
-    color: #7f4e80;
+    color: #ec9e9e;
     text-decoration: underline;
 }
 
 .open-del a:hover {
-    color: #6b3f6c;
+    color: #ee7a7a;
 }
 
 .del-desc {
-    color: #ff2525;
+    color: #efeeee;
     font-style: italic;
-    border: 1px solid rgba(255, 37, 37, 0.3);
+    border: 1px solid rgba(255, 110, 110, 0.50);
     border-radius: 0.5rem;
     padding: 0.5rem;
-    -webkit-box-shadow: inset -3px -5px 10px 0 rgba(255, 255, 255, 0.63), inset 3px 3px 10px 0 rgba(255, 37, 37, 0.5);
-    -moz-box-shadow: inset -3px -5px 10px 0 rgba(255, 255, 255, 0.63), inset 3px 3px 10px 0 rgba(255, 37, 37, 0.5);
-    box-shadow: inset -3px -5px 10px 0 rgba(255, 255, 255, 0.63), inset 3px 3px 10px 0 rgba(255, 37, 37, 0.5);
+    -webkit-box-shadow: inset -3px -5px 10px 0 rgba(140, 140, 140, 0.1), inset 3px 3px 10px 0 rgb(40, 40, 40);
+    -moz-box-shadow: inset -3px -5px 10px 0 rgba(140, 140, 140, 0.1), inset 3px 3px 10px 0 rgb(40, 40, 40);
+    box-shadow: inset -3px -5px 10px 0 rgba(140, 140, 140, 0.1), inset 3px 3px 10px 0 rgb(40, 40, 40);
 }
 
 .confirm-del {
@@ -712,9 +742,9 @@ footer .row {
     border: none;
     text-shadow: -1px 0 #de3545, 0 1px #de3545, 1px 0 #de3545, 0 -1px #de3545;
     border-radius: 50% 50% 50% 50% / 100% 100% 100% 100%;
-    -webkit-box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
-    -moz-box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
-    box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
+    -webkit-box-shadow: -3px -3px 10px 0 rgba(140, 140, 140, 0.1), 3px 3px 10px 0 rgb(40, 40, 40);
+    -moz-box-shadow: -3px -3px 10px 0 rgba(140, 140, 140, 0.1), 3px 3px 10px 0 rgb(40, 40, 40);
+    box-shadow: -3px -3px 10px 0 rgba(140, 140, 140, 0.1), 3px 3px 10px 0 rgb(40, 40, 40);
 }
 
 .btn-del:hover, .btn-del:active, .btn-del:focus {
@@ -722,9 +752,9 @@ footer .row {
     border: none;
     text-shadow: -1px 0 #de3545, 0 1px #de3545, 1px 0 #de3545, 0 -1px #de3545;
     border-radius: 50% 50% 50% 50% / 100% 100% 100% 100%;
-    -webkit-box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
-    -moz-box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
-    box-shadow: -3px -3px 10px 0 rgba(255, 255, 255, 0.83), 3px 3px 10px 0 rgba(67,35,68,0.50);
+    -webkit-box-shadow: -3px -3px 10px 0 rgba(140, 140, 140, 0.2), 3px 3px 10px 0 rgb(40, 40, 40);
+    -moz-box-shadow: -3px -3px 10px 0 rgba(140, 140, 140, 0.2), 3px 3px 10px 0 rgb(40, 40, 40);
+    box-shadow: -3px -3px 10px 0 rgba(140, 140, 140, 0.2), 3px 3px 10px 0 rgb(40, 40, 40);
 }
 
 /* Membership page */
@@ -741,24 +771,25 @@ footer .row {
     height: 1px;
     width: 10%;
     margin: 0.5rem auto;
-    background: #000000;
+    background: #efeeee;
 }
 
 .services-img img {
     object-fit: contain;
     margin: 1rem auto;
     border-radius: 1rem;
-    -webkit-box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(67,35,68,0.20);
-    -moz-box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(67,35,68,0.20);
-    box-shadow: -10px -10px 20px 0 rgba(244, 255, 243, 0.83), 10px 10px 20px 0 rgba(67,35,68,0.20);
+    -webkit-box-shadow: -10px -10px 15px 0 rgba(140, 140, 140, 0.1), 10px 10px 15px 0 rgb(40, 40, 40);
+    -moz-box-shadow: -10px -10px 15px 0 rgba(140, 140, 140, 0.1), 10px 10px 15px 0 rgb(40, 40, 40);
+    box-shadow: -10px -10px 15px 0 rgba(140, 140, 140, 0.1), 10px 10px 15px 0 rgb(40, 40, 40);
 }
 
     /* Membership plans */
 .membership-card:hover {
     border-radius: 1rem;
-    -webkit-box-shadow: 10px 10px 20px 0 rgba(255, 37, 37, 0.15);
-    -moz-box-shadow: 10px 10px 20px 0 rgba(255, 37, 37, 0.15);
-    box-shadow: 10px 10px 20px 0 rgba(255, 37, 37, 0.15);
+    -webkit-box-shadow: 10px 10px 20px 0 rgba(255, 233, 37, 0.15);
+    -moz-box-shadow: 10px 10px 20px 0 rgba(255, 233, 37, 0.15);
+    box-shadow: 10px 10px 20px 0 rgba(255, 233, 37, 0.15);
+    background-clip: border-box;
 }
 
 .membership-detail .brief-desc {
@@ -776,7 +807,7 @@ footer .row {
 
 .action-helper {
     font-style: italic;
-    color: #131313;
+    color: #efeeee;
     border-bottom: 1px solid #ad9d93;
 }
 
@@ -802,24 +833,19 @@ footer .row {
 
 /* Checkout page */
 
+.payment-form-helper {
+    margin-bottom: 1.5rem;
+}
+
     /* Font colors of months & years select dropdowns to ensure consistency with site theme. */
-#id_expiry_month, #id_expiry_month:not(:first-child),
-#id_expiry_year, #id_expiry_year:not(:first-child) {
-    color: #000000;
-}
-
-#id_expiry_month option:first-child,
-#id_expiry_year option:first-child {
+#id_expiry_month, #id_expiry_year {
     color: #ad9d93;
 }
 
-#id_expiry_month:invalid {
-    color: #ad9d93;
-}
-
-#id_expiry_month:invalid option:not(:disabled),
-#id_expiry_year:invalid option:not(:disabled) {
-    color: #000000;
+#id_expiry_month:focus, #id_expiry_year:focus {
+    background-color: #323232 !important;
+    color: #efeeee;
+    box-shadow: inset -3px -5px 10px 0 rgba(140, 140, 140, 0.1), inset 3px 3px 10px 0 rgb(40, 40, 40);
 }
 
     /* Stripe error styles */
@@ -828,13 +854,13 @@ footer .row {
 }
 
 #stripe-error-message {
-    color: #ff2525;
+    color: #ec9e9e;
     font-style: italic;
     border-radius: 0.5rem;
     padding: 0.5rem;
-    -webkit-box-shadow: -3px -5px 10px 0 rgba(255, 255, 255, 0.63), 3px 3px 10px 0 rgba(255, 37, 37, 0.35);
-    -moz-box-shadow: -3px -5px 10px 0 rgba(255, 255, 255, 0.63), 3px 3px 10px 0 rgba(255, 37, 37, 0.35);
-    box-shadow: -3px -5px 10px 0 rgba(255, 255, 255, 0.63), 3px 3px 10px 0 rgba(255, 37, 37, 0.35);
+    -webkit-box-shadow: -3px -5px 10px 0 rgba(140, 140, 140, 0.1), 3px 3px 10px 0 rgb(40, 40, 40);
+    -moz-box-shadow: -3px -5px 10px 0 rgba(140, 140, 140, 0.1), 3px 3px 10px 0 rgb(40, 40, 40);
+    box-shadow: -3px -5px 10px 0 rgba(140, 140, 140, 0.1), 3px 3px 10px 0 rgb(40, 40, 40);
 }
 
 /* Login page */
@@ -850,10 +876,10 @@ footer .row {
 .register-link a {
     font-family: "Lato", sans-serif;
     font-style: italic;
-    color: #575757;
+    color: rgba(222, 222, 222, 0.9);
     text-decoration: none;
     padding: 0.5rem;
-    border-bottom: 1px solid #575757;
+    border-bottom: 1px solid rgba(222, 222, 222, 0.9);
 }
 
 /* Accessibility & Privacy Policy Pages */
@@ -864,12 +890,22 @@ footer .row {
 }
 
 /* Media Queries */
+@media (min-width: 320px){
+
+    .carousel-container {
+        margin: 1rem;
+    }
+}
 
 @media (min-width: 575px){
     /* Global components media queries */
         /* Alerts */
     .alert {
         margin: 0 auto 1rem;
+    }
+
+    .carousel-container {
+        margin: 1rem auto;
     }
 
     /* Adjustment of filter select field width on larger breakpoints */
