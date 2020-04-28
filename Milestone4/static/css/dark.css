@@ -691,7 +691,7 @@ footer .row {
 }
 
 #id_category:invalid option:not(:disabled) {
-    color: #000000;
+    color: #efeeee;
 }
 
 /* Edit Post */
