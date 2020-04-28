@@ -18,7 +18,6 @@ qualification = [
 
 
 # Models
-
 class StaffMember(models.Model):
     """Model to define the fields required to create staff members in the
     admin dashboard"""

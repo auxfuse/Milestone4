@@ -1,6 +1,5 @@
 from django.db import models
 
-
 """List of payment frequency types to be passed into dropdown `frequency` for 
 each frequency type."""
 frequency_types = [
@@ -12,7 +11,7 @@ frequency_types = [
 ]
 
 
-# Create your models here.
+# Models
 class Membership(models.Model):
     type = models.CharField(max_length=50)
     brief_desc = models.TextField(max_length=200)

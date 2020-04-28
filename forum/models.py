@@ -19,7 +19,6 @@ categories = [
 
 
 # Models
-
 class Post(models.Model):
     """Model to define the fields required to create Forum Posts displayed in
     Community Forum"""
