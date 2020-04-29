@@ -39,7 +39,7 @@ def contact(request):
             'mail.\n\nRegards,\nPHP Barbell Admin Panel',
             os.environ.get('EMAIL'),
             [ADMIN_EMAIL],
-            fail_silently=False
+            fail_silently=True
         )
 
         messages.success(request, 'Mail sent. We will be in touch.')
