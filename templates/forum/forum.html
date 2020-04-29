@@ -18,9 +18,7 @@
                     <p class="page-desc">Below you will find posts from our registered Users of this website.
                         This is a great place to get acquainted with other members of PHP Barbell, although you
                         may see some posts not relating to Olympic Weightlifting but pertaining to other modalities
-                        that the gym offers. Below you will also find the means to Filter the Posts seen by you per
-                        Category. This is a great way to quickly find a stream of like-minded posts created by our
-                        community members. Just select a category from the dropdown.....and click "Filter". Easy!</p>
+                        that the gym offers.</p>
                     <p class="page-desc">To create a post, just click the button. Once added to the forum you
                         will be able to engage with those who comment on it, edit the original post's details or
                         even delete it if you wish.</p>
@@ -43,6 +41,11 @@
             {% if posts %}
                 <div class="row">
                     <div class="col-sm-12 text-center">
+                        <p class="page-desc">You can also Filter the Posts seen by you per Category. This is a great
+                        way to quickly find a stream of like-minded posts created by our community members. Just
+                        select a category from the dropdown.....and click "Filter". Easy!</p>
+                    </div>
+                    <div class="col-sm-12 text-center">
                         <!-- Form fields are without labels to be consistent with modern app design UX themes. -->
                         <form action="{% url 'filtered-posts' %}">
                             {% csrf_token %}
@@ -61,6 +64,10 @@
                 <div class="row posts-row">
                     <div class="col-sm-12">
                         <h2 class="page-subtitle text-center">Posts</h2>
+                    </div>
+                    <div class="col-sm-12">
+                        <p class="page-desc text-center">Just Click anywhere on the post you want to view to be brought to see the full
+                    Post details and to be able to add comments and interact with the community.</p>
                     </div>
                     {% for post in posts %}
                         <div class="col-sm-12 col-lg-6">
