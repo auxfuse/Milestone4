@@ -2,7 +2,11 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Contact
 from .forms import ContactQuery
+from django.core.mail import send_mail
+from Milestone4.settings import EMAIL_HOST_USER
 
+import os
+ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL')
 
 # Function Views
 def contact(request):
@@ -26,6 +30,17 @@ def contact(request):
                 query_email=request.POST.get('query_email')
             )
             create_contact_form.save()
+
+        # Send Email
+        send_mail(
+            'New Contact Form',
+            'Hi Admin,\n\nYou have a new contact form available to you. Sign '
+            'into the admin panel to view.\nDo not reply to this '
+            'mail.\n\nRegards,\nPHP Barbell Admin Panel',
+            os.environ.get('EMAIL'),
+            [ADMIN_EMAIL],
+            fail_silently=False
+        )
 
         messages.success(request, 'Mail sent. We will be in touch.')
         return redirect('index')
