@@ -39,35 +39,31 @@ def login(request):
     """Log user in and redirect to Index page with success message.
     Display error messaging if already logged in, or if wrong credentials
     used to log in with."""
-    context = {
-        'login_page': 'active',
-        'form': UserLogin
-    }
-
-    # Get login form values.
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-
-        user = auth.authenticate(
-            username=username,
-            password=password
-        )
-
-        # Check if user exists & if yes login, otherwise show error.
-        if user is not None:
-            auth.login(request, user)
-            messages.success(request, 'Successfully logged in.')
-            return redirect('index')
-        else:
-            messages.error(request, 'Invalid Login details.')
-            return redirect('login')
-
-    elif request.user.is_authenticated:
+    if request.user.is_authenticated:
         messages.error(request, 'You are logged in already!')
-        return render(request, 'accounts/register.html', context)
+        return redirect('index')
+    elif request.method == 'POST':
+        login_form = UserLogin(request.POST)
+        if login_form.is_valid():
+            user = auth.authenticate(
+                username=request.POST['username'],
+                password=request.POST['password']
+            )
+            if user:
+                auth.login(request, user)
+                messages.success(request, 'Successfully logged in.')
+                return redirect('index')
+            else:
+                messages.error(request, 'Invalid Login details!')
+                return redirect('login')
     else:
-        return render(request, 'accounts/login.html', context)
+        login_form = UserLogin()
+
+    context = {
+        'login-page': 'active',
+        'form': login_form
+    }
+    return render(request, 'accounts/login.html', context)
 
 
 def logout_view(request):
