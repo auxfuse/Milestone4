@@ -77,8 +77,7 @@ def logout_view(request):
 
 def dashboard(request):
     """Function to direct User to bespoke dashboard containing details
-    about Posts they own as well as commented on, & display any membership
-    options they may have purchased. """
+    about Posts they own. """
     user = request.user
     forum_posts = Post.objects.order_by('-date_posted')
     my_posts = forum_posts.filter(originator__exact=user)
