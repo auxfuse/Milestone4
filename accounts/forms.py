@@ -1,9 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-# Due to extending the UserRegistrationForm password validation needs to be
-# reinstated on the form.
-from django.contrib.auth import password_validation
 from django.core.validators import ValidationError
 
 

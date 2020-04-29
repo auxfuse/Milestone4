@@ -882,6 +882,15 @@ footer .row {
     border-bottom: 1px solid rgba(222, 222, 222, 0.9);
 }
 
+/* Registration page */
+
+.errorlist {
+    color: #ec9e9e;
+    font-style: italic;
+    list-style: none;
+    border-bottom: 1px solid #ec9e9e;
+}
+
 /* Accessibility & Privacy Policy Pages */
 
 .card-subtitle {
