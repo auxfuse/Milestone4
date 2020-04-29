@@ -79,9 +79,8 @@ def dashboard(request):
     """Function to direct User to bespoke dashboard containing details
     about Posts they own as well as commented on, & display any membership
     options they may have purchased. """
-    forum_posts = Post.objects.order_by('-date_posted')
     user = request.user
-    print(user)
+    forum_posts = Post.objects.order_by('-date_posted')
     my_posts = forum_posts.filter(originator__exact=user)
 
     # Paginator
