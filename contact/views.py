@@ -7,7 +7,9 @@ from .forms import ContactQuery
 # Function Views
 def contact(request):
     """Render contact template and ContactQuery form. Once form is filled
-    out, save and display to the Admin dashboard with email to admin."""
+    out, save and display to the Admin dashboard with email to admin. If
+    user is a registered & logged user we capture their username for the
+    admin, otherwise user is public and query_from is left blank. """
     if request.method == 'POST':
         if request.user.is_authenticated:
             create_contact_form = Contact(
