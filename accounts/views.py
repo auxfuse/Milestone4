@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import logout
-from django.contrib.auth.models import User, auth
+from django.contrib.auth.models import auth
 from .forms import UserRegistrationForm, UserLogin
 
 
@@ -11,51 +11,28 @@ def register(request):
     taken, also check if password fields match. If all checks are made return
     user to Index page with success message of registration and instant
     login. If user is already logged in, display error message."""
-    context = {
-        'register_page': 'active',
-        'form': UserRegistrationForm
-    }
-
     if request.method == 'POST':
         # Get form values
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        username = request.POST['username']
-        email = request.POST['email']
-        password1 = request.POST['password1']
-        password2 = request.POST['password2']
+        reg_form = UserRegistrationForm(request.POST)
 
-        # Check Password match
-        if password1 == password2:
-            # Check if username & email are unique
-            if User.objects.filter(username=username).exists():
-                messages.error(request, 'Username already used.')
-                return redirect('register')
-            elif User.objects.filter(email=email).exists():
-                messages.error(request, 'This email is already coupled to an '
-                                        'account.')
-                return redirect('register')
-            else:
-                # Register User in Users collection & redirect to Home page.
-                user = User.objects.create_user(
-                    first_name=first_name,
-                    last_name=last_name,
-                    username=username,
-                    email=email,
-                    password=password1
-                )
-                user.save()
-                auth.login(request, user)
-                messages.success(request, 'You are now registered & logged in.')
-                return redirect('index')
-        else:
-            messages.error(request, 'Passwords did not match, try again.')
-            return redirect('register')
+        # Ensure form validations are met
+        if reg_form.is_valid():
+            user = reg_form.save()
+            auth.login(request, user)
+            messages.success(request, 'You are now registered & logged in.')
+            return redirect('index')
+
     elif request.user.is_authenticated:
         messages.error(request, 'You are logged in already!')
-        return render(request, 'accounts/register.html', context)
+        return redirect(request, 'index')
     else:
-        return render(request, 'accounts/register.html', context)
+        reg_form = UserRegistrationForm()
+
+    context = {
+        'register_page': 'active',
+        'form': reg_form
+    }
+    return render(request, 'accounts/register.html', context)
 
 
 def login(request):
