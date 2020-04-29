@@ -217,7 +217,7 @@ footer .row {
 
 .btn-primary {
     display: block;
-    margin: 1rem auto 0;
+    margin: 1rem auto;
     background: linear-gradient(145deg, #7f4e80, #6b3f6c, #512a52);
     border: none;
     text-shadow: -1px 0 #6b3f6c, 0 1px #6b3f6c, 1px 0 #6b3f6c, 0 -1px #6b3f6c;
