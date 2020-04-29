@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} 404 Page Error {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="page-title text-center">404 Page Error</h1>
+            </div>
+            <div class="col-sm-12">
+                <p class="page-desc text-center">The page you are trying to get to doesn't exist or is temporarily
+                unavailable?!</p>
+                <p class="page-desc text-center">If you believe you are seeing this page in error, and in fact something
+                could have actually gone wrong, please get in touch by using the contact page or by clicking the social
+                icons below. Make sure to tell us as much information as possible as to how you got to this problem and
+                we will get our software providers to take a much deeper look! Thank you.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center brand-img">
+                <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="PHP Logo">
+            </div>
+        </div>
+    </div>
+{% endblock %}

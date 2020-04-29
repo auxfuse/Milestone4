@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} 500 Server Error {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="page-title text-center">500 Internal Server Error</h1>
+            </div>
+            <div class="col-sm-12">
+                <p class="page-desc text-center">The site is currently down and inaccessible. Come back later!</p>
+                <p class="page-desc text-center">It's also possible that a simple refresh will rectify the problem
+                for you? It definitely works for our Developer when he is stumped by why something is working for him.</p>
+                <p class="page-desc text-center">If the problem persists, you can get in touch with us via our social
+                media to let us know...or you can leave us in the dark and give us a startling surprise when we finally
+                realise.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center brand-img">
+                <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="PHP Logo">
+            </div>
+        </div>
+    </div>
+{% endblock %}
