@@ -6,8 +6,6 @@ from checkout.choices import months, years
 class MakePaymentForm(forms.Form):
 
     credit_card_number = forms.CharField(
-        min_length=15,
-        max_length=16,
         required=False,
         label='',
         widget=forms.TextInput(attrs={
@@ -17,8 +15,6 @@ class MakePaymentForm(forms.Form):
     )
 
     cvv = forms.CharField(
-        min_length=1,
-        max_length=3,
         required=False,
         label='',
         widget=forms.NumberInput(attrs={
@@ -73,7 +69,6 @@ class OrderForm(forms.ModelForm):
         label='',
         widget=forms.EmailInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Enter Email',
-            'autofocus': 'True'
+            'placeholder': 'Enter Email'
         })
     )

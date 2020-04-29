@@ -612,3 +612,14 @@ Detail deployment here...
 
 - Flickr used to host images and then using urlfield in model to pass it to the template img src attribute for the admin of the website to update the coach information.
 
+- Success cards in Stripe V2 Test get accepted even if a
+CVV field is left blank. This was brought to the attention in
+a Slack Thread after I had found that what should of been an
+incorrect card number length of 12-digits (424242424242) was
+allowing skipping the try block in our views.py file in the
+checkout app. Link to slack post:
+https://code-institute-room.slack.com/archives/C7HS3U3AP/p1587987242043500
+After more defensive steps taken in the forms.py file of the checkout app,
+they were also deemed insufficient to stop this from happening, so with
+thanks to Slack user DaveL for pointing out the correctional defensive measures
+should be made in the stripe.js file to suit.

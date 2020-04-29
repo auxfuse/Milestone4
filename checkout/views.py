@@ -6,8 +6,8 @@ from membership.models import Membership
 from .models import OrderLineItem
 import stripe
 
-
 stripe.api_key = settings.STRIPE_SECRET
+
 
 # Create your views here.
 def checkout(request):
@@ -32,22 +32,21 @@ def checkout(request):
                         quantity=quantity
                     )
                     order_line_item.save()
-                try:
-                    customer = stripe.Charge.create(
-                        amount=int(total * 100),
-                        currency="EUR",
-                        description=request.user.email,
-                        card=payment_form.cleaned_data['stripe_id'],
-                    )
 
-                except stripe.error.CardError:
-                    messages.error(request, 'Your card was declined!')
+                customer = stripe.Charge.create(
+                    amount=int(total * 100),
+                    currency="EUR",
+                    description=request.user.email,
+                    card=payment_form.cleaned_data['stripe_id'],
+                )
 
                 if customer.paid:
                     messages.success(request, 'Payment received, Thank you!')
                     request.session['cart'] = {}
                     return redirect('membership')
-                messages.error(request, 'Something went wrong.')
+
+                messages.error(request,
+                               'We were unable to take payment with that card.')
 
             print(payment_form.errors)
             messages.error(request,
