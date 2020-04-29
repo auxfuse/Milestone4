@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.core.validators import ValidationError
 
 
+# Forms
 class UserRegistrationForm(UserCreationForm):
     first_name = forms.CharField(
         required=True,

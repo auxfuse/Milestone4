@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.core.paginator import Paginator
 from django.contrib.auth import logout
 from django.contrib.auth.models import auth
 from .forms import UserRegistrationForm, UserLogin
+from forum.models import Post
 
 
 # Create your views here.
@@ -77,8 +79,19 @@ def dashboard(request):
     """Function to direct User to bespoke dashboard containing details
     about Posts they own as well as commented on, & display any membership
     options they may have purchased. """
+    forum_posts = Post.objects.order_by('-date_posted')
+    user = request.user
+    print(user)
+    my_posts = forum_posts.filter(originator__exact=user)
+
+    # Paginator
+    paginator = Paginator(my_posts, 6)
+    page = request.GET.get('page')
+    paged_posts = paginator.get_page(page)
+
     context = {
-        'dashboard_page': 'active'
+        'dashboard_page': 'active',
+        'posts': paged_posts
     }
 
     return render(request, 'accounts/dashboard.html', context)

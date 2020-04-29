@@ -5,10 +5,113 @@
 {% block title %} Dashboard {% endblock %}
 
 {% block content %}
-    <h1>Dashboard</h1>
-    <p>Show Forum posts that user owns if any present & number of comments on post?</p>
-    <p>Create password change functionality form?</p>
-    <p>Add theme switcher......light/dark mode etc</p>
-    <p>Show previous membership buys....</p>
-{% endblock %}
+    <!-- Ensure user is logged in and if so show page content. -->
+    {% if user.is_authenticated %}
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h1 class="page-title">{{ user.username }}'s Dashboard</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <p class="page-desc">Below you will find some information for your posts that you've made
+                    and the current membership you hold. As this application grows, more and more features
+                    will be added so make sure to check back often.</p>
+                    <p class="page-desc">From us at PHP Barbell thank you for using our platform.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 text-center brand-img">
+                    <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="PHP Logo">
+                </div>
+            </div>
+        </div>
 
+        <!-- User's Posts -->
+        <div class="container posts">
+            <!-- Display Posts if any available otherwise display "no posts" text to user. -->
+            {% if posts %}
+                <div class="row posts-row">
+                    <div class="col-sm-12">
+                        <h2 class="page-subtitle text-center">Your Posts</h2>
+                    </div>
+                    {% for post in posts %}
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="card card-post">
+                                <div class="card-body card-post-body">
+                                    <!-- Anchor tag and empty span used allowing user to click anywhere
+                                     inside the card component to be brought to the full post. -->
+                                    <a href="{% url 'view-post' post.id %}">
+                                        <span class="div-url-overlay"></span>
+                                    </a>
+                                    <p class="post-header">Posted by: <span class="post-originator">{{ post.originator }}</span></p>
+                                    <h5 class="post-title">Title: {{ post.title|truncatechars:30 }}</h5>
+                                    <small class="post-details text-muted"># {{ post.category }} - {{ post.date_posted|date:'d/m/Y' }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="col-sm-12 text-center">
+                    <p class="page-desc">No Posts to show. Why not be the first to create one?</p>
+                </div>
+            {% endif %}
+
+            <!-- Pagination display if number of posts is greater than 6. Paginator referenced from Brad Traversy Python Django Dev to
+            Deployment Udemy Course. Link to course: https://www.udemy.com/course/python-django-dev-to-deployment -->
+            <div class="row">
+                <div class="col-sm-12">
+                    {% if posts.has_other_pages %}
+                        <ul class="pagination">
+                            <!-- Button icon to previous paginator page if paginator is in view. If there is another page to access, anchor
+                            tag used to navigate to same, otherwise user is on first page available and navigation disabled. -->
+                            {% if posts.has_previous %}
+                                <li class="page-item">
+                                    <a href="?forum-page={{ posts.previous_page_number }}" class="page-link paginator-page-cta">
+                                        <span><i class="fas fa-angle-double-left"></i></span>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="disabled page-item">
+                                    <span class="page-link paginator-page-cta"><i class="fas fa-angle-double-left"></i></span>
+                                </li>
+                            {% endif %}
+
+                            <!-- Display max number of page range in paginator view. If current page, add class active to
+                            detail and highlight current page to user. -->
+                            {% for i in posts.paginator.page_range %}
+                                {% if posts.number == i %}
+                                    <li class="page-item active">
+                                        <span class="page-link">{{ i }}<span class="sr-only">(current)</span></span>
+                                    </li>
+                                {% else %}
+                                    <li class="page-item">
+                                        <a href="?page={{ i }}" class="page-link">{{ i }}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+
+                            <!-- Button icon to next paginator page if paginator is in view. If there is another page to access, anchor
+                            tag used to navigate to same, otherwise user is on last page available and navigation disabled. -->
+                            {% if posts.has_next %}
+                                <li class="page-item">
+                                    <a href="?page={{ posts.next_page_number }}" class="page-link paginator-page-cta">
+                                        <span><i class="fas fa-angle-double-right"></i></span>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled">
+                                    <span class="page-link paginator-page-cta"><i class="fas fa-angle-double-right"></i></span>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% else %}
+        {% include 'partials/_error.html' %}
+    {% endif %}
+{% endblock %}
