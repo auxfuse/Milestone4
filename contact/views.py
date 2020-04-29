@@ -9,12 +9,21 @@ def contact(request):
     """Render contact template and ContactQuery form. Once form is filled
     out, save and display to the Admin dashboard with email to admin."""
     if request.method == 'POST':
-        create_contact_form = Contact(
-            query_title=request.POST.get('query_title'),
-            query_text=request.POST.get('query_text'),
-            query_email=request.POST.get('query_email')
-        )
-        create_contact_form.save()
+        if request.user.is_authenticated:
+            create_contact_form = Contact(
+                query_title=request.POST.get('query_title'),
+                query_text=request.POST.get('query_text'),
+                query_email=request.POST.get('query_email'),
+                query_from=request.user
+            )
+            create_contact_form.save()
+        else:
+            create_contact_form = Contact(
+                query_title=request.POST.get('query_title'),
+                query_text=request.POST.get('query_text'),
+                query_email=request.POST.get('query_email')
+            )
+            create_contact_form.save()
 
         messages.success(request, 'Mail sent. We will be in touch.')
         return redirect('index')
