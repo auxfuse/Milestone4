@@ -112,37 +112,30 @@ The project has a main font of <a href="https://fonts.google.com/specimen/Roboto
 ##### 2. Color Scheme
 This project was actually inspired by a friend of mine and his new venture as a local gym, that gym is called <a href="https://precisionhealthperformance.com/">Precision, Health & Performance</a> and they specialise in doing exactly what the name says. There is already a commercial website in place and the color scheme for it is monotone in nature with color only added via images noted throughout the site. The guys at PHP were kind enough and offered me their commercially built website as my project medium. I noticed that although it was incredibly intricate and quite simple and pleasing on the eye it needed something to just separate the monotone coloring. The theme of the site was light to begin with. It stayed this particular theme until very recently. As you can see from the the next few images, it had a soft UI neumorphism incorporated trend and it's color scheme incorporated these colors (or shade variants of same):
 
-[![Image from Gyazo](https://i.gyazo.com/6c5432f1c41fd7a1c61e5f2c75a3aa5d.gif)](https://gyazo.com/6c5432f1c41fd7a1c61e5f2c75a3aa5d)
-
-* ![#323232](https://placehold.it/15/323232/000000?text=+) `#323232` - Primary color
-* ![#432344](https://placehold.it/15/432344/000000?text=+) `#432344` - Secondary color
-* ![#ffc03d](https://placehold.it/15/ffc03d/000000?text=+) `#ffc03d` - Tertiary color
-* ![#efeeee](https://placehold.it/15/efeeee/000000?text=+) `#efeeee` - Supplementary color
-* ![#ff2525](https://placehold.it/15/ff2525/000000?text=+) `#ff2525` - Supplementary color 2
-
 <details>
-   <summary>Original Light Theme of Application ~ Examples:</summary>
+<summary>Original Light Theme of Application ~ Examples:</summary>
 
-   <p align="center">
-      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Base.png" alt="Base template mobile wireframe">
-   </p>
+[![Image from Gyazo](https://i.gyazo.com/3a30228222f75f1a0ea2363aa860642a.gif)](https://gyazo.com/3a30228222f75f1a0ea2363aa860642a)
 
-   <p align="center">
-      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Base.png" alt="Base template tablet-desktop wireframe">
-   </p>
-   </details>
+* ![#efeeee](https://placehold.it/15/efeeee/000000?text=+) `#efeeee` - Primary color
+* ![#323232](https://placehold.it/15/323232/000000?text=+) `#323232` - Secondary color
+* ![#432344](https://placehold.it/15/432344/000000?text=+) `#432344` - Tertiary color
+* ![#ffc03d](https://placehold.it/15/ffc03d/000000?text=+) `#ffc03d` - Supplementary color
+* ![#ff2525](https://placehold.it/15/ff2525/000000?text=+) `#ff2525` - Supplementary color 2
+   
+</details>
 
-***
+After attempting to implement a darkmode switch for this project, I had put in some amount of time creating the dark theme in a differing CSS file. The darkmode plan didn't work out, and is parked as a future feature for now, but after the darkmode theme got such a positive response from my Peers in Slack and from my test audience the color scheme was switched to that permanently. 
 
-The primary color of ![#323232](https://placehold.it/15/323232/000000?text=+) `#323232` was used to denote key componentry used in the application such as the Navbar & Footer. It's almost charcoal grey color emulates the color of the knurling found in many modern barbells and it ultimately was only a hue percentage off the logo dominate color that it became the obvious choice.
+The primary color of ![#323232](https://placehold.it/15/323232/000000?text=+) `#323232` was used to denote key componentry used in the application such as the Navbar & Footer. It's almost charcoal grey color emulates the color of the knurling found in many modern barbells and it ultimately was only a hue percentage off the logo dominate color that it became the obvious choice. It is also the default background for the entire application. It allowed for a greater Neumorphism effect to be implemented over the light theme and ultimately really showed off this Modern design Trend and the presence of the Brand itself.
 
-The secondary color of ![#432344](https://placehold.it/15/432344/000000?text=+) `#432344` is used throughout the site as Primary call to actions, Login/Register buttons, Create Posts/Comment buttons etc and change hue and directional gradient when hovered & pressed. It is the introduction of monochromatic coloring in the website as multiple hues of lightening or darkening tints are used to create the animations and the gradients. It is also used in creating a very light hued version for the shadows on the neumorphic elements.
+The secondary color of ![#432344](https://placehold.it/15/432344/000000?text=+) `#432344` is used throughout the site as Primary call to actions, such as the Login/Register buttons, Create Posts/Comment buttons etc and change hue and directional gradient when hovered & pressed. It is the introduction of some monochromatic coloring on elements in the website as multiple hues of lightening or darkening tints are used to create the animations and the gradients.
 
-The Tertiary color of ![#ffc03d](https://placehold.it/15/ffc03d/000000?text=+) `#ffc03d` and again using monochromatic techniques are used for animating the navigational elements in the navbar & footer partial components, and also providing a bright contrast on some of the custom horizontal block dividers. They are also used to show the user via highlight the current page being viewed in the navbar.
+The Tertiary color of ![#ffc03d](https://placehold.it/15/ffc03d/000000?text=+) `#ffc03d` and again monochromatic techniques are used for animating the navigational elements in the navbar & footer partial components on hover, and also providing a bright contrast on some of the custom horizontal block dividers. It is used to show the user via highlight the current page being viewed in the navbar. And for providing the background hover effect on the Clickable Forum Posts or available Membership Plans.
 
-The first Supplementary color of ![#efeeee](https://placehold.it/15/efeeee/000000?text=+) `#efeeee` is used as the default page body background and also as the font color used when contrast of black text is poor against the monochrome theme of the website, for example: the navigation list items in the navbar and footer.
+The first Supplementary color of ![#efeeee](https://placehold.it/15/efeeee/000000?text=+) `#efeeee` is used as the default font color.
 
-The second Supplementary color of ![#ff2525](https://placehold.it/15/ff2525/000000?text=+) `#ff2525` is used as a visual indicator for the user between the primary and secondary focus elements on the page. An example of this can be seen on the `view-post.html` template where the Post in question has a box-shadow background enhancement of the Secondary color where as the comments attached to this post have this Supplementary color as their box-shadow background enhancement. This provides a nice contrasting aesthetic between those components.
+The second Supplementary color of ![#ec9e9e](https://placehold.it/15/ec9e9e/000000?text=+) `#ec9e9e` is used as a visual indicator for the user detailing warnings/error messages such as the Stripe errors, or permanent Call to actions such as deleting a Post or Clearing the Cart. This hue of the color red was used to improve the contrast ratio against the dark theme of the site allowing greater User Experience to take place.
 
 ##### 3. Logo
 The logo was provided by Dean Roche, the owner of PHP as a complimentary gesture to help and aid me in the development of this site and the content within. Without this asset, I would of spent a lengthy period of time creating a logo to my liking. the logo itself was not only used as the Branding image in the Navbar but also used as a Horizontal Visual Page Break and is rendered on every template to ensure consistency throughout the application.
