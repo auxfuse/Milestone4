@@ -38,7 +38,7 @@
 This Milestone project creation is the culmination of learning and study from all modules of the Full Stack Developer Course, culminating in the creation of this Full Stack Framework Django project. This Application will allow an admin to store and manipulate data records and also allow users to create, read, update, delete & purchase memberships for this newly create local barbell club called, <a href="https://php-barbell.herokuapp.com/">PHP Barbell</a>.
 
 <p align="center">
-    <img src="" alt="PHP Favicon">
+    <img src="https://raw.githubusercontent.com/auxfuse/Milestone4/master/Milestone4/static/img/favicon.ico" alt="PHP Favicon">
 </p>
 
 ### Functionality of Project
@@ -113,7 +113,7 @@ The project has a main font of <a href="https://fonts.google.com/specimen/Roboto
 This project was actually inspired by a friend of mine and his new venture as a local gym, that gym is called <a href="https://precisionhealthperformance.com/">Precision, Health & Performance</a> and they specialise in doing exactly what the name says. There is already a commercial website in place and the color scheme for it is monotone in nature with color only added via images noted throughout the site. The guys at PHP were kind enough and offered me their commercially built website as my project medium. I noticed that although it was incredibly intricate and quite simple and pleasing on the eye it needed something to just separate the monotone coloring. The theme of the site was light to begin with. It stayed this particular theme until very recently. As you can see from the the next few images, it had a soft UI neumorphism incorporated trend and it's color scheme incorporated these colors (or shade variants of same):
 
 <details>
-<summary>Original Light Theme of Application ~ Examples:</summary>
+<summary>Original Light Theme of Application Example:</summary>
 
 [![Image from Gyazo](https://i.gyazo.com/3a30228222f75f1a0ea2363aa860642a.gif)](https://gyazo.com/3a30228222f75f1a0ea2363aa860642a)
 
@@ -127,13 +127,19 @@ This project was actually inspired by a friend of mine and his new venture as a 
 
 After attempting to implement a darkmode switch for this project, I had put in some amount of time creating the dark theme in a differing CSS file. The darkmode plan didn't work out, and is parked as a future feature for now, but after the darkmode theme got such a positive response from my Peers in Slack and from my test audience the color scheme was switched to that permanently. 
 
+* ![#323232](https://placehold.it/15/323232/000000?text=+) `#323232` - Primary color
+* ![#432344](https://placehold.it/15/432344/000000?text=+) `#432344` - Secondary color
+* ![#ffc03d](https://placehold.it/15/ffc03d/000000?text=+) `#ffc03d` - Tertiary color
+* ![#efeeee](https://placehold.it/15/efeeee/000000?text=+) `#efeeee` - Supplementary color
+* ![#ec9e9e](https://placehold.it/15/ec9e9e/000000?text=+) `#ec9e9e` - Supplementary color 2
+
 The primary color of ![#323232](https://placehold.it/15/323232/000000?text=+) `#323232` was used to denote key componentry used in the application such as the Navbar & Footer. It's almost charcoal grey color emulates the color of the knurling found in many modern barbells and it ultimately was only a hue percentage off the logo dominate color that it became the obvious choice. It is also the default background for the entire application. It allowed for a greater Neumorphism effect to be implemented over the light theme and ultimately really showed off this Modern design Trend and the presence of the Brand itself.
 
 The secondary color of ![#432344](https://placehold.it/15/432344/000000?text=+) `#432344` is used throughout the site as Primary call to actions, such as the Login/Register buttons, Create Posts/Comment buttons etc and change hue and directional gradient when hovered & pressed. It is the introduction of some monochromatic coloring on elements in the website as multiple hues of lightening or darkening tints are used to create the animations and the gradients.
 
-The Tertiary color of ![#ffc03d](https://placehold.it/15/ffc03d/000000?text=+) `#ffc03d` and again monochromatic techniques are used for animating the navigational elements in the navbar & footer partial components on hover, and also providing a bright contrast on some of the custom horizontal block dividers. It is used to show the user via highlight the current page being viewed in the navbar. And for providing the background hover effect on the Clickable Forum Posts or available Membership Plans.
+The Tertiary color of ![#ffc03d](https://placehold.it/15/ffc03d/000000?text=+) `#ffc03d` and again monochromatic techniques are used for animating the navigational elements in the navbar & footer partial components on hover, and also providing a bright contrast on some of the custom horizontal block dividers. It is used to show the user via highlight the current page being viewed in the navbar. And provides the background hover effect to denote the clickable action on a Forum Post or Membership Plan.
 
-The first Supplementary color of ![#efeeee](https://placehold.it/15/efeeee/000000?text=+) `#efeeee` is used as the default font color.
+The first Supplementary color of ![#efeeee](https://placehold.it/15/efeeee/000000?text=+) `#efeeee` is used as the default font color and is easy on the eye for the user against the background Primary color above.
 
 The second Supplementary color of ![#ec9e9e](https://placehold.it/15/ec9e9e/000000?text=+) `#ec9e9e` is used as a visual indicator for the user detailing warnings/error messages such as the Stripe errors, or permanent Call to actions such as deleting a Post or Clearing the Cart. This hue of the color red was used to improve the contrast ratio against the dark theme of the site allowing greater User Experience to take place.
 
@@ -150,7 +156,7 @@ The applications geometrical aspects feature aesthetically modern components suc
 
 A rule of symmetrical grouping was used horizontally and the rule of thirds was implemented vertically on most pages where content would allow. For example, most pages feature a descriptive context for the user, a branding logo as separation but also to invoke that brand in the user's mind-eye when remembering from reference and the actual content necessary for that page.
 
-Form inputs were kept label-less to keep with the Neumorphism trend and all form inputs use a placeholder as form label to still direct the user as to the information that the field requires. 
+Form inputs were kept label-less to keep with the Neumorphism trend and all form inputs use a placeholder as form label to still direct the user as to the information that the field requires and maintaining the centrally aligned component Geometry found throughout the application. 
 
 ##### 5. Wireframing & Proposed/Implemented Functionality per Page
 
@@ -248,23 +254,33 @@ Wireframing for this project began with Pen and paper as all my projects tend to
 
 * Membership Template:
 
-   The .... 
+   This template is comprised of some context pertaining to the services offered with membership options, branding throughout and an image to break up the flow of the page a bit. Each payment plan detailed on this template can be controlled by the Admin in the Admin panel of the site, but for examples sake of the project submission, 3 Membership Plans have been created and displayed. 
+   
+   These plans are returned to the template by querying the database table "Membership" and grabbing all the available objects within. A filter was placed on this aswell to ensure the cheapest options were placed on the left of the screen, or on top for mobile and then in ascending order by price.
+   
+   ```python
+   memberships = Membership.objects.all().order_by('price')
+   ```
+  
+  The wireframe initially had a button to add a plan to the Cart but during application development I utilised the anchor element & empty span method combo as detailed previously to add a cart to the user. Users can only add a plan to a cart if they are logged in, or if they are logged & their cart is empty. This idea behind this is that as these plans are monthly subscription based it was to ensure a user would never buy multiple plans for the forthcoming 30-day period. A user can re-buy a Plan at their leisure right now in separate transactions, with a future implementation being they can only buy one plan in any 30-day period.
+  
+  When a plan is in the cart, the anchor & empty span link is removed via a jinja template expression checking for the total price of the cart is greater than 0, as well as swapping out the helper text located at the bottom of each membership plan card. This acts as a small defensive element so a user cannot add more than one plan to the cart at any one time. There are also defensive measures added to the `add_to_cart` function as part of the cart app that we will take about later. If a user attempts to add a plan to a cart while the cart already has a plan added or if the user is not logged in, an error message to suit each action is thrown. Otherwise, a success message is thrown to the user detailing successful addition to cart.
 
    <details>
    <summary>Membership Template Wireframes</summary>
 
    <p align="center">
-      <img height="350" src="">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Membership.png" alt="Membership template mobile wireframe">
    </p>
 
    <p align="center">
-      <img height="350" src="">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Membership.png" alt="Membership template tablet-desktop wireframe">
    </p>
    </details>
 
 ***
 
-* Registration Template:
+* Register Template:
 
    The Registration template contains some directional text, the brand image to break up the page a bit and the Registration Form. As with the Login form below, the Registration form is created as a class and is a built-in form from <a href="https://docs.djangoproject.com/en/3.0/topics/auth/default/#module-django.contrib.auth.forms">Django Contrib Auth ~ UserCreationForm</a> and was created using reference from the Django documentation linked.
    
@@ -273,7 +289,7 @@ Wireframing for this project began with Pen and paper as all my projects tend to
    The original helper text that accompanies the `UserCreationForm` has been excluded also as it added an unnecessary dis-pleasing aesthetic to the form that personal preference from myself did not like, I also asked several of my peers for their direction with this design approach and it was positively received. Removing the helper text proved problematic at first but using <a href="https://stackoverflow.com/questions/13202845/removing-help-text-from-django-usercreateform">this post</a> from StackOverflow gave me the answer needed. As the original fields of the `UserCreationForm` had `username` as the default autofocus field, I also used the same dunder init method to set the default autofocus to the First Name field.
    
    ```python
-   """Disable help text of User Creation Form & set default autofocus to 
+  """Disable help text of User Creation Form & set default autofocus to 
    first_name."""
    def __init__(self, *args, **kwargs):
        super().__init__(*args, **kwargs)
@@ -282,8 +298,10 @@ Wireframing for this project began with Pen and paper as all my projects tend to
        self.fields['first_name'].widget.attrs['autofocus'] = True
        self.fields['username'].widget.attrs['autofocus'] = False   
    ```
+   
+   During Peer-code-review of my project it was pointed out that a User could register with a Password of 1 character. This was an unintended consequence of extending the UserCreationForm class and thanks to Peer and Fellow student, <a href="">Johan de Leeuw</a> for pointing out that my view and method of checking for defensive supports in the view were flawed. Using the `.is_valid()` method to ensure the UserCreationForm's built-in validators worked did the trick and ultimately allowed me to compress and refactor my code easily. I used the <a href="https://docs.djangoproject.com/en/3.0/ref/forms/validation/#form-and-field-validation">Django docs for Form & field validation</a> as provided by Johan to help me implement the method.
       
-   Defensive design is implemented in ensuring that usernames & emails used are unique aswell as ensuring that passwords 1 & 2 match. Coupled with the below jinja expression statement to check if a user is already logged in or not. If they are, we produce the `_error.html` partial indicating that they have attempted to navigate to this template in error and are potentially already logged in.
+   Additional Defensive design is implemented in ensuring that emails used are unique by using the `clean_<fieldname>()` method directly in the Form class. Coupled with the below jinja expression statement to check if a user is already logged in or not. If they are, we produce the `_error.html` partial indicating that they have attempted to navigate to this template in error and are potentially already logged in.
    
    ```html
    {% if user.is_authenticated %}
@@ -299,11 +317,11 @@ Wireframing for this project began with Pen and paper as all my projects tend to
    <summary>Registration Template Wireframes</summary>
 
    <p align="center">
-      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Register.png">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Register.png" alt="Register template mobile wireframe">
    </p>
 
    <p align="center">
-      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Register.png">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Register.png" alt="Register template tablet-desktop wireframe">
    </p>
    </details>
 
@@ -321,11 +339,11 @@ Wireframing for this project began with Pen and paper as all my projects tend to
    <summary>Login Template Wireframes</summary>
 
    <p align="center">
-      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Login.png">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Login.png" alt="Login template mobile wireframe">
    </p>
 
    <p align="center">
-      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Login.png">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Login.png" alt="Login template tablet-desktop wireframe">
    </p>
    </details>
 
@@ -339,11 +357,11 @@ Wireframing for this project began with Pen and paper as all my projects tend to
    <summary>Accessibility Template Wireframes</summary>
 
    <p align="center">
-      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Accessibility-Statement.png">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Accessibility-Statement.png" alt="Accessibility template mobile wireframe">
    </p>
 
    <p align="center">
-      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Accessibility-Statement.png">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Accessibility-Statement.png" alt="Accessibility template tablet-desktop wireframe">
    </p>
    </details>
 
@@ -357,11 +375,53 @@ Wireframing for this project began with Pen and paper as all my projects tend to
    <summary>Privacy Policy Template Wireframes</summary>
 
    <p align="center">
-      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Privacy-Policy.png">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Privacy-Policy.png" alt="Privacy Policy template mobile wireframe">
    </p>
 
    <p align="center">
-      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Privacy-Policy.png">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Privacy-Policy.png" alt="Privacy Policy template tablet-desktop wireframe">
+   </p>
+   </details>
+
+***
+
+* Cart Template:
+
+   The cart template is only accessible to those who have logged in, and shows a user if the cart has something to checkout or not. If it is empty and the user navigates to this template, some helpful short text is displayed to the user detailing same. If the cart has had a plan added to it, then the Cart will display that plan and also a small asterisk symbol will appear in the Navbar alongside the `Cart` Nav-item. For as long as the user is currently logged in, without checking out or clearing the basket, this asterisk symbol will persist, highlighted in yellow across all pages.
+   
+    If the user wants to checkout, then clicking on the checkout button displayed in the cart card will navigate the user onto same, however, as with the edit-post.html template, a two factor visual cue delete is in play. When a user clicks on `Click here to Clear Cart`, a dialog box slides open with some warning text as to the permanency of this action. If the user wants to continue, a final click on the `Clear` button will clear the cart and navigate the user back to the membership template. As the cart is now clear, the asterisk also disappears from view denoting to the user that their cart is empty.
+
+   <details>
+   <summary>Cart Template Wireframes</summary>
+
+   <p align="center">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Cart.png" alt="Cart template mobile wireframe">
+   </p>
+
+   <p align="center">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Cart.png" alt="Cart template tablet-desktop wireframe">
+   </p>
+   </details>
+
+***
+
+* Checkout Template:
+
+   The checkout template is only accessible to a logged in user, and if a Cart has had an item added to it and then if the user has selected to Checkout that Cart. It will detail the currently selected plan for checkout as a secondary visual inspection for the user to ensure they are getting exactly what they want. And it will also have the Payment form. The Payment details form rendered on the checkout.html template is comprised of two seperate Django forms. One for capturing the Payment details pertaining to the card being used and the other to capture the necessary information for the Order.
+   
+   There are multiple defensive elements at play for this particular form, from ensuring that the user cannot leave any fields blank to ensuring the correct length of digits is entered for the Credit Card No. & CVV number.
+   
+   Once a user clicks to buy, and if successful payment is made, the user is redirected back to the Memberships page displaying a success message, and the cart is cleared. If there are any errors detected on submission, the Stripe Error messages will appear detailing the found error, or the normal HTML field warnings will show per field if a field is left blank etc.   
+
+   <details>
+   <summary>Checkout Template Wireframes</summary>
+
+   <p align="center">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Checkout.png" alt="Checkout template mobile wireframe">
+   </p>
+
+   <p align="center">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Checkout.png" alt="Checkout template tablet-desktop wireframe">
    </p>
    </details>
 
@@ -387,11 +447,11 @@ Wireframing for this project began with Pen and paper as all my projects tend to
    <summary>Forum Template Wireframes</summary>
 
    <p align="center">
-      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Forum.png">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Forum.png" alt="Forum template mobile wireframe">
    </p>
 
    <p align="center">
-      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Forum.png">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Forum.png" alt="Forum template tablet-desktop wireframe">
    </p>
    </details>
 
@@ -419,11 +479,11 @@ Wireframing for this project began with Pen and paper as all my projects tend to
    <summary>Create Post Template Wireframes</summary>
 
    <p align="center">
-      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Create-Post.png">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Create-Post.png" alt="Create Post template mobile wireframe">
    </p>
 
    <p align="center">
-      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Create-Post.png">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Create-Post.png" alt="Create Post template tablet-desktop wireframe">
    </p>
    </details>
 
@@ -439,11 +499,11 @@ Wireframing for this project began with Pen and paper as all my projects tend to
    <summary>Filtered Posts Template Wireframes</summary>
 
    <p align="center">
-      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Filter-Posts.png">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Filter-Posts.png" alt="Filter Posts template mobile wireframe">
    </p>
 
    <p align="center">
-      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Filter%20Posts.png">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Filter%20Posts.png" alt="Filter Posts template tablet-desktop wireframe">
    </p>
    </details>
 
