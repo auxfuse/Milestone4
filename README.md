@@ -110,13 +110,29 @@ The project has a main font of <a href="https://fonts.google.com/specimen/Roboto
  "Lato" is the secondary font used to compliment the primary font. Again, this typeface is of the serif family, contains classical proportions (particularly in upper case), but holds a strong structure providing stability and seriousness. It reads well alongside "Roboto Condensed" and ultimately was a great fit with the overall theme of the application.
 
 ##### 2. Color Scheme
-This project was actually inspired by a friend of mine and his new venture as a local gym, that gym is called <a href="https://precisionhealthperformance.com/">Precision, Health & Performance</a> and they specialise in doing exactly what the name says. Their is already a commercial website in place and the color scheme for it is monotone in nature with color only added via images noted throughout the site. The guys at PHP were kind enough and offered me their commercially built website as my project medium. I noticed that although it was incredibly intricate and quite simple and pleasing on the eye it needed something to just separate the monotone coloring.
+This project was actually inspired by a friend of mine and his new venture as a local gym, that gym is called <a href="https://precisionhealthperformance.com/">Precision, Health & Performance</a> and they specialise in doing exactly what the name says. There is already a commercial website in place and the color scheme for it is monotone in nature with color only added via images noted throughout the site. The guys at PHP were kind enough and offered me their commercially built website as my project medium. I noticed that although it was incredibly intricate and quite simple and pleasing on the eye it needed something to just separate the monotone coloring. The theme of the site was light to begin with. It stayed this particular theme until very recently. As you can see from the the next few images, it had a soft UI neumorphism incorporated trend and it's color scheme incorporated these colors (or shade variants of same):
+
+[![Image from Gyazo](https://i.gyazo.com/6c5432f1c41fd7a1c61e5f2c75a3aa5d.gif)](https://gyazo.com/6c5432f1c41fd7a1c61e5f2c75a3aa5d)
 
 * ![#323232](https://placehold.it/15/323232/000000?text=+) `#323232` - Primary color
 * ![#432344](https://placehold.it/15/432344/000000?text=+) `#432344` - Secondary color
 * ![#ffc03d](https://placehold.it/15/ffc03d/000000?text=+) `#ffc03d` - Tertiary color
 * ![#efeeee](https://placehold.it/15/efeeee/000000?text=+) `#efeeee` - Supplementary color
 * ![#ff2525](https://placehold.it/15/ff2525/000000?text=+) `#ff2525` - Supplementary color 2
+
+<details>
+   <summary>Original Light Theme of Application ~ Examples:</summary>
+
+   <p align="center">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Base.png" alt="Base template mobile wireframe">
+   </p>
+
+   <p align="center">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Base.png" alt="Base template tablet-desktop wireframe">
+   </p>
+   </details>
+
+***
 
 The primary color of ![#323232](https://placehold.it/15/323232/000000?text=+) `#323232` was used to denote key componentry used in the application such as the Navbar & Footer. It's almost charcoal grey color emulates the color of the knurling found in many modern barbells and it ultimately was only a hue percentage off the logo dominate color that it became the obvious choice.
 
