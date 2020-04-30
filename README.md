@@ -299,8 +299,8 @@ Wireframing for this project began with Pen and paper as all my projects tend to
        self.fields['username'].widget.attrs['autofocus'] = False   
    ```
    
-   During Peer-code-review of my project it was pointed out that a User could register with a Password of 1 character. This was an unintended consequence of extending the UserCreationForm class and thanks to Peer and Fellow student, <a href="">Johan de Leeuw</a> for pointing out that my view and method of checking for defensive supports in the view were flawed. Using the `.is_valid()` method to ensure the UserCreationForm's built-in validators worked did the trick and ultimately allowed me to compress and refactor my code easily. I used the <a href="https://docs.djangoproject.com/en/3.0/ref/forms/validation/#form-and-field-validation">Django docs for Form & field validation</a> as provided by Johan to help me implement the method.
-      
+   During Peer-code-review of my project it was pointed out that a User could register with a Password of 1 character. This was an unintended consequence of extending the UserCreationForm class and thanks to Peer and Fellow student, <a href="https://github.com/jdl208">Johan de Leeuw</a> for pointing out that my view and method of checking for defensive supports in the view were flawed. Using the `.is_valid()` method to ensure the UserCreationForm's built-in validators worked did the trick and ultimately allowed me to compress and refactor my code easily. I used the <a href="https://docs.djangoproject.com/en/3.0/ref/forms/validation/#form-and-field-validation">Django docs for Form & field validation</a> as provided by Johan to help me implement the method.
+
    Additional Defensive design is implemented in ensuring that emails used are unique by using the `clean_<fieldname>()` method directly in the Form class. Coupled with the below jinja expression statement to check if a user is already logged in or not. If they are, we produce the `_error.html` partial indicating that they have attempted to navigate to this template in error and are potentially already logged in.
    
    ```html
@@ -503,7 +503,7 @@ Wireframing for this project began with Pen and paper as all my projects tend to
    </p>
 
    <p align="center">
-      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Filter%20Posts.png" alt="Filter Posts template tablet-desktop wireframe">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Filter-Posts.png" alt="Filter Posts template tablet-desktop wireframe">
    </p>
    </details>
 
@@ -517,7 +517,7 @@ Wireframing for this project began with Pen and paper as all my projects tend to
     
     If the user who is currently logged does not own the post they are currently viewing then the Post renders without the originator functionality. The template itself plays host to some common elements shared between the types of users. For one, the `post originator` is displayed in the page-title at the top of the page and the entire post is displayed in a card, with the `title`, `post details`, `category` and `post date`.
     
-    Comments are displayed under the brand image, and is paginated to 8 comments per page. Each comment is separated into their own card and has a differing color box-shadow to contrast the comments against the Post itself of ![#ff2525](https://placehold.it/15/ff2525/000000?text=+) `#ff2525`. This is against what was planned in the wireframes but after seeing both stand-points I settled on this layout as it kept the content to the top portion of the view and the call-to-action add comment section to the bottom portion.
+    Comments are displayed under the brand image, and is paginated to 8 comments per page. Each comment is separated into their own card and is styled with neumorphism style prevalent throughout the application. This is against what was planned in the wireframes but after seeing both stand-points I settled on this layout as it kept the content to the top portion of the view and the call-to-action add comment section to the bottom portion.
     
     The comment field is a single field for the user to add their comment details for the post and the model comprises a total of 4 fields, 3 of which are auto-populated on submission of a comment, `date_commented` which is set to the current datetime, a foreign key to the users table for the `commenter` field and then another foreign key into the Post table linking the comments to the current respective `post`. When a comment is added to the Post it is automatically added to the top of the list of comments, with the user redirected back to the same `view-post.html` template and a success message relayed to the user detailing the comment being added to the Post.
     
@@ -525,11 +525,11 @@ Wireframing for this project began with Pen and paper as all my projects tend to
    <summary>View Post Template Wireframes</summary>
 
    <p align="center">
-      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-View-Post.png">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-View-Post.png" alt="View Post template mobile wireframe">
    </p>
 
    <p align="center">
-      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-View-Post.png">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-View-Post.png" alt="View Post template tablet-desktop wireframe">
    </p>
    </details>
 
@@ -543,17 +543,83 @@ Wireframing for this project began with Pen and paper as all my projects tend to
    
    When a user is the Post originator, the `edit-form.html` template renders with the `CreatePost` form and any values that it previously had originally via passing the `instance=post` keyword argument, in the form fields for editing. The only fields that can be edited are the same three fields visible to the user when creating a Post, `title`, `post_text` and `category`. When clicking Update the record will save the details to the database and redirect the user back to the `view-post.html` template with a success message displaying to the user of the update.
    
-   The `edit-post.html` template also contains the only user delete function for a particular post. As a permanent irreversible action this action is behind a two-check and dual-confirmation in the form of a user needs to click on `Delete Post` link first which expands out a warning dialog under the `edit-post` form and then click a second highly contrasted in warning color of the supplementary color #2 ![#ff2525](https://placehold.it/15/ff2525/000000?text=+) `#ff2525` to delete the post. Once the post is deleted the user is redirected back to the `forum.html` template with a success message as to the action just performed. Again as with each element of the Forum, there is a check in place to ensure that the currently logged in user is the `post.originator`, if not or a user somehow manages to not be logged in, they are redirected back to the `index.html` template with an error message returned and displayed via `_alerts.html` partial. 
+   The `edit-post.html` template also contains the only user delete function for a particular post. As a permanent irreversible action this action is behind a two-check and dual-confirmation in the form of a user needs to click on `Delete Post` link first which expands out a warning dialog under the `edit-post` form and then click a second highly contrasted in warning color of the supplementary color #2 ![#ec9e9e](https://placehold.it/15/ec9e9e/000000?text=+) `#ec9e9e` to delete the post. Once the post is deleted the user is redirected back to the `forum.html` template with a success message as to the action just performed. Again as with each element of the Forum, there is a check in place to ensure that the currently logged in user is the `post.originator`, if not or a user somehow manages to not be logged in, they are redirected back to the `index.html` template with an error message returned and displayed via `_alerts.html` partial. 
 
    <details>
    <summary>Edit Post Template Wireframes</summary>
 
    <p align="center">
-      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Edit-Post.png">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Edit-Post.png" alt="Edit Post template mobile wireframe">
    </p>
 
    <p align="center">
-      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Edit-Post.png">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Edit-Post.png" alt="Edit Post template tablet-desktop wireframe">
+   </p>
+   </details>
+
+***
+
+* Dashboard Template:
+
+   This template is locked behind login as it directly related to the Logged in User Experience and functionally acts much in the same way and structure of the Filter Posts template mentioned above, but instead of having a categories returned, we just return the User's individually owned Posts for easy access to same. Over time, this template will grow to include many other features, some of which were attempted during the development of this project but instead made it into the Future Features portion.
+   
+   To return the User's Own Posts we query the database `Post` table to return all posts, then we add a filter where the User's username matches the originator. This function view is part of the `accounts` app as I see this as an integral piece of functionality for any application that promotes User interaction.
+   
+   ```python
+   """Function to direct User to bespoke dashboard containing details
+   about Posts they own."""
+   user = request.user
+   forum_posts = Post.objects.order_by('-date_posted')
+   my_posts = forum_posts.filter(originator__exact=user)
+   ```
+  
+  In keeping with good User Experience and Interaction, this template also boasts pagination when a User's number of Post's exceeds 6, this also assists in saving on Vital real-estate on mobile devices.
+
+   <details>
+   <summary>Dashboard Template Wireframes</summary>
+
+   <p align="center">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-Dashboard.png" alt="Dashboard template mobile wireframe">
+   </p>
+
+   <p align="center">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-Dashboard.png" alt="Dashboard template tablet-desktop wireframe">
+   </p>
+   </details>
+
+***
+
+* 404 Page Template:
+
+   A simple template that exists in the root `templates` folder and is the automatic return to a User when they attempt to navigate to a Page that does not exist. Contains some context information as to why this page is returning for the User and some directional prompts on how to navigate the site from their. 
+
+   <details>
+   <summary>404 Page Template Wireframes</summary>
+
+   <p align="center">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-404-Page.png" alt="404 Page template mobile wireframe">
+   </p>
+
+   <p align="center">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-404-Page.png" alt="404 Page template tablet-desktop wireframe">
+   </p>
+   </details>
+
+***
+
+* 500 Page Template:
+
+   A simple template that exists in the root `templates` folder and is the automatic return to a User when the Server for the application goes down. Contains some context information as to why this page is returning for the User and some directional prompts on how to navigate the site from their. 
+
+   <details>
+   <summary>500 Page Template Wireframes</summary>
+
+   <p align="center">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Mobile-500-Page.png" alt="500 Page template mobile wireframe">
+   </p>
+
+   <p align="center">
+      <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/Ms4-Tablet-Desktop-500-Page.png" alt="500 Page template tablet-desktop wireframe">
    </p>
    </details>
 
