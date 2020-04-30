@@ -99,7 +99,7 @@ By using rounded edges on the components, eg: cards, and removing conventional b
 As an example of putting all of the above to use the following is the Login Form card with Neumorphism styles in place:
 
 <p align="center">
-    <img src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/wireframes/neumorphismExample.PNG" alt="Neumorphism Styled Form">
+    <img src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/readme/neumorphismExample.PNG" alt="Neumorphism Styled Form">
 </p>
 
 ##### 1. Font
@@ -632,6 +632,7 @@ Wireframing for this project began with Pen and paper as all my projects tend to
 #### Languages, Frameworks, Editors & Version Control:
 
 * HTML, CSS & Python ~ core languages used to create this multi-page CRUD application.
+* <a href="https://www.djangoproject.com/">Django</a> ~ Used as the architectural engine following the model-template-view approach.
 * <a href="https://getbootstrap.com/"> Bootstrap Framework</a> ~ Used as the core structuring layout for the application, ensuring mobile-first design and screen size fluidity.
 * Bootstrap's <a href="https://getbootstrap.com/docs/4.3/getting-started/introduction/#js">Imported Javascript & JQuery</a> ~ For the Modal and Responsive Navbar expand & collapse functionality.
 * <a href="https://www.jetbrains.com/pycharm/">PyCharm IDE</a> ~ PyCharm was used as the preferred IDE for this project.
@@ -644,6 +645,7 @@ controlling throughout the life-cycle of the project build.
 #### Tools Used:
 
 * <a href="">PostgreSQL</a> ~ A free and open-source relational database management system emphasizing extensibility and technical standards compliance. Designed to handle high range of workloads including Web services with many concurrent users.
+* <a href="http://whitenoise.evans.io/en/stable/">WhiteNoise</a> ~ Used to easily allow the Deployed project to serve it's own static files.
 * <a href="https://mycolor.space/">ColorSpace</a> ~ Used to find complimentary color schemes used throughout the application.
 * <a href="http://eye-dropper.kepi.cz/">Eye Dropper (Color Picker)</a> ~ Open Source Google Chrome Extension used to obtain hexadecimal/rgba/hsl values of colours. Built by Kepi (<a href="https://github.com/kepi">Kepi's Github</a>)
 * Google Chrome DevTools ~ Used to test the application's functionality, the responsiveness of same, and the CSS visualisation, as well as assisting in such tasks as figuring out the correct style properties to override Bootstraps user agent styling.
@@ -652,37 +654,122 @@ controlling throughout the life-cycle of the project build.
 * <a href="https://validator.w3.org/">W3C HTML Validator</a> & <a href="https://validator.w3.org/">W3C CSS Validator</a> & <a href="https://jshint.com/">JSHint</a> ~ Used to check the validity and efficiency of my code.
 * <a href="https://autoprefixer.github.io/">Autoprefixer CSS Online</a> ~ Used to check for possible webkits required in the applications stylesheet ensuring Cross-browser support.
 * <a href="http://pep8online.com/">PEP 8 Online Validator</a> ~ to check my python code to be consistent with PEP8 requirements.
-* Adobe Photoshop ~ to create the custom long and short variations of the Logo for this application.
-* <a href="https://fontawesome.com/icons?d=gallery">Font Awesome Icons</a> ~ For social icons used in Footer.
+* <a href="https://fontawesome.com/icons?d=gallery">Font Awesome Icons</a> ~ For social icons used in Footer and Iconography present throughout site.
+* <a href="https://pinetools.com/round-corners-image">PineTools</a> ~ Used to round corners of images used in Carousel.
+
 
 ## Database
 
+The database used for this Project was Postgres, as an Installed add-on to the deployed Heroku Application. Sqlite3 was used for a little while in the beginning to test the User Authentication, Registration & Login, and for testing the creation of Posts for the Forum. Mid-development I moved to local & deployed testing so Postgres was used from that point on.
+
+When each app and its models were created and implemented, `python manage.py makemigrations` was run in the terminal to create the initial model package and `python manage.py migrate` was then used to apply the model to the database and create the table.
+
+Where possible, first-time-right methodology was approached when creating the models to avoid to many alterations to the models and the database table through multiple `makemigrations` and `migrate` commands.
+
+In error during development coming close to the end of the build, I incorrectly deleted a migrations file from the `contact` app's `migrations` folder. This ultimately led to my database being corrupt, causing an irreversible error to be displayed whenever attempts to migrate new changes to the database were made. With the help of Michael_ci, Code Institute Tutor, I was guided towards resetting my Database in the Heroku add-on settings. This was a harsh lesson in _law of unintended consequences_, one I'm sure never to make again.
+
 #### Database Schema:
 
-Detail the db schema here....images, thoughts behind fks etc
+The database schema is comprised of 8 current tables, with the 9th proposed table of `darkmode` being dropped to save on time coming towards the Project deadline. This table will be re-added as a Future Feature once my Assessment grade comes back.
+
+The tables relationships breakdown is as follow:
+* One user can have many:
+    * Posts
+    * Post Comments
+    * Contact Submissions
+    * Orders
+* One Post can have many:
+    * Post Comments
+* One Membership can have many:
+    * Order Line Items
+* One Order can have one:
+    * Order Line Item
+* Staff Member tables has no related tables.
+* Darkmode was stripped from this build for Future Feature.
+
+As is detailed in the database schema diagram, the User table has the most related interaction. A user can be a Post `originator`, Post Comment `commenter`, Order `user` and Contact `user`. The contact form can be filled out by both logged users and public users meaning that the `user` field in this table can be left unassigned or `Null`.
+
+The Post Comment table has two foreign key fields linking it to the Comment and a User. This ensure that the comments for a particular post can be displayed to the user or queried via `related` search methods to return the Post and Users for which they belong to. This is what most online forums do at a much higher intricate level for which I took inspiration from in building my Forum app.
+
+The Order Line Item table works in much the same way as the Post Comment table and is linked to both the Membership table and Order table via foreign keys to display different levels to one order in the admin dashboard to the Administrator of the site.
+
+Several of the tables have an automatically populated datetime field on creation of the object. For example, the Post table has a `date_posted` field which is autopopulated to `now` on creation of a Post. This is controlled in the model `Post` itself meaning it doesn't have to be handled in the function view. This process was used for any date that needed to be populated on creation of the object to its respective table.
+```python
+date_posted = models.DateTimeField(default=timezone.now)
+```
+
+All tables were created with Django's innate ability to auto-assign a Primary Key (ID) once the migrations were made to the database and no field in the models were identified as same. This alleviated some workload from me and meant that the Primary key per table was identified via `id`.
+
+The Staff Member table is unrelated to any other existing table as it is a standalone interface for the administrator of the site to create, read, update or delete any of their staff whenever they want. These objects are then displayed via the `About` page to the public to see who is employed by the brand at any given time.
+
+The Memberships table is the primary interface for a user to make a transaction for. The administrator of the site has the ability to again alter, add, read or delete objects for this table to be displayed to the users. For testing purposes and for assessment, there are currently 3 Memberships on display in the `Membership` page. 
+
+<p align="center">
+    <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/readme/db-schema.png" alt="Database Schema">
+</p>
 
 ## Features
 
+This project uses Django 3 in conjunction with Bootstrap 4 to structure and display elements on templates/views to the user. As Django 3 was the most up to date version of the templating framework, it allowed me to broaden my horizons and expand on the learning material of the course. Streamlining such processes as setting up `urlpatterns`. Python 3.8 was also used as the base Python language and as the Project's interpreter in my IDE.
+
+The project is fully responsive and renders as expected on all modern and up to date browser as you will see in the Testing section below.
+
+HTML, CSS and JS were used to implement the Frontend of the project and Django and Postgres was used to create and control the Backend. Stripe and Stripe JS V2 was used to control the credit card payments and Stripe library errors.
+
 The project boasts several key features:
-* Create: ...
+* User Authorisation, Authentication and Logout Features
+* CRUD Functionality for Authenticated Users in the Forum and for the Admin of the Site itself with all available tables.
+* Stripe Integration to allow for e-commerce functionality.
+* A modern and currently trending Design aspect via Neumorphism.
+* Fully integrated Navigation dynamically mapped per User type, Public/Authenticated.
+* Pagination is integrated for column tiered data to save on vital visual real estate on those pages, for example the `Forum` page and `View-Post` page in the comments section.
+* A User Filter function was integrated into the `Forum` page to allow users to navigate to and filter posts by Category type.
+* Two step visual confirmation on permanent actions, such as Deleting a Post or Clearing a cart.
+* An evolve over time, ever growing functional User Dashboard to make it easy for Users to see Posts they've created and access same.
+* A contact form that can be utilised by Public/Authenticated users, which sends an email to the Administrator of the application, notifying them of a new Contact form submission. This is currently wired to come to myself as the developer during Assessment but a copy of a previously submitted contact notification email:
+<p align="center">
+    <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/readme/contact-mail.png" alt="Contact Mail Example">
+</p>
 
 [Back to Top](#table-of-contents)
 
 #### Future Features:
 
-* Detail future implementations here...
+Future Features as of right now are:
+* Password Reset for Users.
+* Edit/Delete Functionality for Post Comments.
+* Show number of comments per Post in Forum page.
+* Show current Membership Plan bought in User Dashboard and display countdown of when renewal of same is needed.
+* Darkmode Switch coupled to User Account, to give users the option to select there preferred theme between Light/Dark, or future themes that may present themselves.
+* User Account Update/Delete functionality.
 
 #### Defensive Design
 
-Defensive design for this application was...
+Defensive design for this application was implemented where possible via function views, form field types, model fields and even in the templates themselves. Throughout the development of the project, all aspects of developed and present Defensive Design elements were tested thoroughly both through local preview and deployed Live Application.
 
-* On registration & login functions, several defensive elements are at play. Between checking the unique fields are in fact unique, to testing if the user is logged in already when attempting to get to both of these views via a browser url injection. Error messaging and the use of a partials components work in conjunction with each other to detail to the user the type of error they have.
+* On registration & login functions, several defensive elements are at play. Between checking the unique fields are in fact unique, to testing if the user is logged in already when attempting to get to both of these views via a browser url injection. Error messaging and the use of the `_alerts.html` partials component work in conjunction with each other to detail to the user the type of error they have.
     
-    For example, if a user is already logged in, and attempts to acces the login page via `https://php-barbell.herokuapp.com/accounts/login` they are met with a custom partial `_error.html` template and an error message within detailing that they are already logged in and to use the navigation elements in the navbar to return to the normal flow of the site.
+    For example, if a user is already logged in, and attempts to access the login page via `https://php-barbell.herokuapp.com/accounts/login` they are met with a custom partial `_error.html` template and an error message within detailing that they are already logged in and to use the navigation elements in the navbar to return to the normal flow of the site.
+    
+* A Public user can only access the Index, About, Membership, Login, Registration and additional Footer pages such as Accessibility and Privacy as well as Contact pages. On top of that, the Membership page contains plans that can be added to a cart by a User. In the interest of keeping purchases to only those user who are Authenticated, when a Public user click to add a Plan to a cart they are met with an error detailing they much register & login to perform that action.
+
+   The same ideology exists for if users attempt to reach a page locked behind Authentication via a browser url forced injection. As an example, if a Public User attempted to navigate to <a href="https://php-barbell.herokuapp.com/forum/">the Forum</a> page, the template itself will render the `_error.html` template partial in place of the normal flow of the page via a jinja statement checking if `request.user.is_authenticated` <-- if this returns false, meaning the user is not authenticated, then the error partial is rendered protecting the proposed available content if the user was authenticated.
+   
+   If any user attempts to reach a page that doesn't exist via a browser url or any other means they may have, the application will throw a custom `404.html` template detailing same and how to navigate back to the normal flow of the application.
+   
+* All form fields existing throughout the site are built with specific field types befitting the data warranted for collection, and even simple validation like min/max lengths or even if the field should be required to be filled or not. And any forms where necessary include Cross-site forgery tokens to safeguard against Cross site forgery attacks. 
 
 ## Testing
 
-Testing was ...
+Testing was done manually as was the case with all my projects throughout my time on the course. Testing was a constant affair during development and was tested on multiple devices at a time from a Huawei P20 Pro Smartphone to my PC as well as a Samsung Tab 2 Tablet. This ensured that any prevalent bugs at time of development were dealt with in a swift and timely manner and not on an ad-hoc basis at the end of the Development of the Application.
+
+All modern browsers were used to test the responsivity and frontend functionality of the site, as well as the CSS for the application across same. These browsers included Google Chrome, Opera, Microsoft Edge and on Safari via iPad Tablet courtesy of fellow student and Peer <a href="https://github.com/jboyd8">Jamie Boyd</a>.
+
+At the end of the development of the project an Excel spreadsheet was used to track the functionality of each page and assign a pass/fail to same, if any to show the steps and necessary approaches made for manual testing of the Application.
+
+
+
+
 
 #### Found Bugs & Fixes:
 
