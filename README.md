@@ -776,6 +776,10 @@ At the end of the development of the project an Excel spreadsheet was used to tr
 
 The actual file testing was done via automatic Validators where possible for example, W3C CSS Validation Service & JSHint etc. It became apparent though that due to Django's template structure passing the templates themselves into a HTML validator was proving difficult as Jinja expressions and variable injection into the template would return as an error in the Validator. I set out to see if there was any way to validate the project's templates in alternative fashion. Luckily, I stumbled across this collection of custom <a href="https://github.com/django-extensions/django-extensions">Django Extensions</a> where by I could `pip install` it to the project's dependencies and add it to the `INSTALLED_APPS` to enable it for use within the project. Running the `python manage.py validate_templates` command in the terminal allowed me to check my templates for rendering errors of which there were none. Using this coupled with the HTML Validator allowed me to fully check my templates for any errors, if any existed at time of inspection. Luckily, PyCharm's interpreter will throw an error for most HTML errors too. <a href="https://django-extensions.readthedocs.io/en/latest/validate_templates.html">Documentation</a> available here for this plugin.
 
+<p align="center">
+    <img height="300" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/readme/template-validator.PNG" alt="Template Validation Report">
+</p>
+
 <details>
 <summary>Manual Testing Log:</summary>
 
