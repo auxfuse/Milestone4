@@ -657,6 +657,7 @@ controlling throughout the life-cycle of the project build.
 * <a href="https://balsamiq.com/">Balsamiq</a> ~ Used for the creation of my pre-build wireframes showing the main elements and differences in size of same through small to large screen sizes.
 * <a href="https://realfavicongenerator.net/">Favicon Generator</a> ~ Used to create favicon from custom Logo I created for the project.
 * <a href="https://validator.w3.org/">W3C HTML Validator</a> & <a href="https://validator.w3.org/">W3C CSS Validator</a> & <a href="https://jshint.com/">JSHint</a> ~ Used to check the validity and efficiency of my code.
+* <a href="https://github.com/django-extensions/django-extensions">Django Extensions Plugin ~ For validating my templates for any jinja rendering errors.
 * <a href="https://autoprefixer.github.io/">Autoprefixer CSS Online</a> ~ Used to check for possible webkits required in the applications stylesheet ensuring Cross-browser support.
 * <a href="http://pep8online.com/">PEP 8 Online Validator</a> ~ to check my python code to be consistent with PEP8 requirements.
 * <a href="https://fontawesome.com/icons?d=gallery">Font Awesome Icons</a> ~ For social icons used in Footer and Iconography present throughout site.
@@ -772,6 +773,8 @@ Testing was done manually as was the case with all my projects throughout my tim
 All modern browsers were used to test the responsivity and frontend functionality of the site, as well as the CSS for the application across same. These browsers included Google Chrome, Opera, Microsoft Edge and on Safari via iPad Tablet courtesy of fellow student and Peer <a href="https://github.com/jboyd8">Jamie Boyd</a>.
 
 At the end of the development of the project an Excel spreadsheet was used to track the functionality of each page and assign a pass/fail to same, if any to show the steps and necessary approaches made for manual testing of the Application. This Spreadsheet was then passed into converter to render out the Markdown version of the table for me to display here.
+
+The actual file testing was done via automatic Validators where possible for example, W3C CSS Validation Service & JSHint etc. It became apparent though that due to Django's template structure passing the templates themselves into a HTML validator was proving difficult as Jinja expressions and variable injection into the template would return as an error in the Validator. I set out to see if there was any way to validate the project's templates in alternative fashion. Luckily, I stumbled across this collection of custom <a href="https://github.com/django-extensions/django-extensions">Django Extensions</a> where by I could `pip install` it to the project's dependencies and add it to the `INSTALLED_APPS` to enable it for use within the project. Running the `python manage.py validate_templates` command in the terminal allowed me to check my templates for rendering errors of which there were none. Using this coupled with the HTML Validator allowed me to fully check my templates for any errors, if any existed at time of inspection. Luckily, PyCharm's interpreter will throw an error for most HTML errors too. <a href="https://django-extensions.readthedocs.io/en/latest/validate_templates.html">Documentation</a> available here for this plugin.
 
 <details>
 <summary>Manual Testing Log:</summary>
