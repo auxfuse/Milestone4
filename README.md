@@ -44,11 +44,16 @@ This Milestone project creation is the culmination of learning and study from al
 ### Functionality of Project
 The application uses Django 3 to encourage rapid development, by following a model-template-view architecture pattern. The project uses Separation of Concern amongst the applications to utilise the Django Framework effectively.
 
-Alongside using Django, sqlite was used in the Project's inception phase as a test database for local testing. Sqlite is self-contained highly reliable, SQL database engine that features all the normal relational database management. Once I was ready I switch to using PostGreSQL (aka Postgres), for my Development Database to ensure that any data entered was visible in my deployed application. Postgres is open source and boosts a fully technical and easy to use Object relational database management system.
+Alongside using Django, sqlite was used in the Project's inception phase as a test database for local testing. Sqlite is self-contained highly reliable, SQL database engine that features all the normal relational database management. Once I was ready I switched to using PostGreSQL (aka Postgres), for my Development Database to ensure that any data entered was visible in my deployed application. Postgres is open source and boosts a fully technical and easy to use Object relational database management system.
 
 Using Django and the above Database methods an administrator for the application (in this case the owner of PHP Barbell), has complete access to a completely custom styled Admin dashboard where they can Create, Read, Update and Delete records in the each proposing application model if appropriate. For example: The owner access the admin dashboard to update staff records, which is a totally separate and completely custom Django application made specifically for this purpose.
 
 The project is version controlled via Git & Github and is deployed via Heroku. All environment variables & secret variables are stored in an env.py file which is then held in a git ignored file to ensure project integrity is held to a high secure present day and project requirements standard.
+
+Please ensure when testing payments in this application to use the Stripe test card numbers available <a href="https://stripe.com/docs/testing#cards">here</a>. Throughout development of the application the card number used by myself and mt Peers was:
+* Card number: 4242424242424242 (16-digit Card number)
+* CVV: Any 3 digit combination.
+* Dates: Any future date.
 
 [Back to top](#table-of-contents)
 
@@ -857,7 +862,7 @@ During development and ongoing testing of the Application both via local and dep
 3. The select and number field types rendered on Firefox with a strange visual bug. As you can see in the snapshot, the interact-able icon for these fields would be defaulted to the browsers native color scheme. Considering my site utilises dark tones as the primary coloring, it was rather annoying that this bug is left outstanding. Even after spending some time in the devtools that Firefox comes equipped with and after attempting to implement several StackOverflow remedies, nothing seemed to work. So this bug is outstanding at present and probably for the foreseeable future unless Firefox accept the current webkit fixings in place.
 
 <p align="center">
-    <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/readme/firefox-select-field-visual.png" alt="Firefox Select Field Visual Bug">
+    <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/readme/firefox-select-field-visual.PNG" alt="Firefox Select Field Visual Bug">
 </p>
 
 4. Custom styling the select fields when active proved to be a rather difficult task, but I achieved the desired affect in the end using specificity and the Chrome devtools to really hone in on what I needed to target. This started out as a very unpleasant visual bug and still sometimes, although _intermittently_, will pop for me on Autofill of the field. It's kind of a half glass full scenario, except this time around it works 95% of the time, and I've seen the visual bug pop up a few times during testing. When the visual bug happens, it appears as if _all_ of the options inside the dropdown list when active are greyed out, almost indicating that they are inactive. This is in fact not the case and the value is still captured in the backend.
@@ -866,9 +871,7 @@ During development and ongoing testing of the Application both via local and dep
     <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/readme/select-field-options-visual.png" alt="Select Field Options Visual Bug">
 </p>
 
-5. While testing the fire & forget notification email to the Administrator for when a new Contact form is submitted by a User, it would intermittently through a smtpAuthenticationError. This was down to the gmail handles it's less secure apps function to allow for calls to the inbox to be made. After several attempts and implemented work-arounds in the actual `send_mail` method of the function view itself proved inadequate, I stumbled across this <a href="https://www.digitalocean.com/community/questions/django-gmail-smtpauthenticationerror">Article</a> and the comment from `grovalmitch` within detailing how to permanently ensure Less secure apps would stay on in gmail.
-
-
+5. While testing the fire & forget notification email to the Administrator for when a new Contact form is submitted by a User, it would intermittently throw a `smtpAuthenticationError`. This was down to the way gmail handles it's less secure apps function to allow for calls to the mailbox to be made to send an email. After several attempts and implemented work-arounds in the actual `send_mail` method of the function view itself proved inadequate, I stumbled across this <a href="https://www.digitalocean.com/community/questions/django-gmail-smtpauthenticationerror">Article</a> and the comment from `grovalmitch` within detailing how to permanently ensure Less secure apps would stay on in gmail.
 
 [Back to Top](#table-of-contents)
 
@@ -911,7 +914,7 @@ checkout app. <a href="https://code-institute-room.slack.com/archives/C7HS3U3AP/
 
 #### Special Thanks & Acknowledgements:
 
-* Those in Slack, Tutor Support and my Mentor Spencer Barriball for assisting with me with countless queries since starting on this journey until now. Huge thanks to those in the Full Stack Frameworks channel who helped me with my queries on a more than regular basis, Chris Zielinski, <a href="http://www.github.com/wings30306">Joke Heyndels</a>. And to the friends I've made along the way, thank you most of all. Wouldn't be finished this course without you all, too many to name. Ye know who ye are!
+* Those in Slack, Tutor Support, especially <a href="https://github.com/TravelTimN">Tim Nelson</a> for incredible amounts of help and effort to rectify issues, and my Mentor Spencer Barriball for assisting with me with countless queries since starting on this journey until now. Huge thanks to those in the Full Stack Frameworks channel who helped me with my queries on a more than regular basis, Chris Zielinski, <a href="http://www.github.com/wings30306">Joke Heyndels</a>. And to the friends I've made along the way, thank you most of all. Wouldn't be finished this course without you all, too many to name. Ye know who ye are!
 
 ###### <i>Disclaimer: This project was created for educational use only as part of the Code Institute Full Stack Software Development Course for Milestone 4 Grading!</i>
 
