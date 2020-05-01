@@ -636,7 +636,7 @@ Wireframing for this project began with Pen and paper as all my projects tend to
 
 #### Languages, Frameworks, Editors & Version Control:
 
-* HTML, CSS & Python ~ core languages used to create this multi-page CRUD application.
+* HTML, CSS, JS & Python ~ core languages used to create this multi-page CRUD application.
 * <a href="https://www.djangoproject.com/">Django</a> ~ Used as the architectural engine following the model-template-view approach.
 * <a href="https://getbootstrap.com/"> Bootstrap Framework</a> ~ Used as the core structuring layout for the application, ensuring mobile-first design and screen size fluidity.
 * Bootstrap's <a href="https://getbootstrap.com/docs/4.3/getting-started/introduction/#js">Imported Javascript & JQuery</a> ~ For the Modal and Responsive Navbar expand & collapse functionality.
@@ -657,7 +657,7 @@ controlling throughout the life-cycle of the project build.
 * <a href="https://balsamiq.com/">Balsamiq</a> ~ Used for the creation of my pre-build wireframes showing the main elements and differences in size of same through small to large screen sizes.
 * <a href="https://realfavicongenerator.net/">Favicon Generator</a> ~ Used to create favicon from custom Logo I created for the project.
 * <a href="https://validator.w3.org/">W3C HTML Validator</a> & <a href="https://validator.w3.org/">W3C CSS Validator</a> & <a href="https://jshint.com/">JSHint</a> ~ Used to check the validity and efficiency of my code.
-* <a href="https://github.com/django-extensions/django-extensions">Django Extensions Plugin ~ For validating my templates for any jinja rendering errors.
+* <a href="https://github.com/django-extensions/django-extensions">Django Extensions Plugin</a> ~ For validating my templates for any jinja rendering errors.
 * <a href="https://autoprefixer.github.io/">Autoprefixer CSS Online</a> ~ Used to check for possible webkits required in the applications stylesheet ensuring Cross-browser support.
 * <a href="http://pep8online.com/">PEP 8 Online Validator</a> ~ to check my python code to be consistent with PEP8 requirements.
 * <a href="https://fontawesome.com/icons?d=gallery">Font Awesome Icons</a> ~ For social icons used in Footer and Iconography present throughout site.
@@ -770,15 +770,15 @@ Defensive design for this application was implemented where possible via functio
 
 Testing was done manually as was the case with all my projects throughout my time on the course. Testing was a constant affair during development and was tested on multiple devices at a time from a Huawei P20 Pro Smartphone to my PC as well as a Samsung Tab 2 Tablet. This ensured that any prevalent bugs at time of development were dealt with in a swift and timely manner and not on an ad-hoc basis at the end of the Development of the Application.
 
+The actual file code validation was done via automatic Validators where possible for example, W3C CSS Validation Service & JSHint etc. It became apparent though that due to Django's template structure passing the templates themselves into a HTML validator was proving difficult as Jinja expressions and variable injection into the template would return as an error in the Validator. I set out to see if there was any way to validate the project's templates in alternative fashion. Luckily, I stumbled across this collection of custom <a href="https://github.com/django-extensions/django-extensions">Django Extensions</a> where by I could `pip install` it to the project's dependencies and add it to the `INSTALLED_APPS` to enable it for use within the project. Running the `python manage.py validate_templates` command in the terminal allowed me to check my templates for rendering errors of which there were none. Using this coupled with the HTML Validator allowed me to fully check my templates for any errors, if any existed at time of inspection. Luckily, PyCharm's interpreter will throw an error for most HTML errors too. <a href="https://django-extensions.readthedocs.io/en/latest/validate_templates.html">Documentation</a> available here for this plugin.
+
+<p align="center">
+    <img height="450" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/readme/template-validator.PNG" alt="Template Validation Report">
+</p>
+
 All modern browsers were used to test the responsivity and frontend functionality of the site, as well as the CSS for the application across same. These browsers included Google Chrome, Opera, Microsoft Edge and on Safari via iPad Tablet courtesy of fellow student and Peer <a href="https://github.com/jboyd8">Jamie Boyd</a>.
 
 At the end of the development of the project an Excel spreadsheet was used to track the functionality of each page and assign a pass/fail to same, if any to show the steps and necessary approaches made for manual testing of the Application. This Spreadsheet was then passed into converter to render out the Markdown version of the table for me to display here.
-
-The actual file testing was done via automatic Validators where possible for example, W3C CSS Validation Service & JSHint etc. It became apparent though that due to Django's template structure passing the templates themselves into a HTML validator was proving difficult as Jinja expressions and variable injection into the template would return as an error in the Validator. I set out to see if there was any way to validate the project's templates in alternative fashion. Luckily, I stumbled across this collection of custom <a href="https://github.com/django-extensions/django-extensions">Django Extensions</a> where by I could `pip install` it to the project's dependencies and add it to the `INSTALLED_APPS` to enable it for use within the project. Running the `python manage.py validate_templates` command in the terminal allowed me to check my templates for rendering errors of which there were none. Using this coupled with the HTML Validator allowed me to fully check my templates for any errors, if any existed at time of inspection. Luckily, PyCharm's interpreter will throw an error for most HTML errors too. <a href="https://django-extensions.readthedocs.io/en/latest/validate_templates.html">Documentation</a> available here for this plugin.
-
-<p align="center">
-    <img height="300" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/readme/template-validator.PNG" alt="Template Validation Report">
-</p>
 
 <details>
 <summary>Manual Testing Log:</summary>
