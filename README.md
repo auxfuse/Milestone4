@@ -656,7 +656,7 @@ controlling throughout the life-cycle of the project build.
 * <a href="http://pep8online.com/">PEP 8 Online Validator</a> ~ to check my python code to be consistent with PEP8 requirements.
 * <a href="https://fontawesome.com/icons?d=gallery">Font Awesome Icons</a> ~ For social icons used in Footer and Iconography present throughout site.
 * <a href="https://pinetools.com/round-corners-image">PineTools</a> ~ Used to round corners of images used in Carousel.
-
+* <a href="https://tabletomarkdown.com/convert-spreadsheet-to-markdown/">Table To Markdown</a> ~ Used to convert Excel spreadsheet table to markdown.
 
 ## Database
 
@@ -719,6 +719,7 @@ HTML, CSS and JS were used to implement the Frontend of the project and Django a
 The project boasts several key features:
 * User Authorisation, Authentication and Logout Features
 * CRUD Functionality for Authenticated Users in the Forum and for the Admin of the Site itself with all available tables.
+* Flickr is used to host coach images and then passed into urlfield in model to render it to the template img src attribute for the admin of the website to populate. This solution was to counteract the heavy duty set-up and implementation of Amazon Aws S3 Bucket to host any images uploaded to the site by the admin.
 * Stripe Integration to allow for e-commerce functionality.
 * A modern and currently trending Design aspect via Neumorphism.
 * Fully integrated Navigation dynamically mapped per User type, Public/Authenticated.
@@ -765,15 +766,68 @@ Testing was done manually as was the case with all my projects throughout my tim
 
 All modern browsers were used to test the responsivity and frontend functionality of the site, as well as the CSS for the application across same. These browsers included Google Chrome, Opera, Microsoft Edge and on Safari via iPad Tablet courtesy of fellow student and Peer <a href="https://github.com/jboyd8">Jamie Boyd</a>.
 
-At the end of the development of the project an Excel spreadsheet was used to track the functionality of each page and assign a pass/fail to same, if any to show the steps and necessary approaches made for manual testing of the Application.
+At the end of the development of the project an Excel spreadsheet was used to track the functionality of each page and assign a pass/fail to same, if any to show the steps and necessary approaches made for manual testing of the Application. This Spreadsheet was then passed into converter to render out the Markdown version of the table for me to display here.
 
+<details>
+<summary>Manual Testing Log:</summary>
 
+| Functionality                                                                                                                               | Page                                               | User Type            | Browser                          | Pass/Fail |
+| ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- | -------------------- | -------------------------------- | --------- |
+| User can open application via Heroku deployed link?                                                                                         | All                                                | Public/Authenticated | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Home Page loads for User?                                                                                                                   | Index                                              | Public/Authenticated | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Typewriter custom JS loads for User on Index page?                                                                                          | Index                                              | Public/Authenticated | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Page call-to-actions are accessible to Login/Register for User?                                                                             | Index                                              | Public               | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Page call-to-actions are accessible to Forum/Membership for User?                                                                           | Index                                              | Authenticated        | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Navbar displays relevant nav-links per User type?                                                                                           | All                                                | Public/Authenticated | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Footer displays as exptected and on each page?                                                                                              | All                                                | Public/Authenticated | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| User can Login Successfully?                                                                                                                | Login                                              | Public               | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Authenticated User cannot access Login/Register pages?                                                                                      | Login/Register                                     | Authenticated        | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| User can Register using Unique values for username & email?                                                                                 | Register                                           | Public               | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| User cannot Register using existing username & email?                                                                                       | Register                                           | Public               | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| About page renders and displays correctly?                                                                                                  | About                                              | Public/Authenticated | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Map renders, and controls via mouse, or touch on mobile?                                                                                    | About                                              | Public/Authenticated | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Carousel controls react when actioned upon and images load?                                                                                 | About                                              | Public/Authenticated | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Membership page renders and displays correctly?                                                                                             | Membership                                         | Public/Authenticated | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| User cannot add Membership plan to Cart, if public?                                                                                         | Membership                                         | Public               | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Authenticated User can add Membership plan to Cart?                                                                                         | Membership                                         | Authenticated        | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Authenticated User can only add one item to Cart at any one time?                                                                           | Membership                                         | Authenticated        | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Public User cannot access Cart page?                                                                                                        | Cart                                               | Public               | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Authenticated User can access Cart page, and page renders as expected?                                                                      | Cart                                               | Authenticated        | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Authenticated User can Clear Cart via two step visual confirmations?                                                                        | Cart                                               | Authenticated        | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Authenticated User can see Cart asterisk notification in Navbar when cart has item added from any page?                                     | All                                                | Authenticated        | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Authenticated User can proceed to Checkout?                                                                                                 | Cart                                               | Authenticated        | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Public User cannot access Checkout page?                                                                                                    | Checkout                                           | Public               | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Authenticated User can input Card and Process detail into Payment form?                                                                     | Checkout                                           | Authenticated        | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Checkout page renders as expected to Authenticated User?                                                                                    | Checkout                                           | Authenticated        | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| If any errors present in Payment Details form appropriate errors are thrown and displayed to User, either via Stripe or messages framework? | Checkout                                           | Authenticated        | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| All fields behave as expected in Payment Details form?                                                                                      | Checkout                                           | Authenticated        | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Public User cannot access User Dashboard page?                                                                                              | User Dashboard                                     | Public               | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Authenticated User can access bespoke User Dashboard?                                                                                       | User Dashboard                                     | Authenticated        | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Authenticated User can see any Posts they may own in the User Dashboard and access same?                                                    | User Dashboard                                     | Authenticated        | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Public User cannot access Forum/View-Post/Create-Post/Edit-Post/Filter Posts pages?                                                         | Forum/View-Post/Create-Post/Edit-Post/Filter Posts | Public               | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Public User cannot access and delete a Post via browser url injection?                                                                      | Edit-Post                                          | Public               | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Authenticated User can navigate and view Forum?                                                                                             | Forum                                              | Authenticated        | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Authenticated User can Create-Post via create button on Forum?                                                                              | Forum/Create-Post                                  | Authenticated        | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Authenticated User cannot create post without relevant fields being filled?                                                                 | Create-Post                                        | Authenticated        | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Authenticated User can create post and is returned with success message to Forum?                                                           | Create-Post/Forum                                  | Authenticated        | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Authenticated User can Filter posts on Forum Page by Category?                                                                              | Forum                                              | Authenticated        | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Authenticated User can access any posts detailed in the Forum?                                                                              | Forum                                              | Authenticated        | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Authenticated User can use pagination elements if present?                                                                                  | Forum/View-Post/User Dashboard                     | Authenticated        | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Authenticated User can create a comment on any Post?                                                                                        | View-Post                                          | Authenticated        | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Authenticated User can access a Post they own and edit same?                                                                                | View-Post                                          | Authenticated        | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Authenticated User edit/delete post in Edit-Post view?                                                                                      | Edit-Post                                          | Authenticated        | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Authenticated user can delete Post they own via two step visual confirmation?                                                               | Edit-Post                                          | Authenticated        | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| User can't access pages that don't exist? 404 page thrown?                                                                                  | 404                                                | Public/Authenticated | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| User can logout?                                                                                                                            | All                                                | Public/Authenticated | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Neumorphism styling present?                                                                                                                | All                                                | Public/Authenticated | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Stylesheet rendering as expected?                                                                                                           | All                                                | Public/Authenticated | Chrome/Opera/Edge/Safari/FireFox | Pass      |
+| Favicon renders in Browser tab?                                                                                                             | All                                                | Public/Authenticated | Chrome/Opera/Edge/Safari/FireFox | Pass      |
 
-
+</details>
 
 #### Found Bugs & Fixes:
 
-During manual testing...
+During development and ongoing testing of the Application both via local and deployed links several bugs were found that proved to be a little more than a quick fix. I've documented them here to show any bugs, whether outstanding or rectified and the method of rectifying / source material with applicable solves.
 
 1. When implementing Travis (at the inception of my project), I ran into a rather bespoke bug whereas the build would not pass even though I had what seemed to be the correct code (see below):
     ```yaml
@@ -800,25 +854,64 @@ During manual testing...
     ```
    After which I turned my attention to the code block in question and using devtools was able to narrow down my search to the left and right auto margin property being the culprit. For some reason it was causing the site and the actual components injected inside the block content to no longer be responsive. Removing the `auto` value rectified this visual bug.
   
-3. Text here.....
+3. The select and number field types rendered on Firefox with a strange visual bug. As you can see in the snapshot, the interact-able icon for these fields would be defaulted to the browsers native color scheme. Considering my site utilises dark tones as the primary coloring, it was rather annoying that this bug is left outstanding. Even after spending some time in the devtools that Firefox comes equipped with and after attempting to implement several StackOverflow remedies, nothing seemed to work. So this bug is outstanding at present and probably for the forseeable future unless Firefox accept the current webkit fixings in place.
+
+<p align="center">
+    <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/readme/firefox-select-field-visual.png" alt="Firefox Select Field Visual Bug">
+</p>
+
+4. Custom styling the select fields when active proved to be a rather difficult task, but I achieved the desired affect in the end using specificity and the Chrome devtools to really hone in on what I needed to target. This started out as a very unpleasant visual bug and still sometimes, although _intermittently_, will pop for me on Autofill of the field. It's kind of a half glass full scenario, except this time around it works 95% of the time, and I've seen the visual bug pop up a few times during testing. When the visual bug happens, it appears as if _all_ of the options inside the dropdown list when active are greyed out, almost indicating that they are inactive. This is in fact not the case and the value is still captured in the backend.
+
+<p align="center">
+    <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/readme/select-field-options-visual.png" alt="Select Field Options Visual Bug">
+</p>
+
+5. While testing the fire & forget notification email to the Administrator for when a new Contact form is submitted by a User, it would intermittently through a smtpAuthenticationError. This was down to the gmail handles it's less secure apps function to allow for calls to the inbox to be made. After several attempts and implemented work-arounds in the actual `send_mail` method of the function view itself proved inadequate, I stumbled across this <a href="https://www.digitalocean.com/community/questions/django-gmail-smtpauthenticationerror">Article</a> and the comment from `grovalmitch` within detailing how to permanently ensure Less secure apps would stay on in gmail.
+
+
 
 [Back to Top](#table-of-contents)
 
 ## Deployment
 
-Detail deployment here...
+This full stack application was developed using PyCharm IDE and version controlled via local (git) and online (github) repository technologies. Any secret environment variables were stored in an `env.py` file which was added to a `.gitignore` file keeping those files out of play from the public repo. Those variables detailed in the env.py file were re-enacted over in the Heroku Settings tab for this application under the `Config Vars` section allowing the deployed site to utilise these secret variables.
+
+Branches were used throughout the development of the applications per large feature. These branches were used to develop each feature and then when tested and working, were merged back into the Master branch of the github repo. The branches are visible in the `branches` tab of the public repo dashboard. This ensured that the deployed build of the site was functioning and building and passing in travis from the Master branch while simultaneously allowing me the freedom to implement and test any functionality locally without worrying about a push being made that add an imposing or looming bug to the deployed site.
+
+Deploying this application was achieved by:
+* Pushing the code from my IDE to Github via Git and the built-in PyCharm terminal.
+* Creating an app on Heroku & deploying it from same.
+* Adding any secret environment variables to the Config Vars of Heroku App Settings tab and assigning those the requisite secret values held in the env.py for Live Deployment.
+* Installing and Adding Whitenoise to Middleware of project `settings.py` file to allow our application to serve it's own static files.
+* In Heroku 'Deploy tab', deployment method was set to Github with automatic deploys set from the master branch.
+* Once the above was done, the app was deployed via this <a href="https://php-barbell.herokuapp.com/">link</a>.
+
+To clone the repository:
+* Select the Repository from the Github Dashboard.
+* Click on the "Clone or download" green button located above and to the right of the File Structure table.
+* Click on the "clipboard icon" to the right of the Git URL to copy the web URL of the Clone.
+* Open your preferred Integrated Development Environment (IDE) and navigate to the terminal window.
+* Change the directory to where you want to clone the repository too. (In the case of PyCharm the directory path can be found through the "Navigate" tab).
+* Paste the Git URL copied from above and click "Ok". (Again in the case of PyCharm once you click "clone", Git Root mapping will be automatically set to the project Root directory).
+* Once open create an env.py file and assign the Database URL, Secret Key, Stripe Publishable & Stripe Secret, and finally Emailing variables. Ensure the `env.py` is living in the root of your project directory and then add it to `.gitignore` to ensure your Secret details aren't exposed.
 
 [Back to Top](#table-of-contents)
 
 ## Credits
 
 * <a href="https://github.com/10xOXR">Chris Quinn</a> ~ For his guidance and solution on setting up Travis correctly. <a href="https://code-institute-room.slack.com/archives/C7HS3U3AP/p1583432481074600">Link to solution</a>.
+* <a href="https://github.com/jdl208">Johan de Leeuw</a> ~ For pointing out my method of checking for unique values in the User Registration could be refactored much cleaner.
+* Default coach image obtained from https://static.thenounproject.com/png/363639-200.png and is a free to use vector download from the noun project.
+* Success cards in Stripe V2 Test get accepted even if a CVV field is left blank. This was brought to the attention in a Slack Thread after I had found that what should of been an incorrect card number length of 12-digits (424242424242) was allowing skipping the try block in our views.py file in the
+checkout app. <a href="https://code-institute-room.slack.com/archives/C7HS3U3AP/p1587987242043500">Link</a> to slack post. After more defensive steps taken in the forms.py file of the checkout app, they were also deemed insufficient to stop this from happening, so with thanks to Slack user <a href="https://github.com/steview-d">Dave L</a> for pointing out the correctional defensive measures should be made in the stripe.js file to suit.
+* <a href="https://www.udemy.com/course/python-django-dev-to-deployment/">Brad Traversy ~ Dev to Deployment</a> Django course for providing me with the learning criteria to start my project.
+* <a href="https://www.digitalocean.com/community/questions/django-gmail-smtpauthenticationerror">smtpAuthenticationError solve</a> from digital ocean article.
 
 [Back to Top](#table-of-contents)
 
 #### Special Thanks & Acknowledgements:
 
-* Those in Slack, Tutor Support and my Mentor Spencer Barriball for assisting with me with countless queries since starting on this journey until now.
+* Those in Slack, Tutor Support and my Mentor Spencer Barriball for assisting with me with countless queries since starting on this journey until now. Huge thanks to those in the Full Stack Frameworks channel who helped me with my queries on a more than regular basis, <a href="">Chris Zielinski</a>, <a href="http://www.github.com/wings30306">Joke Heyndels</a>. And to the friends I've made along the way, thank you most of all. Wouldn't be finished this course without you all, too many to name. Ye know who ye are!
 
 ###### <i>Disclaimer: This project was created for educational use only as part of the Code Institute Full Stack Software Development Course for Milestone 4 Grading!</i>
 
@@ -827,21 +920,3 @@ Detail deployment here...
 <p align="center">
     <img src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/img/logo.png" alt="PHP Logo">
 </p>
-
-# Notes: Delete before submission
-
-- default coach image obtained from https://static.thenounproject.com/png/363639-200.png and is a free to use vector download from the noun project.
-
-- Flickr used to host images and then using urlfield in model to pass it to the template img src attribute for the admin of the website to update the coach information.
-
-- Success cards in Stripe V2 Test get accepted even if a
-CVV field is left blank. This was brought to the attention in
-a Slack Thread after I had found that what should of been an
-incorrect card number length of 12-digits (424242424242) was
-allowing skipping the try block in our views.py file in the
-checkout app. Link to slack post:
-https://code-institute-room.slack.com/archives/C7HS3U3AP/p1587987242043500
-After more defensive steps taken in the forms.py file of the checkout app,
-they were also deemed insufficient to stop this from happening, so with
-thanks to Slack user DaveL for pointing out the correctional defensive measures
-should be made in the stripe.js file to suit.
