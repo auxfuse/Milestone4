@@ -50,7 +50,7 @@ Using Django and the above Database methods an administrator for the application
 
 The project is version controlled via Git & Github and is deployed via Heroku. All environment variables & secret variables are stored in an env.py file which is then held in a git ignored file to ensure project integrity is held to a high secure present day and project requirements standard.
 
-Please ensure when testing payments in this application to use the Stripe test card numbers available <a href="https://stripe.com/docs/testing#cards">here</a>. Throughout development of the application the card number used by myself and mt Peers was:
+Please ensure when testing payments in this application to use the Stripe test card numbers available <a href="https://stripe.com/docs/testing#cards">here</a>. Throughout development of the application the card number used by myself and my Peers was:
 * Card number: 4242424242424242 (16-digit Card number)
 * CVV: Any 3 digit combination.
 * Dates: Any future date.
@@ -734,7 +734,7 @@ The project boasts several key features:
 * An evolve over time, ever growing functional User Dashboard to make it easy for Users to see Posts they've created and access same.
 * A contact form that can be utilised by Public/Authenticated users, which sends an email to the Administrator of the application, notifying them of a new Contact form submission. This is currently wired to come to myself as the developer during Assessment but a copy of a previously submitted contact notification email:
 <p align="center">
-    <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/readme/contact-mail.png" alt="Contact Mail Example">
+    <img height="175" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/readme/contact-mail.png" alt="Contact Mail Example">
 </p>
 
 [Back to Top](#table-of-contents)
@@ -862,7 +862,7 @@ During development and ongoing testing of the Application both via local and dep
 3. The select and number field types rendered on Firefox with a strange visual bug. As you can see in the snapshot, the interact-able icon for these fields would be defaulted to the browsers native color scheme. Considering my site utilises dark tones as the primary coloring, it was rather annoying that this bug is left outstanding. Even after spending some time in the devtools that Firefox comes equipped with and after attempting to implement several StackOverflow remedies, nothing seemed to work. So this bug is outstanding at present and probably for the foreseeable future unless Firefox accept the current webkit fixings in place.
 
 <p align="center">
-    <img height="350" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/readme/firefox-select-field-visual.PNG" alt="Firefox Select Field Visual Bug">
+    <img height="175" src="https://github.com/auxfuse/Milestone4/blob/master/Milestone4/static/readme/firefox-select-field-visual.PNG" alt="Firefox Select Field Visual Bug">
 </p>
 
 4. Custom styling the select fields when active proved to be a rather difficult task, but I achieved the desired affect in the end using specificity and the Chrome devtools to really hone in on what I needed to target. This started out as a very unpleasant visual bug and still sometimes, although _intermittently_, will pop for me on Autofill of the field. It's kind of a half glass full scenario, except this time around it works 95% of the time, and I've seen the visual bug pop up a few times during testing. When the visual bug happens, it appears as if _all_ of the options inside the dropdown list when active are greyed out, almost indicating that they are inactive. This is in fact not the case and the value is still captured in the backend.
