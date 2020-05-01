@@ -6,6 +6,10 @@ from django.core.validators import ValidationError
 
 # Forms
 class UserRegistrationForm(UserCreationForm):
+    """User registration form, extending on the UserCreationForm with
+    cleaned_email validation in play and disabling the default helper text
+    that is displayed in tandem with the default form. With html attributes
+    set via widgets handlers for same."""
     first_name = forms.CharField(
         required=True,
         label='',
@@ -87,6 +91,8 @@ class UserRegistrationForm(UserCreationForm):
 
 
 class UserLogin(forms.Form):
+    """User login form with html attributes set via widgets handlers
+    for same."""
     username = forms.CharField(
         required=True,
         label='',

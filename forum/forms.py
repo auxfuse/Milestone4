@@ -3,6 +3,8 @@ from .models import Post, PostComment
 
 
 class CreatePost(forms.ModelForm):
+    """CreatePost form with html attributes set via widgets handlers
+    for same."""
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['category'].widget.attrs['class'] = 'form-control'
@@ -36,6 +38,8 @@ class CreatePost(forms.ModelForm):
 
 
 class CreateComment(forms.ModelForm):
+    """Create comment form with html attributes set via widgets handlers
+    for same."""
     class Meta:
         model = PostComment
         fields = [

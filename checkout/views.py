@@ -11,6 +11,12 @@ stripe.api_key = settings.STRIPE_SECRET
 
 # Create your views here.
 def checkout(request):
+    """Ensure user is logged in, if so, check if both order & payment forms
+    are valid with required information. Save each to respective tables in DB
+    and charge customer, if paid successful, clear cart and redirect to
+    membership with success message, otherwise throw error message with
+    redirect to membership page. If user not logged throw error detailing
+    same and redirect to membership page."""
     if request.user.is_authenticated:
         if request.method == 'POST':
             order_form = OrderForm(request.POST)

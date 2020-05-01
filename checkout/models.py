@@ -6,6 +6,8 @@ from django.utils import timezone
 
 # Models
 class Order(models.Model):
+    """Model to define the fields required to create an order in the
+    database"""
     full_name = models.CharField(max_length=40)
     email = models.EmailField(max_length=254, default='example@yahoo.com')
     order_date = models.DateTimeField(default=timezone.now)
@@ -16,6 +18,8 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
+    """Model to define the fields required to create an order line item in the
+    database"""
     order = models.ForeignKey(Order, null=False, on_delete=models.CASCADE)
     membership = models.ForeignKey(Membership, null=False,
                                    on_delete=models.CASCADE)

@@ -22,7 +22,6 @@ def forum(request):
         'categories': categories,
         'posts': paged_posts
     }
-
     return render(request, 'forum/forum.html', context)
 
 
@@ -50,7 +49,6 @@ def filter_posts(request):
     context = {
         'posts': paged_posts
     }
-
     return render(request, 'forum/filtered-posts.html', context)
 
 
@@ -80,7 +78,6 @@ def view_post(request, post_id):
         'comments': paged_comments,
         'form': CreateComment
     }
-
     return render(request, 'forum/view-post.html', context)
 
 
@@ -103,22 +100,21 @@ def create_post(request):
     context = {
         'form': CreatePost
     }
-
     return render(request, 'forum/create-post.html', context)
 
 
 def edit_post(request, post_id):
+    """Ensure user navigating to edit-post is the originator for same,
+    and the display edit-post template with original form values. If user is
+    not originator, redirect to index with error message thrown for user
+    detailing why."""
     post = get_object_or_404(Post, pk=post_id)
 
-    # Ensure user navigating to edit-post is the originator for same.
     if request.user != post.originator:
         messages.error(request, 'You do not have access to that Post!')
         return redirect('index')
 
-    # Else render as normal and display edit-post.html template with form
-    # values.
     if request.method == 'POST':
-        # Get form values
         edit_form = CreatePost(request.POST, instance=post)
         if edit_form.is_valid():
             edit_form.save()
@@ -131,7 +127,6 @@ def edit_post(request, post_id):
         'form': edit_form,
         'post': post
     }
-
     return render(request, 'forum/edit-post.html', context)
 
 

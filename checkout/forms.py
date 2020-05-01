@@ -4,7 +4,8 @@ from checkout.choices import months, years
 
 
 class MakePaymentForm(forms.Form):
-
+    """Payment details form with stripe_id as hidden field as well as html
+    attributes set via widgets handlers for same."""
     credit_card_number = forms.CharField(
         required=False,
         label='',
@@ -48,6 +49,8 @@ class MakePaymentForm(forms.Form):
 
 
 class OrderForm(forms.ModelForm):
+    """Order form with html attributes set via widgets handlers
+    for same."""
     class Meta:
         model = Order
         fields = {

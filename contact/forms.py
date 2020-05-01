@@ -3,6 +3,8 @@ from .models import Contact
 
 
 class ContactQuery(forms.ModelForm):
+    """Contact form with html attributes set via widgets handlers
+    for same."""
     class Meta:
         model = Contact
         fields = [
